@@ -566,10 +566,11 @@ function viewProfiles(params) {
   main.innerHTML = `<section class="profiles">
     <img class="bg" src="${A}splash-red.jpg" alt="">
     <div class="profiles-inner">
-      <div class="p-logo" role="img" aria-label="VSound"><svg viewBox="0 0 214 32.15" aria-hidden="true">
-          <defs><mask id="logo-cut-xl"><rect x="44.72" y="3.9" width="165" height="24.45" fill="#fff"/><text x="127.22" y="26.05" text-anchor="middle" textLength="159" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="28.6" fill="#000">SOUND</text></mask></defs>
-          <path d="M22.83 23.21H19.43L29.16 6H37.7L25.67 26.05H16.39L4.35 6H13.07L22.83 23.21Z" fill="currentColor"/>
-          <rect x="44.72" y="3.9" width="165" height="24.45" fill="currentColor" mask="url(#logo-cut-xl)"/>
+      <div class="p-logo" role="img" aria-label="VSound"><svg viewBox="0 0 214.07 32.15" aria-hidden="true">
+          <rect width="214.07" height="32.15" fill="#000"/>
+          <rect x="44.72" y="3.9" width="165" height="24.45" fill="#fff"/>
+          <path d="M22.83 23.21H19.43L29.16 6H37.7L25.67 26.05H16.39L4.35 6H13.07L22.83 23.21Z" fill="#fff"/>
+          <text x="127.22" y="26.05" text-anchor="middle" textLength="159" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="28.6" fill="#000">SOUND</text>
         </svg></div>
       <h1>CHOISISSEZ VOTRE PILOTE</h1>
       <div class="picks">${PROFILES.map(
