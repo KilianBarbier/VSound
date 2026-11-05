@@ -10,6 +10,7 @@ Le design reprend la maquette Figma « The VHub » (pages Home, Categories, Bran
 - **Sons** : des enregistrements audio crédités, lus à la suite par un lecteur qui continue pendant la navigation (visualiseur, file d'attente, contrôles de l'écran verrouillé).
 - **Le fil** : vidéos YouTube, Shorts et Reels Instagram à faire défiler verticalement, une par écran.
 - Chaque contenu a sa page individuelle, partageable (`#/s/<id>`).
+- **Sur téléphone** (moins de 640 px), une interface pensée pour le mobile prend le relais ([`css/mobile.css`](css/mobile.css)) : onglets en bas (Accueil, Explorer, Sons, Le fil), carrousel au doigt, mini-lecteur flottant qui s'ouvre en plein écran, fil vidéo en plein écran.
 
 Site 100 % statique (HTML, CSS, JavaScript sans dépendance), publié sur GitHub Pages.
 

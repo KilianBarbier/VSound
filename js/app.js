@@ -7,6 +7,10 @@ const A = 'assets/vhub/';
 let DB = { families: {}, items: [] };
 let cleanup = [];
 let viewAbort = new AbortController();
+// Interface mobile : rendu propre au téléphone sous 640 px
+const MQ = matchMedia('(max-width: 640px)');
+const isMobile = () => MQ.matches;
+const CHEV = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 4.6 7.4 7.4-7.4 7.4 1.4 1.4 8.8-8.8L10 3.2z"/></svg>';
 
 /* ================= utilitaires ================= */
 const esc = (s) =>
@@ -27,7 +31,7 @@ const shuffle = (a) => {
 const ICON = {
   play: '<svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg>',
   pause: '<svg viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>',
-  shuffle: '<svg viewBox="0 0 24 24"><path d="M17 3h4v4l-1.5-1.5-4.2 4.2-1.4-1.4 4.2-4.2zM3 5.4 4.4 4l15.1 15.1 1.5-1.5v4h-4l1.1-1.1zM9.3 13.3l1.4 1.4-6.3 6.3L3 19.6z"/></svg>',
+  shuffle: '<svg viewBox="0 0 24 24"><path d="M10.59 9.17 5.41 4 4 5.41l5.17 5.17zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4zm.33 9.41-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04z"/></svg>',
   share: '<svg viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7l-6.7 3.4a3 3 0 1 0 0 3.2L15 17a3 3 0 1 0 3-1z"/></svg>',
   up: '<svg viewBox="0 0 24 24"><path d="m12 7 7 7-1.4 1.4L12 9.8l-5.6 5.6L5 14z"/></svg>',
   down: '<svg viewBox="0 0 24 24"><path d="m12 17-7-7 1.4-1.4 5.6 5.6 5.6-5.6L19 10z"/></svg>',
@@ -213,7 +217,7 @@ const itemCard = (it, withTag = true) => cardHTML({ href: `#/s/${it.id}`, img: t
 
 function rowHTML(label, cards, href) {
   return `<section class="row">
-    <h2 class="row-label">${href ? `<a href="${esc(href)}">${esc(label)}</a>` : esc(label)}</h2>
+    <div class="row-head"><h2 class="row-label">${href ? `<a href="${esc(href)}">${esc(label)}</a>` : esc(label)}</h2>${href ? `<a class="row-more mb" href="${esc(href)}">Tout voir</a>` : ''}</div>
     <div class="row-view">
       <button class="chev prev" aria-label="Précédents"><img src="${A}chevron-right.svg" alt=""></button>
       <div class="row-track">${cards.join('')}</div>
@@ -268,8 +272,11 @@ function bindSearchForms(root, onInput) {
   }
 }
 
-const pageHead = (title, search = 'Votre recherche', value = '') =>
-  `<div class="page-head"><h1 class="page-title">| ${esc(title)}</h1>${search ? searchHTML(value, search) : ''}</div>`;
+// `short` : titre plus court affiché sur mobile
+const pageHead = (title, search = 'Votre recherche', value = '', short = '') =>
+  `<div class="page-head"><h1 class="page-title"><span class="bar">| </span>${short ? `<span class="dk">${esc(title)}</span><span class="mb">${esc(short)}</span>` : esc(title)}</h1>${search ? searchHTML(value, search) : ''}</div>`;
+const secHead = (label, href) =>
+  `<div class="row-head"><h2 class="row-label">${esc(label)}</h2>${href ? `<a class="row-more" href="${esc(href)}">Tout voir</a>` : ''}</div>`;
 
 function brandLogoHTML(b, mode) {
   const info = BRAND_INFO[b.name] || {};
@@ -298,7 +305,7 @@ function trackHTML(it, n) {
   const th = thumbOf(it);
   return `<li class="track${cur ? ' playing' : ''}" data-id="${esc(it.id)}">
     <span class="track-n">${String(n).padStart(2, '0')}</span>
-    ${th ? `<img class="track-th" src="${esc(th)}" alt="" loading="lazy">` : '<span class="track-th"></span>'}
+    ${th ? `<img class="track-th" src="${esc(th.replace('/hqdefault.', '/mqdefault.'))}" alt="" loading="lazy">` : '<span class="track-th"></span>'}
     <div>
       <div class="track-title"><a href="#/s/${esc(it.id)}">${esc(it.title)}</a></div>
       <div class="track-sub">${esc(it.engine)}</div>
@@ -334,7 +341,6 @@ const footer = () =>
 
 /* ================= Accueil (Frame 1 / 2 / 3) ================= */
 function viewHome() {
-  top.classList.add('overlay');
   const s = sounds();
   const mercedes = DB.items.filter((i) => i.brands.includes('Mercedes'));
   const film = byVideo('sxXtpMngivM') || visuals()[0];
@@ -345,6 +351,7 @@ function viewHome() {
       name: 'Kilian Barbier',
       role: 'Photographe',
       count: `Fondateur · ${DB.items.length} pièces`,
+      tag: 'Le programme',
       action: `<button class="wbtn" data-act="programme">Écouter le programme</button>`,
       follow: 'Kilian Barbier',
     },
@@ -354,6 +361,7 @@ function viewHome() {
       name: 'Mercedes-Benz',
       role: 'Marque',
       count: plural(mercedes.length, 'pièce'),
+      tag: 'Marque',
       action: `<a class="wbtn" href="#/marque/mercedes">Voir leur page</a>`,
       follow: 'Mercedes-Benz',
     },
@@ -363,6 +371,7 @@ function viewHome() {
       name: film.car,
       role: film.engine,
       count: film.credit.author,
+      tag: 'À l’affiche',
       action: `<a class="wbtn" href="#/s/${esc(film.id)}">Regarder ${TRI}</a>`,
       follow: film.credit.author,
     },
@@ -373,10 +382,25 @@ function viewHome() {
     .filter(Boolean);
   const rows = [
     ['À l’affiche', ['AWLFN0o2sl8', 'F0tfrCQ-N2M', 'm8mgAXhNNPo', 'eAAvR1U56K8', 'Ca5o7RW2SlA', 'xHEQG9pW9jU', 'B4Th3LxCgb4'].map(byVideo).filter(Boolean)],
-    ['Les V12', DB.items.filter((i) => i.family === 'V12')],
-    ['Le rotatif', DB.items.filter((i) => i.family === 'Rotary')],
-    ['Six à plat et autres boxers', DB.items.filter((i) => i.family === 'Flat')],
+    ['Les V12', DB.items.filter((i) => i.family === 'V12'), '#/c/archi/V12'],
+    ['Le rotatif', DB.items.filter((i) => i.family === 'Rotary'), '#/c/archi/Rotary'],
+    ['Six à plat et autres boxers', DB.items.filter((i) => i.family === 'Flat'), '#/c/archi/Flat'],
   ];
+  const onHeroClick = (e) => {
+    const bell = e.target.closest('[data-follow]');
+    if (bell) {
+      const f = new Set(store.get(followKey(), []));
+      const name = bell.dataset.follow;
+      const on = !f.has(name);
+      on ? f.add(name) : f.delete(name);
+      store.set(followKey(), [...f]);
+      for (const b of main.querySelectorAll(`[data-follow="${CSS.escape(name)}"]`)) b.setAttribute('aria-pressed', String(on));
+      toast(on ? `Vous suivez ${name}` : `Vous ne suivez plus ${name}`);
+    }
+    if (e.target.closest('[data-act="programme"]')) player.playQueue(shuffle(s));
+  };
+  if (isMobile()) return viewHomeMobile({ slides, followed, homeBrands, rows, onHeroClick });
+  top.classList.add('overlay');
   main.innerHTML = `
   <section class="hero" aria-roledescription="carrousel" aria-label="À la une">
     ${slides
@@ -402,7 +426,7 @@ function viewHome() {
     <div class="home-tiles">${homeBrands.map((b) => brandTile(b, 'home')).join('')}</div>
   </section>
   <div class="rows home-more">
-    ${rows.map(([label, list]) => rowHTML(label, list.map((it) => itemCard(it)))).join('')}
+    ${rows.map(([label, list, href]) => rowHTML(label, list.map((it) => itemCard(it)), href)).join('')}
   </div>
   ${footer()}`;
 
@@ -424,27 +448,92 @@ function viewHome() {
   const timer = setInterval(() => !paused && !document.hidden && show(cur + 1), 7000);
   cleanup.push(() => clearInterval(timer));
 
-  hero.addEventListener('click', (e) => {
-    const bell = e.target.closest('[data-follow]');
-    if (bell) {
-      const f = new Set(store.get(followKey(), []));
-      const name = bell.dataset.follow;
-      const on = !f.has(name);
-      on ? f.add(name) : f.delete(name);
-      store.set(followKey(), [...f]);
-      for (const b of main.querySelectorAll(`[data-follow="${CSS.escape(name)}"]`)) b.setAttribute('aria-pressed', String(on));
-      toast(on ? `Vous suivez ${name}` : `Vous ne suivez plus ${name}`);
-    }
-    if (e.target.closest('[data-act="programme"]')) player.playQueue(shuffle(s));
-  });
+  hero.addEventListener('click', onHeroClick);
   bindRows(main);
+}
+
+/* Accueil mobile : carrousel au doigt, raccourcis, marques, rangées */
+function viewHomeMobile({ slides, followed, homeBrands, rows, onHeroClick }) {
+  const p = currentProfile();
+  const h = new Date().getHours();
+  const hello = h >= 5 && h < 18 ? 'Bonjour' : 'Bonsoir';
+  const fam = (f) => ({ key: f, items: DB.items.filter((i) => i.family === f) });
+  const shorts = [
+    `<button data-act="programme"><span class="ic">${ICON.play}</span><span>Tout écouter</span></button>`,
+    `<a href="#/fil"><img src="${esc(thumbOf(byVideo('Lp394JR8uMo') || visuals()[0]))}" alt="" loading="lazy"><span>Le fil</span></a>`,
+    ...['V12', 'V10', 'V8', 'Rotary'].map((f) => `<a href="#/c/archi/${f}"><img src="${esc(catCover('archi', fam(f)) || '')}" alt="" loading="lazy"><span>${esc(famLabel(f))}</span></a>`),
+  ];
+  main.innerHTML = `<div class="m-home">
+    <h1 class="m-greet"><span>${hello}${p ? ',' : ''}</span>${esc(p ? p.name : 'Bienvenue')}</h1>
+    <div class="m-hero" id="mhero" aria-label="À la une">
+      ${slides
+        .map(
+          (sl) => `<article class="m-slide">
+        <img class="bg" src="${A}${sl.bg}" alt="">
+        <span class="ms-tag">${esc(sl.tag)}</span>
+        <div class="ms-body">
+          <div class="ms-who"><img src="${esc(sl.avatar)}" alt=""><div><b>${esc(sl.name)}</b><span>${esc(sl.role)} · ${esc(sl.count)}</span></div></div>
+          <div class="ms-actions">${sl.action}<button class="bell" data-follow="${esc(sl.follow)}" aria-pressed="${followed.has(sl.follow)}" aria-label="Suivre ${esc(sl.follow)}"><img src="${A}bell.svg" alt=""></button></div>
+        </div>
+      </article>`,
+        )
+        .join('')}
+    </div>
+    <div class="m-dots" aria-hidden="true">${slides.map((_, i) => `<i${i ? '' : ' class="on"'}></i>`).join('')}</div>
+    <div class="m-short">${shorts.join('')}</div>
+    <section class="m-sec">${secHead('Les marques', '#/marques')}<div class="m-brands">${homeBrands.map((b) => brandTile(b, 'home')).join('')}</div></section>
+    <div class="rows">${rows.map(([label, list, href]) => rowHTML(label, list.map((it) => itemCard(it)), href)).join('')}</div>
+    ${footer()}
+  </div>`;
+  main.addEventListener('click', onHeroClick, { signal: viewAbort.signal });
+  const hero = document.getElementById('mhero');
+  const dots = [...main.querySelectorAll('.m-dots i')];
+  hero.addEventListener(
+    'scroll',
+    () => {
+      const w = hero.querySelector('.m-slide').offsetWidth + 10;
+      const i = Math.min(dots.length - 1, Math.round(hero.scrollLeft / w));
+      dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    },
+    { passive: true },
+  );
+}
+
+/* Explorer (mobile) : catégories, marques, créateurs en un seul écran */
+function viewExplorer() {
+  if (!isMobile()) return location.replace('#/categories');
+  const groups = categoryGroups();
+  const tile = (g, c) => {
+    const img = catCover(g.type, c);
+    return `<a class="x-tile" href="#/c/${g.type}/${encodeURIComponent(c.key)}">${img ? `<img src="${esc(img)}" alt="" loading="lazy">` : ''}<b>${esc(c.label)}</b><span>${plural(c.items.length, 'pièce')}</span></a>`;
+  };
+  const sec = (g) => `<section class="m-sec">${secHead(g.label, '#/categories')}<div class="x-grid">${g.cats.map((c) => tile(g, c)).join('')}</div></section>`;
+  const [archi, pays, format] = groups;
+  const creators = [...creatorList('video'), ...creatorList('audio')].sort((a, b) => b.items.length - a.items.length).slice(0, 14);
+  main.innerHTML = `<div class="page">
+    ${pageHead('Explorer', 'Marque, moteur, créateur…')}
+    <div class="rows">
+      ${sec(archi)}
+      <section class="m-sec">${secHead('Marques', '#/marques')}<div class="m-brands">${brandList().slice(0, 12).map((b) => brandTile(b, 'home')).join('')}</div></section>
+      ${sec(pays)}
+      <section class="m-sec">${secHead('Créateurs', '#/createurs')}<div class="m-avatars">${creators
+        .map((c) => {
+          const th = c.items.map(thumbOf).find(Boolean);
+          return `<a href="#/createur/${esc(c.slug)}">${th ? `<img src="${esc(th)}" alt="" loading="lazy">` : '<span class="av0"></span>'}<span>${esc(c.name)}</span></a>`;
+        })
+        .join('')}</div></section>
+      ${format ? sec(format) : ''}
+      <a class="m-link" href="#/a-propos">À propos, sources et licences ${CHEV}</a>
+    </div>
+  </div>`;
+  bindSearchForms(main);
 }
 
 /* ================= Catégories (Frame 4) ================= */
 function viewCategories() {
   const groups = categoryGroups();
   main.innerHTML = `<div class="page">
-    ${pageHead('Choisissez votre catégorie', 'Votre catégorie')}
+    ${pageHead('Choisissez votre catégorie', 'Votre catégorie', '', 'Catégories')}
     <div class="rows">${groups
       .map((g) =>
         rowHTML(
@@ -469,7 +558,7 @@ function viewCategory(type, key) {
 function viewBrands() {
   const list = brandList();
   main.innerHTML = `<div class="page">
-    ${pageHead('Choisissez votre marque', 'Votre marque')}
+    ${pageHead('Choisissez votre marque', 'Votre marque', '', 'Marques')}
     <div class="brand-grid" id="bgrid">${list.map((b) => brandTile(b, 'page')).join('')}</div>
   </div>${footer()}`;
   const grid = document.getElementById('bgrid');
@@ -493,6 +582,17 @@ function viewCreators() {
     ['Preneurs de son', creatorList('audio')],
   ];
   const card = (c) => cardHTML({ href: `#/createur/${c.slug}`, img: c.items.map(thumbOf).find(Boolean), label: c.name });
+  if (isMobile()) {
+    const cell = (c) => {
+      const th = c.items.map(thumbOf).find(Boolean);
+      return `<a class="m-cell" href="#/createur/${esc(c.slug)}">${th ? `<img src="${esc(th)}" alt="" loading="lazy">` : '<span class="av0"></span>'}<div><b>${esc(c.name)}</b><span>${plural(c.items.length, 'pièce')} · ${esc(c.items[0].credit.source)}</span></div>${CHEV}</a>`;
+    };
+    main.innerHTML = `<div class="page">
+      ${pageHead('Créateurs', '')}
+      ${groups.map(([label, list]) => `<section class="m-sec">${secHead(label)}<div class="m-cells">${list.map(cell).join('')}</div></section>`).join('')}
+    </div>${footer()}`;
+    return;
+  }
   main.innerHTML = `<div class="page">
     ${pageHead('Choisissez votre créateur', 'Votre créateur')}
     <div class="rows">${groups.map(([label, list]) => rowHTML(label, list.map(card))).join('')}</div>
@@ -513,7 +613,7 @@ function listPage(title, items, sub) {
   const audio = items.filter((i) => i.type === 'audio');
   main.innerHTML = `<div class="page">
     ${pageHead(title)}
-    <p class="row-label" style="margin-top:calc(var(--u) * 14);color:var(--g2)">${esc(sub)}</p>
+    <p class="row-label page-sub" style="margin-top:calc(var(--u) * 14);color:var(--g2)">${esc(sub)}</p>
     ${audio.length ? `<div class="btn-row" style="padding:0 var(--pad);margin-top:calc(var(--u) * 20)"><button class="wbtn" id="all">${ICON.play} Écouter les ${plural(audio.length, 'son')}</button>${items.some((i) => i.type !== 'audio') ? `<a class="obtn" href="#/fil?ids=${items.filter((i) => i.type !== 'audio').map((i) => i.id).join(',')}">Voir en fil</a>` : ''}</div>` : ''}
     <div class="grid5">${items.map((it) => itemCard(it)).join('')}</div>
   </div>${footer()}`;
@@ -529,7 +629,7 @@ function viewSons(params) {
   const fams = Object.keys(DB.families).filter((f) => all.some((i) => i.family === f));
   main.innerHTML = `
   <div class="page">
-    ${pageHead('Tous les sons', 'Votre son', params.q)}
+    ${pageHead('Tous les sons', 'Votre son', params.q, 'Sons')}
     <div class="chips">${['', ...fams].map((f) => `<button class="chip" data-f="${esc(f)}" aria-pressed="${(params.f || '') === f}">${f ? esc(famLabel(f)) : 'Tous'}</button>`).join('')}</div>
     <div class="btn-row" style="padding:0 var(--pad);margin-top:calc(var(--u) * 26)"><button class="wbtn" id="all">${ICON.play} Tout écouter</button><button class="obtn" id="shuf">${ICON.shuffle} Aléatoire</button></div>
     <ol class="programme" id="prog"></ol>
@@ -591,7 +691,7 @@ function viewProfiles(params) {
 function viewSearch(params) {
   main.innerHTML = `<div class="page">
     ${pageHead('Recherche', 'Votre recherche', params.q)}
-    <p class="row-label" id="count" style="margin-top:calc(var(--u) * 14);color:var(--g2)"></p>
+    <p class="row-label page-sub" id="count" style="margin-top:calc(var(--u) * 14);color:var(--g2)"></p>
     <div class="grid5" id="res"></div>
   </div>${footer()}`;
   const res = document.getElementById('res');
@@ -756,7 +856,7 @@ function viewItem(id) {
       ? `<div class="audio-stage" id="astage">${it.thumb ? `<img src="${esc(it.thumb)}" alt="">` : ''}<canvas id="aviz"></canvas><button class="big" id="bigplay" aria-label="Écouter">${ICON.play.replace('<svg', '<svg class="i-play"')}${ICON.pause.replace('<svg', '<svg class="i-pause"')}</button></div>`
       : frameHTML(it, { mounted: true, autoplay: false });
   const brandLinks = it.brands.map((b) => `<a href="#/marque/${slug(b)}">${esc(BRAND_INFO[b]?.name || b)}</a>`).join(', ');
-  main.innerHTML = `<div class="page">
+  main.innerHTML = `<div class="page page-item">
     ${pageHead(typeLabel(it), '')}
     <div class="item-layout">
       <div class="item-media">${media}</div>
@@ -831,7 +931,7 @@ function viewAbout() {
 }
 
 function viewNotFound() {
-  main.innerHTML = `<div class="page">${pageHead('Silence…', '')}<p class="row-label" style="margin-top:20px;color:var(--g2)">Cette page n’existe pas ou a été retirée. <a href="#/" style="text-decoration:underline">Retour à l’accueil</a></p></div>`;
+  main.innerHTML = `<div class="page">${pageHead('Silence…', '')}<p class="row-label page-sub" style="margin-top:20px;color:var(--g2)">Cette page n’existe pas ou a été retirée. <a href="#/" style="text-decoration:underline">Retour à l’accueil</a></p></div>`;
 }
 
 /* ================= routeur ================= */
@@ -841,7 +941,8 @@ function route() {
   viewAbort.abort();
   viewAbort = new AbortController();
   top.classList.remove('overlay');
-  document.body.classList.remove('bare');
+  document.body.classList.remove('bare', 'scrolled');
+  closeSheet();
 
   const raw = location.hash.replace(/^#\/?/, '');
   const [path, qs] = raw.split('?');
@@ -854,6 +955,17 @@ function route() {
     a.classList.toggle('active', on);
     on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current');
   }
+  const it = page === 's' ? byId(parts[1]) : null;
+  const tabKey = page === 's' ? (it?.type === 'audio' ? 'sons' : 'fil') : TAB_OF[page] || '';
+  for (const a of document.querySelectorAll('[data-tab]')) {
+    const on = a.dataset.tab === tabKey;
+    a.classList.toggle('active', on);
+    on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current');
+  }
+  document.body.dataset.page = page;
+  document.body.classList.toggle('sub', !ROOTS.has(page));
+  track(location.hash);
+  parentHash = page === 's' ? (it?.type === 'audio' ? '#/sons' : '#/fil') : PARENT[page] || '#/';
   const titles = { profils: 'Profils', categories: 'Catégories', marques: 'Marques', createurs: 'Créateurs', sons: 'Sons', fil: 'Le fil', recherche: 'Recherche', 'a-propos': 'À propos' };
   document.title = titles[page] ? `${titles[page]} — VSound` : 'VSound — la musique des moteurs';
 
@@ -866,6 +978,7 @@ function route() {
     marque: () => viewBrand(parts[1]),
     createurs: () => viewCreators(),
     createur: () => viewCreator(parts[1]),
+    explorer: () => viewExplorer(),
     sons: () => viewSons(params),
     fil: () => viewFeed(params),
     recherche: () => viewSearch(params),
@@ -874,7 +987,50 @@ function route() {
   };
   (views[page] || viewNotFound)();
   if (page !== 'fil') window.scrollTo(0, 0);
+  const t = main.querySelector('.page-title');
+  mTitle.textContent = t ? (t.querySelector('.mb') || t).textContent.replace(/^\|\s*/, '') : '';
 }
+
+/* ---------- navigation mobile : retour, titre, lecteur plein écran ---------- */
+const ROOTS = new Set(['home', 'explorer', 'sons', 'fil']);
+const TAB_OF = { home: 'home', explorer: 'explorer', categories: 'explorer', c: 'explorer', marques: 'explorer', marque: 'explorer', createurs: 'explorer', createur: 'explorer', recherche: 'explorer', sons: 'sons', fil: 'fil' };
+const PARENT = { categories: '#/explorer', c: '#/explorer', marques: '#/explorer', marque: '#/marques', createurs: '#/explorer', createur: '#/createurs', recherche: '#/explorer' };
+const mTitle = document.getElementById('m-title');
+let parentHash = '#/';
+const stack = [];
+function track(h) {
+  if (stack[stack.length - 1] === h) return;
+  if (stack[stack.length - 2] === h) stack.pop();
+  else stack.push(h);
+}
+document.getElementById('m-back').addEventListener('click', () => {
+  if (stack.length > 1) history.back();
+  else location.hash = parentHash;
+});
+addEventListener('scroll', () => document.body.classList.toggle('scrolled', scrollY > 44), { passive: true });
+
+const plEl = document.getElementById('player');
+function openSheet() {
+  plEl.classList.add('full');
+  document.body.classList.add('sheet-open');
+}
+function closeSheet() {
+  plEl.classList.remove('full');
+  document.body.classList.remove('sheet-open');
+}
+plEl.addEventListener('click', (e) => {
+  if (!isMobile() || plEl.classList.contains('full')) return;
+  if (e.target.closest('button, input')) return;
+  e.preventDefault();
+  openSheet();
+});
+document.getElementById('pl-down').addEventListener('click', closeSheet);
+addEventListener('keydown', (e) => e.key === 'Escape' && closeSheet());
+// En passant d'un format à l'autre, on redessine la page (sauf le fil, pour ne pas couper une vidéo)
+MQ.addEventListener('change', () => {
+  if (!isMobile()) closeSheet();
+  if (document.body.dataset.page !== 'fil') route();
+});
 
 async function boot() {
   try {

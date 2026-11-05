@@ -45,6 +45,7 @@ export class Player {
     this.audio.ontimeupdate = () => {
       const d = this.audio.duration;
       if (!seeking && isFinite(d) && d > 0) seek.value = (this.audio.currentTime / d) * 1000;
+      this.el.style.setProperty('--p', isFinite(d) && d > 0 ? (this.audio.currentTime / d).toFixed(4) : 0);
       $('pl-time').textContent = `${fmt(this.audio.currentTime)} / ${fmt(d)}`;
     };
     this.audio.onplay = () => this.emit();
@@ -129,8 +130,16 @@ export class Player {
     $('pl-title').textContent = it.title;
     $('pl-title').href = `#/s/${it.id}`;
     $('pl-sub').textContent = `${it.engine} · ${it.credit.author} (${it.credit.license || it.credit.source})`;
+    $('pl-art').src = it.thumb ? it.thumb.replace('/hqdefault.', '/mqdefault.') : 'favicon.svg';
+    this.el.classList.toggle('no-art', !it.thumb);
+    this.el.style.setProperty('--p', 0);
     if ('mediaSession' in navigator && window.MediaMetadata) {
-      navigator.mediaSession.metadata = new MediaMetadata({ title: it.title, artist: it.engine, album: 'VSound' });
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: it.title,
+        artist: it.engine,
+        album: 'VSound',
+        artwork: it.thumb ? [{ src: it.thumb, sizes: '480x360', type: 'image/jpeg' }] : [],
+      });
     }
     if (autoplay) this.audio.play().catch(() => this.emit());
     this.emit();
@@ -163,7 +172,8 @@ export class Player {
     this.queue = [];
     this.index = -1;
     this.el.hidden = true;
-    document.body.classList.remove('has-player');
+    this.el.classList.remove('full');
+    document.body.classList.remove('has-player', 'sheet-open');
     this.emit();
   }
 
