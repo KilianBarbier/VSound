@@ -21,6 +21,13 @@ const slug = (s) =>
 const norm = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const fmtDur = (s) => (s ? `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}` : '');
 const plural = (n, w) => `${n} ${w}${n > 1 ? 's' : ''}`;
+// « 3 sons et 2 vidéos » : le catalogue mêle enregistrements audio et vidéos
+const countOf = (list) => {
+  const a = list.filter((i) => i.type === 'audio').length;
+  const v = list.length - a;
+  return [a && plural(a, 'son'), v && plural(v, 'vidéo')].filter(Boolean).join(' et ') || 'Aucun son';
+};
+const brandItems = (name) => DB.items.filter((i) => i.brands.includes(name));
 const shuffle = (a) => {
   a = a.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -296,7 +303,7 @@ const logoImg = (src, w, h) =>
 function brandTile(b, mode) {
   const { html, bare } = brandLogoHTML(b, mode);
   const name = BRAND_INFO[b.name]?.name || b.name;
-  return `<a class="brand-tile${bare ? ' bare' : ''}" href="#/marque/${esc(b.slug)}" aria-label="${esc(name)}, ${plural(b.count, 'pièce')}">${html}</a>`;
+  return `<a class="brand-tile${bare ? ' bare' : ''}" href="#/marque/${esc(b.slug)}" aria-label="${esc(name)}, ${countOf(brandItems(b.name))}">${html}</a>`;
 }
 
 function trackHTML(it, n) {
@@ -346,20 +353,20 @@ function viewHome() {
   const slides = [
     {
       bg: 'hero-engine.jpg',
-      avatar: `${A}avatar-kb.png`,
-      name: 'Kilian Barbier',
-      role: 'Photographe',
-      count: `Fondateur · ${DB.items.length} pièces`,
+      avatar: 'favicon.svg',
+      name: 'Le programme VSound',
+      role: 'En lecture aléatoire',
+      count: countOf(DB.items),
       tag: 'Le programme',
       action: `<button class="wbtn" data-act="programme">Écouter le programme</button>`,
-      follow: 'Kilian Barbier',
+      follow: null,
     },
     {
       bg: 'hero-mercedes.jpg',
       avatar: `${A}avatar-mercedes.png`,
       name: 'Mercedes-Benz',
       role: 'Marque',
-      count: plural(mercedes.length, 'pièce'),
+      count: countOf(mercedes),
       tag: 'Marque',
       action: `<a class="wbtn" href="#/marque/mercedes">Voir leur page</a>`,
       follow: 'Mercedes-Benz',
@@ -420,7 +427,7 @@ function viewHome() {
         </div>
         <div class="hero-actions">
           ${sl.action}
-          <button class="bell" data-follow="${esc(sl.follow)}" aria-pressed="${followed.has(sl.follow)}" aria-label="Suivre ${esc(sl.follow)}"><img src="${A}bell.svg" alt=""></button>
+          ${sl.follow ? `<button class="bell" data-follow="${esc(sl.follow)}" aria-pressed="${followed.has(sl.follow)}" aria-label="Suivre ${esc(sl.follow)}"><img src="${A}bell.svg" alt=""></button>` : ''}
         </div>
       </div>`,
       )
@@ -478,7 +485,7 @@ function viewHomeMobile({ slides, followed, homeBrands, rows, onHeroClick }) {
         <span class="ms-tag">${esc(sl.tag)}</span>
         <div class="ms-body">
           <div class="ms-who"><img src="${esc(sl.avatar)}" alt=""><div><b>${esc(sl.name)}</b><span>${esc(sl.role)} · ${esc(sl.count)}</span></div></div>
-          <div class="ms-actions">${sl.action}<button class="bell" data-follow="${esc(sl.follow)}" aria-pressed="${followed.has(sl.follow)}" aria-label="Suivre ${esc(sl.follow)}"><img src="${A}bell.svg" alt=""></button></div>
+          <div class="ms-actions">${sl.action}${sl.follow ? `<button class="bell" data-follow="${esc(sl.follow)}" aria-pressed="${followed.has(sl.follow)}" aria-label="Suivre ${esc(sl.follow)}"><img src="${A}bell.svg" alt=""></button>` : ''}</div>
         </div>
       </article>`,
         )
@@ -510,7 +517,7 @@ function viewExplorer() {
   const groups = categoryGroups();
   const tile = (g, c) => {
     const img = catCover(g.type, c);
-    return `<a class="x-tile" href="#/c/${g.type}/${encodeURIComponent(c.key)}">${img ? `<img src="${esc(img)}" alt="" loading="lazy">` : ''}<b>${esc(c.label)}</b><span>${plural(c.items.length, 'pièce')}</span></a>`;
+    return `<a class="x-tile" href="#/c/${g.type}/${encodeURIComponent(c.key)}">${img ? `<img src="${esc(img)}" alt="" loading="lazy">` : ''}<b>${esc(c.label)}</b><span>${countOf(c.items)}</span></a>`;
   };
   const sec = (g) => `<section class="m-sec">${secHead(g.label, '#/categories')}<div class="x-grid">${g.cats.map((c) => tile(g, c)).join('')}</div></section>`;
   const [archi, pays, format] = groups;
@@ -556,7 +563,7 @@ function viewCategory(type, key) {
   const g = categoryGroups().find((x) => x.type === type);
   const c = g?.cats.find((x) => x.key === key);
   if (!c) return viewNotFound();
-  listPage(c.label, c.items, `${g.label} · ${plural(c.items.length, 'pièce')}`);
+  listPage(c.label, c.items, `${g.label} · ${countOf(c.items)}`);
 }
 
 /* ================= Marques (Frame 5) ================= */
@@ -577,7 +584,7 @@ function viewBrand(s) {
   const b = brandList().find((x) => x.slug === s);
   if (!b) return viewNotFound();
   const info = BRAND_INFO[b.name] || {};
-  listPage(info.name || b.name, DB.items.filter((i) => i.brands.includes(b.name)), `${info.country || ''}${info.country ? ' · ' : ''}${plural(b.count, 'pièce')}`);
+  listPage(info.name || b.name, DB.items.filter((i) => i.brands.includes(b.name)), `${info.country || ''}${info.country ? ' · ' : ''}${countOf(brandItems(b.name))}`);
 }
 
 /* ================= Créateurs (Frame 6) ================= */
@@ -590,7 +597,7 @@ function viewCreators() {
   if (isMobile()) {
     const cell = (c) => {
       const th = c.items.map(thumbOf).find(Boolean);
-      return `<a class="m-cell" href="#/createur/${esc(c.slug)}">${th ? `<img src="${esc(th)}" alt="" loading="lazy">` : '<span class="av0"></span>'}<div><b>${esc(c.name)}</b><span>${plural(c.items.length, 'pièce')} · ${esc(c.items[0].credit.source)}</span></div>${CHEV}</a>`;
+      return `<a class="m-cell" href="#/createur/${esc(c.slug)}">${th ? `<img src="${esc(th)}" alt="" loading="lazy">` : '<span class="av0"></span>'}<div><b>${esc(c.name)}</b><span>${countOf(c.items)} · ${esc(c.items[0].credit.source)}</span></div>${CHEV}</a>`;
     };
     main.innerHTML = `<div class="page">
       ${pageHead('Créateurs', '')}
@@ -610,7 +617,7 @@ function viewCreator(s) {
   const c = [...creatorList('video'), ...creatorList('audio')].find((x) => x.slug === s);
   if (!c) return viewNotFound();
   const src = c.items[0].credit;
-  listPage(c.name, c.items, `${src.source}${src.license ? ' · ' + src.license : ''} · ${plural(c.items.length, 'pièce')}`);
+  listPage(c.name, c.items, `${src.source}${src.license ? ' · ' + src.license : ''} · ${countOf(c.items)}`);
 }
 
 /* liste générique : grille 5 colonnes + programme audio */
@@ -913,7 +920,7 @@ function viewSearch(params) {
     const n = norm(q || '');
     const list = n ? DB.items.filter((i) => norm(`${i.title} ${i.car || ''} ${i.engine} ${i.brands.join(' ')} ${famLabel(i.family)} ${i.credit?.author || ''}`).includes(n)) : DB.items;
     res.innerHTML = list.map((it) => itemCard(it)).join('');
-    document.getElementById('count').textContent = n ? `${plural(list.length, 'résultat')} pour « ${q} »` : `${plural(list.length, 'pièce')} au total`;
+    document.getElementById('count').textContent = n ? `${plural(list.length, 'résultat')} pour « ${q} »` : `${countOf(list)} au total`;
     history.replaceState(null, '', `#/recherche${q ? '?q=' + encodeURIComponent(q) : ''}`);
   };
   draw(params.q);
