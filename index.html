@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>VSound — la musique des moteurs</title>
+  <meta name="description" content="VSound : une plateforme dédiée uniquement aux sons de moteurs. Vidéos, Reels et enregistrements crédités, à écouter comme de la musique classique.">
+  <meta name="theme-color" content="#0d0b0a">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <header class="top">
+    <a class="brand" href="#/" aria-label="VSound, accueil">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 9h5l7 15 7-15h5L18.5 29h-5z" fill="currentColor"/><path d="M3 4.5c4 0 4 2 8 2s4-2 8-2 4 2 8 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span>VSound</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#/" data-nav="home">Accueil</a>
+      <a href="#/fil" data-nav="fil">Le fil</a>
+      <a href="#/videos" data-nav="videos">Vidéos</a>
+      <a href="#/sons" data-nav="sons">Sons</a>
+      <a href="#/a-propos" data-nav="a-propos">À propos</a>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1"></main>
+
+  <div class="player" id="player" hidden>
+    <div class="player-progress"><input type="range" id="pl-seek" min="0" max="1000" value="0" aria-label="Position de lecture"></div>
+    <div class="player-inner">
+      <div class="player-ctrl">
+        <button class="ibtn" id="pl-prev" aria-label="Précédent"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+        <button class="ibtn ibtn-main" id="pl-play" aria-label="Lecture"><svg viewBox="0 0 24 24" class="i-play"><path d="M7 4v16l13-8z"/></svg><svg viewBox="0 0 24 24" class="i-pause"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+        <button class="ibtn" id="pl-next" aria-label="Suivant"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+      </div>
+      <canvas class="player-viz" id="pl-viz" width="120" height="36" aria-hidden="true"></canvas>
+      <div class="player-meta">
+        <a id="pl-title" href="#/sons">—</a>
+        <span id="pl-sub">—</span>
+      </div>
+      <span class="player-time" id="pl-time">0:00 / 0:00</span>
+      <label class="player-vol"><span class="sr">Volume</span><input type="range" id="pl-vol" min="0" max="1" step="0.01" value="0.9"></label>
+      <button class="ibtn" id="pl-close" aria-label="Fermer le lecteur"><svg viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4z"/></svg></button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
