@@ -2,8 +2,15 @@
 // Les marques et créateurs suivis sont enregistrés par pilote, sur le serveur.
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm';
 
-const SB_URL = 'https://qcyxssoudwkspskkjckt.supabase.co';
-const KEY = 'sb_publishable_KWUqlvyhM_0GdKmBxUXAYg_7HSDSMSq';
+// Supabase auto-hébergé sur le NAS, publié par Tailscale Funnel sous /vsound.
+// En local, un tunnel SSH peut le remplacer : localStorage['vsound.dev_sb_url'] = 'http://localhost:3790'
+const NAS_URL = 'https://zimaos.tail1780a7.ts.net:10000/vsound';
+const devUrl = () => {
+  try { return location.hostname === 'localhost' ? localStorage.getItem('vsound.dev_sb_url') : null; } catch { return null; }
+};
+const SB_URL = devUrl() || NAS_URL;
+// clé publique « anon » : elle ne donne accès qu'à ce que les règles d'accès autorisent
+const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlzcyI6InN1cGFiYXNlIiwiaWF0IjoxNzkzOTA3NjAwLCJleHAiOjIxMDkyNjc2MDB9.ljVN173lc75lH-oj41VSAYyhLRO2hUiiJQvS02Cw-Jw';
 export const sb = createClient(SB_URL, KEY, { auth: { flowType: 'pkce', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } });
 
 export const MAX_PILOTS = 5;
