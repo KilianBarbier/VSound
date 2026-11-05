@@ -493,6 +493,7 @@ function viewHomeMobile({ slides, followed, homeBrands, rows, onHeroClick }) {
     </div>
     <div class="m-dots" aria-hidden="true">${slides.map((_, i) => `<i${i ? '' : ' class="on"'}></i>`).join('')}</div>
     <div class="m-short">${shorts.join('')}</div>
+    ${btPromo()}
     <section class="m-sec">${secHead('Les marques', '#/marques')}<div class="m-brands">${homeBrands.map((b) => brandTile(b, 'home')).join('')}</div></section>
     <div class="rows">${rows.map(([label, list, href]) => rowHTML(label, list.map((it) => itemCard(it)), href)).join('')}</div>
     ${footer()}
@@ -535,6 +536,7 @@ function viewExplorer() {
         })
         .join('')}</div></section>
       ${format ? sec(format) : ''}
+      ${btPromo()}
       <a class="m-link" href="#/a-propos">À propos, sources et licences ${CHEV}</a>
     </div>
   </div>`;
@@ -908,6 +910,202 @@ function viewPilotEditor(params) {
   });
 }
 
+/* ================= Blind test : écouter l'extrait, deviner la marque ================= */
+const BT_ROUNDS = 10;
+const BT_CLIP = 10; // secondes d'extrait
+const BT_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-9 9v5a3 3 0 0 0 3 3h1v-7H5v-1a7 7 0 0 1 14 0v1h-2v7h1a3 3 0 0 0 3-3v-5a9 9 0 0 0-9-9z"/></svg>';
+const brandLabel = (b) => BRAND_INFO[b]?.name || b;
+const btPromo = () =>
+  `<a class="bt-promo" href="#/blindtest"><span class="bt-ic">${BT_ICON}</span><span><b>Blind test</b><small>Écoute l’extrait, devine la marque</small></span>${CHEV}</a>`;
+
+function viewBlindtest() {
+  const pool = sounds().filter((i) => i.brands.length === 1 && i.src);
+  const brands = [...new Set(pool.map((i) => i.brands[0]))];
+  const best = () => store.get('blindtest.best', 0);
+  const audio = new Audio();
+  audio.preload = 'auto';
+  let game = null;
+  let timer = 0;
+  const stopClip = () => {
+    clearTimeout(timer);
+    cancelAnimationFrame(stopClip.raf);
+    audio.pause();
+  };
+  cleanup.push(() => {
+    stopClip();
+    audio.removeAttribute('src');
+    audio.load();
+  });
+
+  main.innerHTML = `<div class="page bt">${pageHead('Blind test', '')}<div class="bt-stage" id="bt"></div></div>${footer()}`;
+  const stage = document.getElementById('bt');
+
+  const intro = () => {
+    stopClip();
+    stage.innerHTML = `<div class="bt-card bt-intro">
+      <span class="bt-big-ic">${BT_ICON}</span>
+      <h2>Devine la marque à l’oreille</h2>
+      <p>${BT_ROUNDS} extraits de ${BT_CLIP} secondes, tirés des ${pool.length} enregistrements du catalogue. À la fin de chaque extrait, choisis la bonne marque entre deux propositions.</p>
+      <button class="bt-go" id="bt-start">Lancer la partie</button>
+      ${best() ? `<p class="bt-best">Ton record : ${best()} / ${BT_ROUNDS}</p>` : ''}
+    </div>`;
+    document.getElementById('bt-start').onclick = start;
+  };
+
+  const start = () => {
+    player.pause();
+    game = { rounds: shuffle(pool).slice(0, BT_ROUNDS), i: 0, score: 0, answers: [] };
+    question();
+  };
+
+  // extrait pris après l'introduction, là où le moteur tourne
+  const clipStart = (it) => {
+    const d = it.duration || 0;
+    if (d <= BT_CLIP + 4) return 0;
+    const lo = Math.min(8, d * 0.1);
+    const hi = d - BT_CLIP - 2;
+    return lo + Math.random() * Math.max(0, hi - lo);
+  };
+
+  const playClip = (it, from, onEnd) => {
+    stopClip();
+    const go = () => {
+      audio.currentTime = from;
+      audio.volume = 1;
+      const t0 = performance.now();
+      const bar = stage.querySelector('.bt-progress i');
+      const tick = () => {
+        const p = Math.min(1, (performance.now() - t0) / (BT_CLIP * 1000));
+        if (bar) bar.style.transform = `scaleX(${p})`;
+        // fondu sur la dernière seconde
+        const left = BT_CLIP * (1 - p);
+        if (left < 1) audio.volume = Math.max(0, left);
+        if (p < 1) stopClip.raf = requestAnimationFrame(tick);
+      };
+      audio.play().then(() => {
+        stopClip.raf = requestAnimationFrame(tick);
+        timer = setTimeout(() => {
+          stopClip();
+          onEnd();
+        }, BT_CLIP * 1000);
+      }, () => {
+        stage.querySelector('.bt-status').textContent = 'Touchez pour lancer le son';
+        stage.querySelector('.bt-eq').onclick = () => playClip(it, from, onEnd);
+      });
+    };
+    if (audio.dataset.id === it.id && audio.readyState >= 1) go();
+    else {
+      audio.dataset.id = it.id;
+      audio.src = it.src;
+      audio.addEventListener('loadedmetadata', go, { once: true });
+      audio.load();
+    }
+  };
+
+  const head = () =>
+    `<div class="bt-top"><span>Extrait ${game.i + 1} / ${game.rounds.length}</span><span>Score ${game.score}</span></div>
+     <div class="bt-steps">${game.rounds.map((_, k) => `<i class="${k < game.i ? (game.answers[k].ok ? 'ok' : 'ko') : k === game.i ? 'now' : ''}"></i>`).join('')}</div>`;
+
+  const question = () => {
+    const it = game.rounds[game.i];
+    const right = it.brands[0];
+    const wrong = shuffle(brands.filter((b) => b !== right))[0];
+    const choices = shuffle([right, wrong]);
+    const from = clipStart(it);
+    stage.innerHTML = `<div class="bt-card">
+      ${head()}
+      <div class="bt-eq playing" aria-hidden="true">${'<i></i>'.repeat(9)}</div>
+      <p class="bt-status" role="status">Écoute bien…</p>
+      <div class="bt-progress"><i></i></div>
+      <div class="bt-choices" hidden>${choices.map((b) => `<button data-b="${esc(b)}">${esc(brandLabel(b))}</button>`).join('')}</div>
+      <button class="bt-again" hidden>Réécouter l’extrait</button>
+    </div>`;
+    const eq = stage.querySelector('.bt-eq');
+    const status = stage.querySelector('.bt-status');
+    const box = stage.querySelector('.bt-choices');
+    const again = stage.querySelector('.bt-again');
+    const ask = () => {
+      eq.classList.remove('playing');
+      status.textContent = 'Quelle marque ?';
+      box.hidden = false;
+      again.hidden = false;
+      box.querySelector('button').focus({ preventScroll: true });
+    };
+    again.onclick = () => {
+      eq.classList.add('playing');
+      status.textContent = 'Écoute bien…';
+      again.hidden = true;
+      playClip(it, from, () => {
+        eq.classList.remove('playing');
+        status.textContent = 'Quelle marque ?';
+        again.hidden = false;
+      });
+    };
+    box.onclick = (e) => {
+      const b = e.target.closest('[data-b]');
+      if (!b || box.dataset.done) return;
+      box.dataset.done = '1';
+      stopClip();
+      const ok = b.dataset.b === right;
+      if (ok) game.score++;
+      game.answers.push({ it, ok });
+      for (const x of box.querySelectorAll('button')) {
+        x.disabled = true;
+        if (x.dataset.b === right) x.classList.add('right');
+        else if (x === b) x.classList.add('wrong');
+      }
+      again.remove();
+      status.textContent = ok ? 'Bien joué !' : `Raté, c’était ${brandLabel(right)}.`;
+      status.className = `bt-status ${ok ? 'ok' : 'ko'}`;
+      stage.querySelector('.bt-top span:last-child').textContent = `Score ${game.score}`;
+      const th = thumbOf(it);
+      box.insertAdjacentHTML(
+        'afterend',
+        `<div class="bt-reveal">
+          ${th ? `<img src="${esc(th.replace('/hqdefault.', '/mqdefault.'))}" alt="">` : ''}
+          <div><b>${esc(it.title)}</b><span>${esc(it.engine || '')}</span><a href="#/s/${esc(it.id)}">Écouter en entier</a></div>
+        </div>
+        <button class="bt-go" id="bt-next">${game.i + 1 < game.rounds.length ? 'Extrait suivant' : 'Voir mon score'}</button>`,
+      );
+      document.getElementById('bt-next').onclick = () => {
+        game.i++;
+        game.i < game.rounds.length ? question() : end();
+      };
+      document.getElementById('bt-next').focus({ preventScroll: true });
+    };
+    playClip(it, from, ask);
+    // si le son ne se charge pas, on passe à un autre extrait
+    audio.onerror = () => {
+      if (stage.querySelector('.bt-choices')?.hidden === false) return;
+      const spare = shuffle(pool.filter((x) => !game.rounds.includes(x)))[0];
+      if (spare) {
+        game.rounds[game.i] = spare;
+        question();
+      } else ask();
+    };
+  };
+
+  const end = () => {
+    stopClip();
+    const n = game.rounds.length;
+    const record = game.score > best();
+    if (record) store.set('blindtest.best', game.score);
+    const verdict = game.score === n ? 'Oreille absolue !' : game.score >= n * 0.7 ? 'Belle oreille.' : game.score >= n * 0.5 ? 'Pas mal du tout.' : 'Il va falloir réécouter le catalogue.';
+    stage.innerHTML = `<div class="bt-card bt-end">
+      <p class="bt-score"><b>${game.score}</b> / ${n}</p>
+      <h2>${verdict}</h2>
+      ${record ? '<p class="bt-best">Nouveau record !</p>' : best() ? `<p class="bt-best">Ton record : ${best()} / ${n}</p>` : ''}
+      <ol class="bt-recap">${game.answers
+        .map((a) => `<li class="${a.ok ? 'ok' : 'ko'}"><span>${a.ok ? '✓' : '✗'}</span><a href="#/s/${esc(a.it.id)}">${esc(a.it.title)}</a><em>${esc(brandLabel(a.it.brands[0]))}</em></li>`)
+        .join('')}</ol>
+      <button class="bt-go" id="bt-again">Rejouer</button>
+    </div>`;
+    document.getElementById('bt-again').onclick = start;
+  };
+
+  intro();
+}
+
 /* ================= Recherche ================= */
 function viewSearch(params) {
   main.innerHTML = `<div class="page">
@@ -1187,7 +1385,7 @@ function route() {
   document.body.classList.toggle('sub', !ROOTS.has(page));
   track(location.hash);
   parentHash = page === 's' ? (it?.type === 'audio' ? '#/sons' : '#/fil') : PARENT[page] || '#/';
-  const titles = { profils: 'Pilotes', connexion: 'Connexion', 'nouveau-mot-de-passe': 'Nouveau mot de passe', categories: 'Catégories', marques: 'Marques', createurs: 'Créateurs', sons: 'Sons', fil: 'Le fil', recherche: 'Recherche', 'a-propos': 'À propos' };
+  const titles = { profils: 'Pilotes', connexion: 'Connexion', 'nouveau-mot-de-passe': 'Nouveau mot de passe', categories: 'Catégories', marques: 'Marques', createurs: 'Créateurs', sons: 'Sons', fil: 'Le fil', recherche: 'Recherche', 'a-propos': 'À propos', blindtest: 'Blind test' };
   document.title = titles[page] ? `${titles[page]} — VSound` : 'VSound — la musique des moteurs';
 
   const views = {
@@ -1207,6 +1405,7 @@ function route() {
     recherche: () => viewSearch(params),
     s: () => viewItem(parts[1]),
     'a-propos': () => viewAbout(),
+    blindtest: () => viewBlindtest(),
   };
   (views[page] || viewNotFound)();
   if (page !== 'fil') window.scrollTo(0, 0);
@@ -1216,8 +1415,8 @@ function route() {
 
 /* ---------- navigation mobile : retour, titre, lecteur plein écran ---------- */
 const ROOTS = new Set(['home', 'explorer', 'sons', 'fil']);
-const TAB_OF = { home: 'home', explorer: 'explorer', categories: 'explorer', c: 'explorer', marques: 'explorer', marque: 'explorer', createurs: 'explorer', createur: 'explorer', recherche: 'explorer', sons: 'sons', fil: 'fil' };
-const PARENT = { categories: '#/explorer', c: '#/explorer', marques: '#/explorer', marque: '#/marques', createurs: '#/explorer', createur: '#/createurs', recherche: '#/explorer' };
+const TAB_OF = { home: 'home', blindtest: 'home', explorer: 'explorer', categories: 'explorer', c: 'explorer', marques: 'explorer', marque: 'explorer', createurs: 'explorer', createur: 'explorer', recherche: 'explorer', sons: 'sons', fil: 'fil' };
+const PARENT = { blindtest: '#/', categories: '#/explorer', c: '#/explorer', marques: '#/explorer', marque: '#/marques', createurs: '#/explorer', createur: '#/createurs', recherche: '#/explorer' };
 const mTitle = document.getElementById('m-title');
 let parentHash = '#/';
 const stack = [];

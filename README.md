@@ -12,6 +12,7 @@ Le design reprend la maquette Figma « The VHub » (pages Home, Categories, Bran
 - Chaque contenu a sa page individuelle, partageable (`#/s/<id>`).
 - **Sur téléphone** (moins de 640 px), une interface pensée pour le mobile prend le relais ([`css/mobile.css`](css/mobile.css)) : onglets en bas (Accueil, Explorer, Sons, Le fil), carrousel au doigt, mini-lecteur flottant qui s'ouvre en plein écran, fil vidéo en plein écran.
 - **Comptes** ([`js/auth.js`](js/auth.js), Supabase auto-hébergé sur un NAS) : inscription par e-mail et mot de passe, jusqu'à cinq pilotes par compte avec leur propre photo, abonnements enregistrés par pilote et retrouvés sur tous les appareils. Les pages restent consultables sans compte.
+- **Blind test** (`#/blindtest`) : 10 extraits de 10 secondes tirés des enregistrements audio, il faut deviner la marque entre deux propositions à la fin de chaque extrait. Score, récapitulatif et record gardé sur l'appareil.
 
 Site 100 % statique (HTML, CSS, JavaScript sans dépendance), publié sur GitHub Pages.
 
