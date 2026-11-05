@@ -1,4 +1,5 @@
 import { Player } from './player.js';
+import * as auth from './auth.js';
 
 const main = document.getElementById('main');
 const top = document.getElementById('top');
@@ -112,23 +113,21 @@ const BRAND_INFO = {
   Morris: { country: 'Royaume-Uni' },
   Peugeot: { country: 'France' },
 };
-// Profils de l'écran « Choose your driver » (Frame 01 de la maquette)
-const PROFILES = [
-  { id: 'camille', name: 'Camille' },
-  { id: 'maxime', name: 'Maxime' },
-  { id: 'amine', name: 'Amine' },
-];
-const currentProfile = () => PROFILES.find((p) => p.id === store.get('profile', null)) || null;
-const followKey = () => 'follow.' + (currentProfile()?.id || 'invite');
+// Pilotes du compte connecté (écran « Choisissez votre pilote »)
+const currentProfile = () => auth.currentPilot();
+const initial = (n) => (String(n || '').trim()[0] || '?').toUpperCase();
+function avatarHTML(p, cls = '') {
+  const u = auth.photoUrl(p);
+  return u ? `<img class="av ${cls}" src="${esc(u)}" alt="">` : `<span class="av av-i ${cls}" aria-hidden="true">${esc(initial(p?.name))}</span>`;
+}
 
 function renderUser() {
   const p = currentProfile();
+  const u = auth.user();
   const a = document.querySelector('.user');
-  a.querySelector('span').textContent = p ? p.name : 'Profils';
-  const img = a.querySelector('img');
-  img.src = p ? `${A}profile-${p.id}.jpg` : `${A}user.png`;
-  img.classList.toggle('photo', !!p);
-  a.setAttribute('aria-label', p ? `Profil : ${p.name}, changer de profil` : 'Choisir un profil');
+  a.href = u ? '#/profils' : '#/connexion';
+  a.innerHTML = p ? `<span>${esc(p.name)}</span>${avatarHTML(p, 'photo')}` : `<span>${u ? 'Profils' : 'Connexion'}</span><img src="${A}user.png" alt="">`;
+  a.setAttribute('aria-label', p ? `Pilote : ${p.name}, changer de pilote` : u ? 'Choisir un pilote' : 'Se connecter');
 }
 
 const COUNTRIES = ['Italie', 'Allemagne', 'Japon', 'États-Unis', 'Royaume-Uni', 'France'];
@@ -376,7 +375,7 @@ function viewHome() {
       follow: film.credit.author,
     },
   ];
-  const followed = new Set(store.get(followKey(), []));
+  const followed = auth.following();
   const homeBrands = ['BMW', 'Mercedes', 'Toyota', 'Dodge', 'Nissan']
     .map((n) => brandList().find((b) => b.name === n))
     .filter(Boolean);
@@ -389,13 +388,19 @@ function viewHome() {
   const onHeroClick = (e) => {
     const bell = e.target.closest('[data-follow]');
     if (bell) {
-      const f = new Set(store.get(followKey(), []));
       const name = bell.dataset.follow;
-      const on = !f.has(name);
-      on ? f.add(name) : f.delete(name);
-      store.set(followKey(), [...f]);
-      for (const b of main.querySelectorAll(`[data-follow="${CSS.escape(name)}"]`)) b.setAttribute('aria-pressed', String(on));
-      toast(on ? `Vous suivez ${name}` : `Vous ne suivez plus ${name}`);
+      const press = (on) => {
+        for (const b of main.querySelectorAll(`[data-follow="${CSS.escape(name)}"]`)) b.setAttribute('aria-pressed', String(on));
+      };
+      const on = !auth.following().has(name);
+      press(on);
+      auth
+        .toggleFollow(name)
+        .then(() => toast(on ? `Vous suivez ${name}` : `Vous ne suivez plus ${name}`))
+        .catch((err) => {
+          press(!on);
+          toast(auth.frError(err));
+        });
     }
     if (e.target.closest('[data-act="programme"]')) player.playQueue(shuffle(s));
   };
@@ -659,31 +664,240 @@ function viewSons(params) {
   document.getElementById('shuf').onclick = () => list.length && player.playQueue(shuffle(list));
 }
 
-/* ================= Profils (Frame 01) ================= */
-function viewProfiles(params) {
+/* ================= Compte et pilotes (fond rouge, Frame 01) ================= */
+const LOGO_SVG = `<div class="p-logo" role="img" aria-label="VSound"><svg viewBox="0 0 214.07 32.15" aria-hidden="true">
+    <rect width="214.07" height="32.15" fill="#000"/>
+    <rect x="44.72" y="3.9" width="165" height="24.45" fill="#fff"/>
+    <path d="M22.83 23.21H19.43L29.16 6H37.7L25.67 26.05H16.39L4.35 6H13.07L22.83 23.21Z" fill="#fff"/>
+    <text x="127.22" y="26.05" text-anchor="middle" textLength="159" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="28.6" fill="#000">SOUND</text>
+  </svg></div>`;
+function redScreen(title, inner) {
   document.body.classList.add('bare');
-  const cur = currentProfile();
   main.innerHTML = `<section class="profiles">
     <img class="bg" src="${A}splash-red.jpg" alt="">
     <div class="profiles-inner">
-      <div class="p-logo" role="img" aria-label="VSound"><svg viewBox="0 0 214.07 32.15" aria-hidden="true">
-          <rect width="214.07" height="32.15" fill="#000"/>
-          <rect x="44.72" y="3.9" width="165" height="24.45" fill="#fff"/>
-          <path d="M22.83 23.21H19.43L29.16 6H37.7L25.67 26.05H16.39L4.35 6H13.07L22.83 23.21Z" fill="#fff"/>
-          <text x="127.22" y="26.05" text-anchor="middle" textLength="159" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="28.6" fill="#000">SOUND</text>
-        </svg></div>
-      <h1>CHOISISSEZ VOTRE PILOTE</h1>
-      <div class="picks">${PROFILES.map(
-        (p) => `<button class="pick" data-profile="${p.id}" aria-pressed="${cur?.id === p.id}"><span class="ph"><img src="${A}profile-${p.id}.jpg" alt=""></span><b>${esc(p.name)}</b></button>`,
-      ).join('')}</div>
+      <a href="#/sons" class="p-home" aria-label="VSound, parcourir sans compte">${LOGO_SVG}</a>
+      <h1>${title}</h1>
+      ${inner}
     </div>
   </section>`;
-  main.querySelector('.picks').addEventListener('click', (e) => {
-    const b = e.target.closest('[data-profile]');
-    if (!b) return;
-    store.set('profile', b.dataset.profile);
+}
+const nextOf = (params) => (params.next ? decodeURIComponent(params.next) : '#/');
+const withNext = (h, params) => (params.next ? `${h}${h.includes('?') ? '&' : '?'}next=${encodeURIComponent(params.next)}` : h);
+// Envoi d'un formulaire : bouton occupé, message d'erreur sous les champs
+function busyForm(form, run) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('[type=submit]');
+    const msg = form.querySelector('.a-msg');
+    btn.disabled = true;
+    msg.className = 'a-msg';
+    msg.textContent = '';
+    try {
+      await run(new FormData(form), msg);
+    } catch (err) {
+      msg.className = 'a-msg err';
+      msg.textContent = auth.frError(err);
+    } finally {
+      btn.disabled = false;
+    }
+  });
+}
+
+function viewLogin(params) {
+  if (auth.user() && params.mode !== 'oubli') return location.replace(withNext('#/profils', params));
+  const mode = ['inscription', 'oubli'].includes(params.mode) ? params.mode : 'connexion';
+  const tab = (m, label) => `<a href="${withNext(m === 'connexion' ? '#/connexion' : `#/connexion?mode=${m}`, params)}" class="${m === mode ? 'on' : ''}" ${m === mode ? 'aria-current="page"' : ''}>${label}</a>`;
+  const field = (name, label, type, auto, extra = '') =>
+    `<label class="a-field"><span>${label}</span><input name="${name}" type="${type}" autocomplete="${auto}" required ${extra}></label>`;
+  const forms = {
+    connexion: `${field('email', 'E-mail', 'email', 'email')}${field('password', 'Mot de passe', 'password', 'current-password')}
+      <button class="a-btn" type="submit">Se connecter</button>
+      <a class="a-link" href="${withNext('#/connexion?mode=oubli', params)}">Mot de passe oublié ?</a>`,
+    inscription: `${field('name', 'Prénom', 'text', 'given-name', 'maxlength="24"')}${field('email', 'E-mail', 'email', 'email')}${field('password', 'Mot de passe (6 caractères min.)', 'password', 'new-password', 'minlength="6"')}
+      <button class="a-btn" type="submit">Créer mon compte</button>`,
+    oubli: `<p class="a-note">Indique ton adresse : tu recevras un lien pour choisir un nouveau mot de passe.</p>${field('email', 'E-mail', 'email', 'email')}
+      <button class="a-btn" type="submit">Envoyer le lien</button>
+      <a class="a-link" href="${withNext('#/connexion', params)}">Retour à la connexion</a>`,
+  };
+  redScreen(
+    { connexion: 'CONNEXION', inscription: 'CRÉER UN COMPTE', oubli: 'MOT DE PASSE OUBLIÉ' }[mode],
+    `<form class="a-card" novalidate>
+      ${mode === 'oubli' ? '' : `<nav class="a-tabs">${tab('connexion', 'Se connecter')}${tab('inscription', 'Créer un compte')}</nav>`}
+      ${forms[mode]}
+      <p class="a-msg" role="alert"></p>
+    </form>
+    <a class="a-skip" href="#/sons">Écouter sans compte</a>`,
+  );
+  const form = main.querySelector('form');
+  for (const inp of form.querySelectorAll('input')) inp.addEventListener('invalid', (e) => e.preventDefault());
+  busyForm(form, async (d, msg) => {
+    const email = String(d.get('email') || '').trim();
+    const password = String(d.get('password') || '');
+    if (!email) throw new Error('Indique ton adresse e-mail.');
+    if (mode === 'oubli') {
+      await auth.resetPassword(email);
+      msg.className = 'a-msg ok';
+      msg.textContent = `Si un compte existe pour ${email}, un lien vient d’y être envoyé.`;
+      return;
+    }
+    if (!password) throw new Error('Indique ton mot de passe.');
+    if (mode === 'inscription') {
+      const name = String(d.get('name') || '').trim();
+      if (!name) throw new Error('Indique ton prénom.');
+      if (password.length < 6) throw new Error('Le mot de passe doit faire au moins 6 caractères.');
+      const { confirm } = await auth.signUp(name, email, password);
+      if (confirm) {
+        form.innerHTML = `<p class="a-note big">Compte créé&nbsp;!</p><p class="a-note">Ouvre le lien envoyé à <b>${esc(email)}</b> pour confirmer ton adresse, puis reviens te connecter.</p>
+          <a class="a-btn" href="${withNext('#/connexion', params)}">Se connecter</a>`;
+        return;
+      }
+      await auth.signIn(email, password);
+    } else {
+      await auth.signIn(email, password);
+    }
     renderUser();
-    location.hash = params.next ? decodeURIComponent(params.next) : '#/';
+    location.hash = withNext('#/profils', params);
+  });
+  form.querySelector('input').focus({ preventScroll: true });
+}
+
+function viewNewPassword() {
+  if (!auth.user()) return location.replace('#/connexion?mode=oubli');
+  redScreen(
+    'NOUVEAU MOT DE PASSE',
+    `<form class="a-card" novalidate>
+      <label class="a-field"><span>Nouveau mot de passe (6 caractères min.)</span><input name="password" type="password" autocomplete="new-password" minlength="6" required></label>
+      <button class="a-btn" type="submit">Enregistrer</button>
+      <p class="a-msg" role="alert"></p>
+    </form>`,
+  );
+  const form = main.querySelector('form');
+  busyForm(form, async (d) => {
+    const pw = String(d.get('password') || '');
+    if (pw.length < 6) throw new Error('Le mot de passe doit faire au moins 6 caractères.');
+    await auth.setPassword(pw);
+    toast('Mot de passe modifié');
+    location.hash = '#/profils';
+  });
+}
+
+function viewProfiles(params) {
+  if (!auth.user()) return location.replace(withNext('#/connexion', params));
+  if (params.edit) return viewPilotEditor(params);
+  const list = auth.pilots();
+  const cur = currentProfile();
+  const manage = params.gerer === '1';
+  const pen = '<span class="p-edit" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8zM20.7 7a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0l-1.8 1.8 3.8 3.8z"/></svg></span>';
+  redScreen(
+    manage ? 'GÉRER LES PILOTES' : 'CHOISISSEZ VOTRE PILOTE',
+    `<div class="picks${manage ? ' managing' : ''}">${list
+      .map(
+        (p) => `<button class="pick" data-pilot="${p.id}" aria-pressed="${!manage && cur?.id === p.id}"${manage ? ` aria-label="Modifier ${esc(p.name)}"` : ''}><span class="ph">${avatarHTML(p)}${manage ? pen : ''}</span><b>${esc(p.name)}</b></button>`,
+      )
+      .join('')}${
+      list.length < auth.MAX_PILOTS
+        ? `<a class="pick add" href="${withNext('#/profils?edit=nouveau', params)}"><span class="ph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></svg></span><b>Ajouter</b></a>`
+        : ''
+    }</div>
+    <div class="p-actions">
+      ${manage ? `<a class="a-btn ghost" href="${withNext('#/profils', params)}">Terminé</a>` : `<a class="a-btn ghost" href="${withNext('#/profils?gerer=1', params)}">Gérer les pilotes</a>`}
+      <button class="a-link" id="logout">Se déconnecter (${esc(auth.user().email)})</button>
+    </div>`,
+  );
+  main.querySelector('.picks').addEventListener('click', async (e) => {
+    const b = e.target.closest('[data-pilot]');
+    if (!b) return;
+    if (manage) {
+      location.hash = withNext(`#/profils?edit=${b.dataset.pilot}`, params);
+      return;
+    }
+    await auth.choosePilot(b.dataset.pilot);
+    renderUser();
+    location.hash = nextOf(params);
+  });
+  document.getElementById('logout').onclick = async () => {
+    await auth.signOut();
+    renderUser();
+    toast('Vous êtes déconnecté');
+    location.hash = '#/connexion';
+  };
+}
+
+function viewPilotEditor(params) {
+  const isNew = params.edit === 'nouveau';
+  const p = isNew ? null : auth.pilots().find((x) => x.id === params.edit);
+  if (!isNew && !p) return location.replace(withNext('#/profils?gerer=1', params));
+  if (isNew && auth.pilots().length >= auth.MAX_PILOTS) return location.replace(withNext('#/profils', params));
+  const back = withNext(isNew ? '#/profils' : '#/profils?gerer=1', params);
+  let file = null; // photo choisie, envoyée à l'enregistrement
+  let drop = false; // retirer la photo actuelle
+  redScreen(
+    isNew ? 'NOUVEAU PILOTE' : 'MODIFIER LE PILOTE',
+    `<form class="a-card" novalidate>
+      <div class="pe-photo">
+        <span class="ph" id="pe-prev"></span>
+        <div class="pe-btns">
+          <label class="a-btn ghost small">Importer une photo<input type="file" id="pe-file" accept="image/*" hidden></label>
+          <button type="button" class="a-link" id="pe-clear">Retirer la photo</button>
+        </div>
+      </div>
+      <label class="a-field"><span>Prénom</span><input name="name" type="text" maxlength="24" autocomplete="off" required value="${esc(p?.name || '')}"></label>
+      <button class="a-btn" type="submit">${isNew ? 'Créer le pilote' : 'Enregistrer'}</button>
+      ${!isNew && auth.pilots().length > 1 ? '<button type="button" class="a-link danger" id="pe-del">Supprimer ce pilote</button>' : ''}
+      <a class="a-link" href="${back}">Annuler</a>
+      <p class="a-msg" role="alert"></p>
+    </form>`,
+  );
+  const form = main.querySelector('form');
+  const nameIn = form.elements.name;
+  const prev = document.getElementById('pe-prev');
+  let blobUrl = null;
+  const draw = () => {
+    if (file) prev.innerHTML = `<img class="av" src="${blobUrl}" alt="">`;
+    else prev.innerHTML = avatarHTML({ name: nameIn.value || p?.name, photo: drop ? null : p?.photo });
+    document.getElementById('pe-clear').hidden = !(file || (p?.photo && !drop));
+  };
+  draw();
+  nameIn.addEventListener('input', () => !file && draw());
+  document.getElementById('pe-file').addEventListener('change', (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    if (!f.type.startsWith('image/')) return toast('Choisis une image');
+    if (blobUrl) URL.revokeObjectURL(blobUrl);
+    file = f;
+    blobUrl = URL.createObjectURL(f);
+    drop = false;
+    draw();
+  });
+  document.getElementById('pe-clear').onclick = () => {
+    file = null;
+    drop = true;
+    draw();
+  };
+  cleanup.push(() => blobUrl && URL.revokeObjectURL(blobUrl));
+  const del = document.getElementById('pe-del');
+  if (del)
+    del.onclick = async () => {
+      if (!confirm(`Supprimer le pilote ${p.name} et ses abonnements ?`)) return;
+      try {
+        await auth.removePilot(p.id);
+        renderUser();
+        location.hash = back;
+      } catch (err) {
+        toast(auth.frError(err));
+      }
+    };
+  busyForm(form, async (d) => {
+    const name = String(d.get('name') || '').trim();
+    if (!name) throw new Error('Indique un prénom.');
+    const target = isNew ? await auth.addPilot(name) : p;
+    if (!isNew && name !== p.name) await auth.editPilot(p.id, { name });
+    if (file) await auth.setPhoto(target, file);
+    else if (drop && p?.photo) await auth.clearPhoto(p);
+    renderUser();
+    toast(isNew ? `Pilote ${name} créé` : 'Pilote enregistré');
+    location.hash = back;
   });
 }
 
@@ -966,12 +1180,14 @@ function route() {
   document.body.classList.toggle('sub', !ROOTS.has(page));
   track(location.hash);
   parentHash = page === 's' ? (it?.type === 'audio' ? '#/sons' : '#/fil') : PARENT[page] || '#/';
-  const titles = { profils: 'Profils', categories: 'Catégories', marques: 'Marques', createurs: 'Créateurs', sons: 'Sons', fil: 'Le fil', recherche: 'Recherche', 'a-propos': 'À propos' };
+  const titles = { profils: 'Pilotes', connexion: 'Connexion', 'nouveau-mot-de-passe': 'Nouveau mot de passe', categories: 'Catégories', marques: 'Marques', createurs: 'Créateurs', sons: 'Sons', fil: 'Le fil', recherche: 'Recherche', 'a-propos': 'À propos' };
   document.title = titles[page] ? `${titles[page]} — VSound` : 'VSound — la musique des moteurs';
 
   const views = {
-    home: () => (currentProfile() ? viewHome() : location.replace('#/profils')),
+    home: () => (!auth.user() ? location.replace('#/connexion') : currentProfile() ? viewHome() : location.replace('#/profils')),
     profils: () => viewProfiles(params),
+    connexion: () => viewLogin(params),
+    'nouveau-mot-de-passe': () => viewNewPassword(),
     categories: () => viewCategories(),
     c: () => viewCategory(parts[1], parts[2]),
     marques: () => viewBrands(),
@@ -1041,6 +1257,13 @@ async function boot() {
     console.error(e);
     return;
   }
+  await auth.init();
+  // le lien reçu par e-mail revient avec ?code=… : on nettoie l'adresse
+  if (location.search) history.replaceState(null, '', location.pathname + location.hash);
+  auth.onChange(() => {
+    renderUser();
+    if (['home', 'profils', 'connexion'].includes(document.body.dataset.page)) route();
+  });
   renderUser();
   addEventListener('hashchange', route);
   route();
