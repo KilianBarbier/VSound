@@ -65,10 +65,7 @@ main { outline: none; }
 .top-right { margin-left: auto; display: flex; align-items: center; }
 .top-search { display: flex; align-items: center; gap: calc(var(--u) * 21); font: 800 max(13px, calc(var(--u) * 20))/1 var(--font); }
 .top-search:hover span { text-decoration: underline; }
-.mag { position: relative; width: calc(var(--u) * 23); height: calc(var(--u) * 21); flex: none; }
-.mag img { position: absolute; }
-.mag .ring { left: 0; top: 0; width: calc(var(--u) * 23.07); height: calc(var(--u) * 21.13); }
-.mag .handle { left: calc(var(--u) * 13.68); top: calc(var(--u) * 11.4); width: calc(var(--u) * 10.95); height: calc(var(--u) * 10.1); }
+.mag { width: max(18px, calc(var(--u) * 26)); height: max(18px, calc(var(--u) * 26)); flex: none; color: var(--white); }
 .user { display: flex; align-items: center; gap: calc(var(--u) * 11); margin-left: calc(var(--u) * 56); font: 800 max(13px, calc(var(--u) * 20))/1 var(--font); }
 .user img { width: calc(var(--u) * 55); height: calc(var(--u) * 55); box-shadow: 0 0 10px rgba(0, 0, 0, .5); border-radius: 50%; }
 
