@@ -353,3 +353,14 @@ footer.foot { padding: 12px 16px 24px; font-size: 12px; }
 .bt-reveal img { width: 92px; }
 .bt-promo { margin: 0 16px 24px; }
 .m-short + .bt-promo { margin-top: -12px; }
+
+/* ---------- Contrôle qualité ---------- */
+.qc-intro, .qc-stats, .qc-keys, .qc-list { padding: 0 16px; }
+.qc-head { grid-template-columns: 72px 1fr; padding: 8px; }
+.qc-head img, .qc-th0 { width: 72px; }
+.qc-badge { grid-column: 2; justify-self: start; }
+.qc-ed { padding: 4px 10px 14px; }
+.qc-wave { height: 100px; }
+.qc-time { font-size: 11.5px; }
+.qc-ok, .qc-ko { flex: 1 1 45%; }
+.qc-full { margin-left: 0; }

@@ -164,6 +164,8 @@ function prepare(raw) {
 
 const visuals = () => DB.items.filter((i) => i.type !== 'audio');
 const sounds = () => DB.items.filter((i) => i.type === 'audio');
+// tous les sons, y compris ceux écartés automatiquement (pour le contrôle qualité et le blind test)
+const allAudio = () => (DB.all || DB.items).filter((i) => i.type === 'audio');
 const famLabel = (f) => DB.families[f] || f || '';
 const typeLabel = (it) => (it.type === 'audio' ? 'Son' : it.type === 'instagram' ? 'Reel' : it.vertical ? 'Short' : 'Vidéo');
 const thumbOf = (it) => (it.type === 'youtube' ? `https://i.ytimg.com/vi/${encodeURIComponent(it.videoId)}/hqdefault.jpg` : it.thumb || null);
@@ -814,6 +816,7 @@ function viewProfiles(params) {
     }</div>
     <div class="p-actions">
       ${manage ? `<a class="a-btn ghost" href="${withNext('#/profils', params)}">Terminé</a>` : `<a class="a-btn ghost" href="${withNext('#/profils?gerer=1', params)}">Gérer les pilotes</a>`}
+      ${auth.isAdmin() ? '<a class="a-link" href="#/qc">Contrôle qualité du blind test</a>' : ''}
       <button class="a-link" id="logout">Se déconnecter (${esc(auth.user().email)})</button>
     </div>`,
   );
@@ -922,9 +925,23 @@ const btPromo = () =>
   `<a class="bt-promo" href="#/blindtest"><span class="bt-ic">${BT_ICON}</span><span><b>Blind test</b><small>Écoute l’extrait, devine la marque</small></span>${CHEV}</a>`;
 
 function viewBlindtest() {
-  // seulement des passages contrôlés (tools/qc_audio.py) : 10 s de moteur, sans parole ni musique
-  const pool = sounds().filter((i) => i.brands.length === 1 && i.src && i.qc?.clips?.length && !['parole', 'musique'].includes(i.qc.verdict));
-  const brands = [...new Set(pool.map((i) => i.brands[0]))];
+  // Extraits jouables : ceux validés à la main dans le contrôle qualité (#/qc), avec leur recadrage ;
+  // à défaut, les passages repérés par tools/qc_audio.py (10 s sans voix ni musique). Les sons écartés sont exclus.
+  let decisions = {};
+  let pool = [];
+  let brands = [];
+  const buildPool = () => {
+    pool = [];
+    for (const it of allAudio()) {
+      if (it.brands.length !== 1 || !it.src) continue;
+      const d = decisions[it.id];
+      if (d?.status === 'ecarte') continue;
+      if (d?.status === 'valide') pool.push({ it, starts: [d.clip_start], len: d.clip_end - d.clip_start, checked: true });
+      else if (it.qc?.clips?.length && !['parole', 'musique'].includes(it.qc.verdict)) pool.push({ it, starts: it.qc.clips, len: BT_CLIP });
+    }
+    brands = [...new Set(pool.map((r) => r.it.brands[0]))];
+  };
+  buildPool();
   const best = () => store.get('blindtest.best', 0);
   const audio = new Audio();
   audio.preload = 'auto';
@@ -949,12 +966,22 @@ function viewBlindtest() {
     stage.innerHTML = `<div class="bt-card bt-intro">
       <span class="bt-big-ic">${BT_ICON}</span>
       <h2>Devine la marque à l’oreille</h2>
-      <p>${BT_ROUNDS} extraits de ${BT_CLIP} secondes, tirés de ${pool.length} enregistrements vérifiés : que du moteur, sans voix ni musique. À la fin de chaque extrait, choisis la bonne marque entre deux propositions.</p>
+      <p>${BT_ROUNDS} extraits de quelques secondes, tirés de ${pool.length} enregistrements vérifiés : que du moteur, sans voix ni musique. À la fin de chaque extrait, choisis la bonne marque entre deux propositions.</p>
       <button class="bt-go" id="bt-start">Lancer la partie</button>
       ${best() ? `<p class="bt-best">Ton record : ${best()} / ${BT_ROUNDS}</p>` : ''}
+      ${auth.isAdmin() ? '<a class="bt-admin" href="#/qc">Contrôle qualité des extraits</a>' : ''}
     </div>`;
     document.getElementById('bt-start').onclick = start;
   };
+
+  auth
+    .loadClips()
+    .then((d) => {
+      decisions = d;
+      buildPool();
+      if (!game) intro();
+    })
+    .catch((e) => console.warn('Décisions du contrôle qualité indisponibles', e));
 
   const start = () => {
     player.pause();
@@ -962,9 +989,7 @@ function viewBlindtest() {
     question();
   };
 
-  const clipStart = (it) => shuffle(it.qc.clips)[0];
-
-  const playClip = (it, from, onEnd) => {
+  const playClip = (it, from, len, onEnd) => {
     stopClip();
     const go = () => {
       audio.currentTime = from;
@@ -972,10 +997,10 @@ function viewBlindtest() {
       const t0 = performance.now();
       const bar = stage.querySelector('.bt-progress i');
       const tick = () => {
-        const p = Math.min(1, (performance.now() - t0) / (BT_CLIP * 1000));
+        const p = Math.min(1, (performance.now() - t0) / (len * 1000));
         if (bar) bar.style.transform = `scaleX(${p})`;
         // fondu sur la dernière seconde
-        const left = BT_CLIP * (1 - p);
+        const left = len * (1 - p);
         if (left < 1) audio.volume = Math.max(0, left);
         if (p < 1) stopClip.raf = requestAnimationFrame(tick);
       };
@@ -984,10 +1009,10 @@ function viewBlindtest() {
         timer = setTimeout(() => {
           stopClip();
           onEnd();
-        }, BT_CLIP * 1000);
+        }, len * 1000);
       }, () => {
         stage.querySelector('.bt-status').textContent = 'Touchez pour lancer le son';
-        stage.querySelector('.bt-eq').onclick = () => playClip(it, from, onEnd);
+        stage.querySelector('.bt-eq').onclick = () => playClip(it, from, len, onEnd);
       });
     };
     if (audio.dataset.id === it.id && audio.readyState >= 1) go();
@@ -1004,11 +1029,13 @@ function viewBlindtest() {
      <div class="bt-steps">${game.rounds.map((_, k) => `<i class="${k < game.i ? (game.answers[k].ok ? 'ok' : 'ko') : k === game.i ? 'now' : ''}"></i>`).join('')}</div>`;
 
   const question = () => {
-    const it = game.rounds[game.i];
+    const round = game.rounds[game.i];
+    const it = round.it;
     const right = it.brands[0];
     const wrong = shuffle(brands.filter((b) => b !== right))[0];
     const choices = shuffle([right, wrong]);
-    const from = clipStart(it);
+    const from = shuffle(round.starts)[0];
+    const len = round.len;
     stage.innerHTML = `<div class="bt-card">
       ${head()}
       <div class="bt-eq playing" aria-hidden="true">${'<i></i>'.repeat(9)}</div>
@@ -1032,7 +1059,7 @@ function viewBlindtest() {
       eq.classList.add('playing');
       status.textContent = 'Écoute bien…';
       again.hidden = true;
-      playClip(it, from, () => {
+      playClip(it, from, len, () => {
         eq.classList.remove('playing');
         status.textContent = 'Quelle marque ?';
         again.hidden = false;
@@ -1070,7 +1097,7 @@ function viewBlindtest() {
       };
       document.getElementById('bt-next').focus({ preventScroll: true });
     };
-    playClip(it, from, ask);
+    playClip(it, from, len, ask);
     // si le son ne se charge pas, on passe à un autre extrait
     audio.onerror = () => {
       if (stage.querySelector('.bt-choices')?.hidden === false) return;
@@ -1101,6 +1128,360 @@ function viewBlindtest() {
   };
 
   intro();
+}
+
+/* ================= Contrôle qualité du blind test (administrateurs) ================= */
+const fmtT = (t) => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart(4, '0')}`;
+const QC_LABEL = { valide: 'Validé', ecarte: 'Écarté' };
+const AUTO_LABEL = { moteur: 'Moteur', mixte: 'Mixte', parole: 'Parole', musique: 'Musique', erreur: 'Non analysé' };
+
+function viewQC(params) {
+  if (!auth.user()) return location.replace('#/connexion?next=' + encodeURIComponent('#/qc'));
+  if (!auth.isAdmin()) {
+    main.innerHTML = `<div class="page">${pageHead('Contrôle qualité', '')}<p class="page-sub qc-empty">Cette page est réservée aux administrateurs de VSound.</p></div>${footer()}`;
+    return;
+  }
+  const list = allAudio().filter((i) => i.src);
+  let decisions = {};
+  let filter = ['todo', 'valide', 'ecarte', 'all'].includes(params.f) ? params.f : 'todo';
+  let openId = null;
+  const audio = new Audio();
+  audio.crossOrigin = 'anonymous';
+  audio.preload = 'auto';
+  const peaks = new Map(); // id -> Float32Array des crêtes
+  let ed = null; // éditeur ouvert
+  let raf = 0;
+  cleanup.push(() => {
+    cancelAnimationFrame(raf);
+    audio.pause();
+    audio.removeAttribute('src');
+    audio.load();
+  });
+  player.pause();
+
+  main.innerHTML = `<div class="page qc">
+    ${pageHead('Contrôle qualité', '', '', 'Contrôle')}
+    <p class="page-sub qc-intro">Écoute chaque son, recadre l’extrait du blind test, puis valide-le ou écarte-le. Tant qu’un son n’est pas traité, le blind test utilise le passage repéré automatiquement.</p>
+    <div class="qc-stats" id="qc-stats"></div>
+    <div class="chips qc-chips" id="qc-f">${[
+      ['todo', 'À traiter'],
+      ['valide', 'Validés'],
+      ['ecarte', 'Écartés'],
+      ['all', 'Tous'],
+    ]
+      .map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${k === filter}">${l}</button>`)
+      .join('')}</div>
+    <p class="qc-keys dk">Raccourcis : <kbd>Espace</kbd> écouter l’extrait · <kbd>V</kbd> valider · <kbd>X</kbd> écarter · <kbd>N</kbd> suivant</p>
+    <ol class="qc-list" id="qc-list"><li class="qc-empty">Chargement des décisions…</li></ol>
+  </div>${footer()}`;
+  const listEl = document.getElementById('qc-list');
+
+  const stat = (it) => decisions[it.id]?.status || 'todo';
+  const stats = () => {
+    const c = { valide: 0, ecarte: 0, todo: 0 };
+    for (const it of list) c[stat(it)]++;
+    document.getElementById('qc-stats').innerHTML = `<span><b>${c.valide}</b> ${c.valide > 1 ? 'validés' : 'validé'}</span><span><b>${c.ecarte}</b> ${c.ecarte > 1 ? 'écartés' : 'écarté'}</span><span><b>${c.todo}</b> à traiter</span><span><b>${list.length}</b> sons</span>`;
+  };
+  const shown = () => list.filter((it) => filter === 'all' || stat(it) === filter);
+
+  const rowHTML = (it) => {
+    const st = stat(it);
+    const d = decisions[it.id];
+    const auto = it.qc?.verdict;
+    const th = it.thumb ? it.thumb.replace('/hqdefault.', '/mqdefault.') : null;
+    return `<li class="qc-row" data-id="${esc(it.id)}">
+      <button class="qc-head" aria-expanded="${openId === it.id}">
+        ${th ? `<img src="${esc(th)}" alt="" loading="lazy">` : '<span class="qc-th0"></span>'}
+        <span class="qc-name"><b>${esc(it.title)}</b><small>${esc(brandLabel(it.brands[0] || '—'))} · ${fmtDur(it.duration)}${auto ? ` · auto : ${AUTO_LABEL[auto] || auto}${it.qc.speech ? `, ${Math.round(it.qc.speech * 100)} % de voix` : ''}` : ''}</small></span>
+        <span class="qc-badge ${st}">${st === 'todo' ? 'À traiter' : QC_LABEL[st]}${st === 'valide' && d ? ` · ${(d.clip_end - d.clip_start).toFixed(1)} s` : ''}</span>
+      </button>
+      ${openId === it.id ? '<div class="qc-ed" id="qc-ed"></div>' : ''}
+    </li>`;
+  };
+  const drawList = () => {
+    stats();
+    const rows = shown();
+    listEl.innerHTML = rows.length ? rows.map(rowHTML).join('') : `<li class="qc-empty">${filter === 'todo' ? 'Tout est traité. Bravo !' : 'Aucun son ici.'}</li>`;
+    if (openId && document.getElementById('qc-ed')) openEditor(list.find((i) => i.id === openId));
+  };
+
+  const close = () => {
+    cancelAnimationFrame(raf);
+    audio.pause();
+    ed = null;
+    openId = null;
+  };
+  const toggle = (id) => {
+    if (openId === id) {
+      close();
+      drawList();
+      return;
+    }
+    close();
+    openId = id;
+    drawList();
+    document.querySelector(`.qc-row[data-id="${CSS.escape(id)}"]`)?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  };
+  const nextTodo = () => {
+    const rows = list.filter((it) => stat(it) === 'todo');
+    const i = rows.findIndex((it) => it.id === openId);
+    const nx = rows[i + 1] || rows.find((it) => it.id !== openId);
+    close();
+    if (nx) {
+      if (filter !== 'all' && filter !== 'todo') filter = 'todo';
+      for (const c of document.querySelectorAll('#qc-f .chip')) c.setAttribute('aria-pressed', String(c.dataset.f === filter));
+      toggle(nx.id);
+    } else drawList();
+  };
+
+  /* ---------- éditeur : forme d'onde, sélection, écoute ---------- */
+  async function loadPeaks(it) {
+    if (peaks.has(it.id)) return peaks.get(it.id);
+    const buf = await (await fetch(it.src)).arrayBuffer();
+    const ctx = new (window.OfflineAudioContext || window.webkitOfflineAudioContext)(1, 2, 44100);
+    const data = (await ctx.decodeAudioData(buf)).getChannelData(0);
+    const N = 1200;
+    const out = new Float32Array(N);
+    const step = Math.floor(data.length / N) || 1;
+    for (let k = 0; k < N; k++) {
+      let m = 0;
+      for (let j = k * step, e = Math.min(data.length, j + step); j < e; j += 4) m = Math.max(m, Math.abs(data[j]));
+      out[k] = m;
+    }
+    const max = Math.max(...out) || 1;
+    for (let k = 0; k < N; k++) out[k] /= max;
+    peaks.set(it.id, out);
+    return out;
+  }
+
+  function openEditor(it) {
+    const box = document.getElementById('qc-ed');
+    const d = decisions[it.id];
+    const dur = it.duration || 60;
+    const auto = it.qc?.clips || [];
+    const first = d?.status === 'valide' ? d.clip_start : auto[0] ?? Math.min(5, Math.max(0, dur - BT_CLIP));
+    ed = { it, dur, a: first, b: d?.status === 'valide' ? d.clip_end : Math.min(dur, first + BT_CLIP), mode: null, wave: null };
+    box.innerHTML = `
+      <div class="qc-wave" id="qc-wave"><canvas></canvas><p class="qc-load">Chargement de la forme d’onde…</p></div>
+      <div class="qc-time"><span id="qc-pos">0:00.0</span><span id="qc-sel"></span><span>${fmtT(dur)}</span></div>
+      ${auto.length ? `<div class="qc-auto"><span>Passages repérés sans voix :</span>${auto.map((c) => `<button data-auto="${c}">${fmtT(c)}</button>`).join('')}</div>` : '<p class="qc-auto"><span>Aucun passage sans voix repéré automatiquement : écoute et choisis toi-même.</span></p>'}
+      <div class="qc-ctrl">
+        <button class="qc-btn main" data-act="clip">▶ Écouter l’extrait</button>
+        <button class="qc-btn" data-act="free">▶ Lecture libre</button>
+        <button class="qc-btn" data-act="a">Début ici</button>
+        <button class="qc-btn" data-act="b">Fin ici</button>
+        <span class="qc-nudge"><button class="qc-btn" data-act="m">−0,5 s</button><button class="qc-btn" data-act="p">+0,5 s</button></span>
+      </div>
+      <div class="qc-dec">
+        <button class="qc-ok" data-act="ok">Valider cet extrait</button>
+        <button class="qc-ko" data-act="ko">Écarter du blind test</button>
+        ${d ? '<button class="qc-reset" data-act="reset">Remettre à traiter</button>' : ''}
+        <a class="qc-full" href="#/s/${esc(it.id)}">Page du son</a>
+      </div>
+      <p class="qc-msg" id="qc-msg" role="status"></p>`;
+    const wave = box.querySelector('#qc-wave');
+    const cv = wave.querySelector('canvas');
+    ed.wave = wave;
+    if (audio.dataset.id !== it.id) {
+      audio.dataset.id = it.id;
+      audio.src = it.src;
+    }
+    const clamp = () => {
+      ed.a = Math.max(0, Math.min(ed.a, ed.dur - 3));
+      ed.b = Math.max(ed.a + 3, Math.min(ed.b, ed.dur, ed.a + 30));
+    };
+    const draw = () => {
+      if (!ed || ed.it !== it) return;
+      const w = wave.clientWidth;
+      const h = wave.clientHeight;
+      const dpr = devicePixelRatio || 1;
+      if (cv.width !== w * dpr) {
+        cv.width = w * dpr;
+        cv.height = h * dpr;
+      }
+      const g = cv.getContext('2d');
+      g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      g.clearRect(0, 0, w, h);
+      const x = (t) => (t / ed.dur) * w;
+      // passages repérés automatiquement
+      g.fillStyle = 'rgba(46, 204, 113, .16)';
+      for (const c of auto) g.fillRect(x(c), 0, Math.max(2, x(c + BT_CLIP) - x(c)), h);
+      // sélection
+      g.fillStyle = 'rgba(213, 0, 0, .28)';
+      g.fillRect(x(ed.a), 0, x(ed.b) - x(ed.a), h);
+      const pk = peaks.get(it.id);
+      if (pk) {
+        for (let k = 0; k < w; k++) {
+          const v = pk[Math.floor((k / w) * pk.length)];
+          const t = (k / w) * ed.dur;
+          g.fillStyle = t >= ed.a && t <= ed.b ? '#fff' : '#7a7a7a';
+          g.fillRect(k, h / 2 - (v * h) / 2.2, 1, Math.max(1, (v * h) / 1.1));
+        }
+      }
+      // poignées
+      g.fillStyle = '#ff3b30';
+      for (const t of [ed.a, ed.b]) g.fillRect(x(t) - 1.5, 0, 3, h);
+      // tête de lecture
+      g.fillStyle = '#ffd60a';
+      g.fillRect(x(audio.currentTime || 0) - 1, 0, 2, h);
+      document.getElementById('qc-pos').textContent = fmtT(audio.currentTime || 0);
+      document.getElementById('qc-sel').textContent = `Extrait ${fmtT(ed.a)} → ${fmtT(ed.b)} (${(ed.b - ed.a).toFixed(1)} s)`;
+    };
+    ed.draw = draw;
+    const loop = () => {
+      draw();
+      if (ed?.clipEnd != null && audio.currentTime >= ed.clipEnd) {
+        audio.pause();
+        ed.clipEnd = null;
+      }
+      raf = requestAnimationFrame(loop);
+    };
+    cancelAnimationFrame(raf);
+    loop();
+    loadPeaks(it)
+      .then(() => wave.querySelector('.qc-load')?.remove())
+      .catch(() => (wave.querySelector('.qc-load').textContent = 'Forme d’onde indisponible, l’écoute reste possible.'));
+
+    // souris et doigt : cliquer = placer la tête de lecture, tirer une poignée = recadrer,
+    // tirer dans la sélection = la déplacer, tirer ailleurs = nouvelle sélection
+    const tAt = (e) => {
+      const r = wave.getBoundingClientRect();
+      return Math.max(0, Math.min(ed.dur, ((e.clientX - r.left) / r.width) * ed.dur));
+    };
+    wave.addEventListener('pointerdown', (e) => {
+      const t = tAt(e);
+      const px = (ed.dur / wave.clientWidth) * 10; // 10 px de tolérance
+      ed.mode = Math.abs(t - ed.a) < px ? 'a' : Math.abs(t - ed.b) < px ? 'b' : t > ed.a && t < ed.b ? 'move' : 'new';
+      ed.t0 = t;
+      ed.a0 = ed.a;
+      ed.b0 = ed.b;
+      ed.moved = false;
+      wave.setPointerCapture(e.pointerId);
+    });
+    wave.addEventListener('pointermove', (e) => {
+      if (!ed.mode) return;
+      const t = tAt(e);
+      if (Math.abs(t - ed.t0) > ed.dur / 400) ed.moved = true;
+      if (!ed.moved) return;
+      if (ed.mode === 'a') ed.a = Math.min(t, ed.b - 3);
+      else if (ed.mode === 'b') ed.b = Math.max(t, ed.a + 3);
+      else if (ed.mode === 'move') {
+        const len = ed.b0 - ed.a0;
+        ed.a = Math.max(0, Math.min(ed.dur - len, ed.a0 + t - ed.t0));
+        ed.b = ed.a + len;
+        return;
+      } else {
+        ed.a = Math.min(ed.t0, t);
+        ed.b = Math.max(ed.t0, t);
+      }
+      clamp();
+    });
+    const up = () => {
+      if (ed.mode && !ed.moved) audio.currentTime = ed.t0;
+      if (ed.mode === 'new' && ed.moved && ed.b - ed.a < 3) ed.b = ed.a + BT_CLIP;
+      clamp();
+      ed.mode = null;
+    };
+    wave.addEventListener('pointerup', up);
+    wave.addEventListener('pointercancel', up);
+  }
+
+  const playClipQC = () => {
+    if (!ed) return;
+    audio.currentTime = ed.a;
+    ed.clipEnd = ed.b;
+    audio.play();
+  };
+  const msg = (t, ok = true) => {
+    const m = document.getElementById('qc-msg');
+    if (m) {
+      m.textContent = t;
+      m.className = `qc-msg ${ok ? 'ok' : 'ko'}`;
+    }
+  };
+  const decide = async (status) => {
+    if (!ed) return;
+    const it = ed.it;
+    try {
+      decisions[it.id] = status === 'valide' ? await auth.saveClip(it.id, 'valide', +ed.a.toFixed(2), +ed.b.toFixed(2)) : await auth.saveClip(it.id, 'ecarte');
+      toast(status === 'valide' ? `Extrait validé : ${it.title}` : `Écarté du blind test : ${it.title}`);
+      nextTodo();
+    } catch (e) {
+      msg(auth.frError(e), false);
+    }
+  };
+
+  listEl.addEventListener('click', async (e) => {
+    const head = e.target.closest('.qc-head');
+    if (head) return toggle(head.closest('.qc-row').dataset.id);
+    if (!ed) return;
+    const au = e.target.closest('[data-auto]');
+    if (au) {
+      ed.a = +au.dataset.auto;
+      ed.b = Math.min(ed.dur, ed.a + BT_CLIP);
+      return playClipQC();
+    }
+    const act = e.target.closest('[data-act]')?.dataset.act;
+    if (act === 'clip') playClipQC();
+    else if (act === 'free') {
+      ed.clipEnd = null;
+      audio.paused ? audio.play() : audio.pause();
+    } else if (act === 'a') {
+      ed.a = Math.min(audio.currentTime, ed.b - 3);
+      if (ed.b - ed.a > 30) ed.b = ed.a + 30;
+    } else if (act === 'b') {
+      ed.b = Math.max(audio.currentTime, ed.a + 3);
+      if (ed.b - ed.a > 30) ed.a = ed.b - 30;
+    } else if (act === 'm' || act === 'p') {
+      const dt = act === 'm' ? -0.5 : 0.5;
+      const len = ed.b - ed.a;
+      ed.a = Math.max(0, Math.min(ed.dur - len, ed.a + dt));
+      ed.b = ed.a + len;
+    } else if (act === 'ok') decide('valide');
+    else if (act === 'ko') decide('ecarte');
+    else if (act === 'reset') {
+      try {
+        await auth.clearClip(ed.it.id);
+        delete decisions[ed.it.id];
+        toast('Remis à traiter');
+        drawList();
+      } catch (err) {
+        msg(auth.frError(err), false);
+      }
+    }
+  });
+  document.getElementById('qc-f').addEventListener('click', (e) => {
+    const c = e.target.closest('[data-f]');
+    if (!c) return;
+    filter = c.dataset.f;
+    for (const x of document.querySelectorAll('#qc-f .chip')) x.setAttribute('aria-pressed', String(x === c));
+    history.replaceState(null, '', `#/qc?f=${filter}`);
+    close();
+    drawList();
+  });
+  addEventListener(
+    'keydown',
+    (e) => {
+      if (!ed || e.target.closest('input, textarea') || e.ctrlKey || e.metaKey || e.altKey) return;
+      const k = e.key.toLowerCase();
+      if (k === ' ') {
+        e.preventDefault();
+        audio.paused ? playClipQC() : audio.pause();
+      } else if (k === 'v') decide('valide');
+      else if (k === 'x') decide('ecarte');
+      else if (k === 'n') nextTodo();
+    },
+    { signal: viewAbort.signal },
+  );
+  addEventListener('resize', () => ed?.draw?.(), { signal: viewAbort.signal });
+
+  auth
+    .loadClips()
+    .then((d) => {
+      decisions = d;
+      drawList();
+    })
+    .catch((e) => (listEl.innerHTML = `<li class="qc-empty">${esc(auth.frError(e))}</li>`));
 }
 
 /* ================= Recherche ================= */
@@ -1382,7 +1763,7 @@ function route() {
   document.body.classList.toggle('sub', !ROOTS.has(page));
   track(location.hash);
   parentHash = page === 's' ? (it?.type === 'audio' ? '#/sons' : '#/fil') : PARENT[page] || '#/';
-  const titles = { profils: 'Pilotes', connexion: 'Connexion', 'nouveau-mot-de-passe': 'Nouveau mot de passe', categories: 'Catégories', marques: 'Marques', createurs: 'Créateurs', sons: 'Sons', fil: 'Le fil', recherche: 'Recherche', 'a-propos': 'À propos', blindtest: 'Blind test' };
+  const titles = { profils: 'Pilotes', connexion: 'Connexion', 'nouveau-mot-de-passe': 'Nouveau mot de passe', categories: 'Catégories', marques: 'Marques', createurs: 'Créateurs', sons: 'Sons', fil: 'Le fil', recherche: 'Recherche', 'a-propos': 'À propos', blindtest: 'Blind test', qc: 'Contrôle qualité' };
   document.title = titles[page] ? `${titles[page]} — VSound` : 'VSound — la musique des moteurs';
 
   const views = {
@@ -1403,6 +1784,7 @@ function route() {
     s: () => viewItem(parts[1]),
     'a-propos': () => viewAbout(),
     blindtest: () => viewBlindtest(),
+    qc: () => viewQC(params),
   };
   (views[page] || viewNotFound)();
   if (page !== 'fil') window.scrollTo(0, 0);
@@ -1412,8 +1794,8 @@ function route() {
 
 /* ---------- navigation mobile : retour, titre, lecteur plein écran ---------- */
 const ROOTS = new Set(['home', 'explorer', 'sons', 'fil']);
-const TAB_OF = { home: 'home', blindtest: 'home', explorer: 'explorer', categories: 'explorer', c: 'explorer', marques: 'explorer', marque: 'explorer', createurs: 'explorer', createur: 'explorer', recherche: 'explorer', sons: 'sons', fil: 'fil' };
-const PARENT = { blindtest: '#/', categories: '#/explorer', c: '#/explorer', marques: '#/explorer', marque: '#/marques', createurs: '#/explorer', createur: '#/createurs', recherche: '#/explorer' };
+const TAB_OF = { home: 'home', blindtest: 'home', qc: 'home', explorer: 'explorer', categories: 'explorer', c: 'explorer', marques: 'explorer', marque: 'explorer', createurs: 'explorer', createur: 'explorer', recherche: 'explorer', sons: 'sons', fil: 'fil' };
+const PARENT = { blindtest: '#/', qc: '#/blindtest', categories: '#/explorer', c: '#/explorer', marques: '#/explorer', marque: '#/marques', createurs: '#/explorer', createur: '#/createurs', recherche: '#/explorer' };
 const mTitle = document.getElementById('m-title');
 let parentHash = '#/';
 const stack = [];
@@ -1454,7 +1836,9 @@ MQ.addEventListener('change', () => {
 async function boot() {
   try {
     const res = await fetch('data/catalogue.json', { cache: 'no-cache' });
-    DB = prepare(await res.json());
+    const raw = await res.json();
+    DB = prepare(raw);
+    DB.all = (raw.items || []).map((it) => ({ brands: [], ...it }));
   } catch (e) {
     main.innerHTML = `<div class="page">${pageHead('Catalogue indisponible', '')}</div>`;
     console.error(e);

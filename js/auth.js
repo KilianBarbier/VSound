@@ -16,7 +16,7 @@ export const sb = createClient(SB_URL, KEY, { auth: { flowType: 'pkce', persistS
 export const MAX_PILOTS = 5;
 const PILOT_KEY = 'vsound.pilot';
 
-const state = { user: null, pilots: [], follows: new Set(), recovery: false };
+const state = { user: null, pilots: [], follows: new Set(), recovery: false, admin: false };
 const listeners = new Set();
 const emit = () => listeners.forEach((f) => f());
 export const onChange = (f) => listeners.add(f);
@@ -25,13 +25,21 @@ export const user = () => state.user;
 export const pilots = () => state.pilots;
 export const isRecovery = () => state.recovery;
 export const following = () => state.follows;
+export const isAdmin = () => state.admin;
 export function currentPilot() {
   let id;
   try { id = localStorage.getItem(PILOT_KEY); } catch {}
   return state.pilots.find((p) => p.id === id) || null;
 }
 
+async function loadAdmin() {
+  state.admin = false;
+  if (!state.user) return;
+  const { data } = await sb.from('admins').select('user_id').eq('user_id', state.user.id).maybeSingle();
+  state.admin = !!data;
+}
 async function loadPilots() {
+  await loadAdmin();
   if (!state.user) { state.pilots = []; return; }
   const { data, error } = await sb.from('pilots').select('id,name,photo,created_at').order('created_at');
   if (error) throw error;
@@ -97,7 +105,7 @@ export async function signIn(email, password) {
 export async function signOut() {
   await sb.auth.signOut();
   try { localStorage.removeItem(PILOT_KEY); } catch {}
-  state.user = null; state.pilots = []; state.follows = new Set();
+  state.user = null; state.pilots = []; state.follows = new Set(); state.admin = false;
   emit();
 }
 export async function resetPassword(email) {
@@ -186,4 +194,22 @@ export async function toggleFollow(name) {
     throw error;
   }
   return on;
+}
+
+/* ---------- contrôle qualité du blind test ---------- */
+// décisions prises à la main : { item_id: { status: 'valide' | 'ecarte', clip_start, clip_end } }
+export async function loadClips() {
+  const { data, error } = await sb.from('bt_clips').select('item_id,status,clip_start,clip_end,updated_at');
+  if (error) throw error;
+  return Object.fromEntries(data.map((r) => [r.item_id, r]));
+}
+export async function saveClip(item_id, status, clip_start = null, clip_end = null) {
+  const row = { item_id, status, clip_start, clip_end, updated_at: new Date().toISOString() };
+  const { error } = await sb.from('bt_clips').upsert(row);
+  if (error) throw error;
+  return row;
+}
+export async function clearClip(item_id) {
+  const { error } = await sb.from('bt_clips').delete().eq('item_id', item_id);
+  if (error) throw error;
 }

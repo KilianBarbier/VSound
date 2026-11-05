@@ -490,3 +490,46 @@ body.bare { padding-bottom: 0; }
 .bt-promo b { font: 800 17px/1.2 var(--font); }
 .bt-promo small { font: 600 13px/1.3 var(--font); opacity: .9; }
 .bt-promo > svg { width: 22px; fill: var(--white); flex: none; }
+
+/* ---------- Contrôle qualité du blind test ---------- */
+.bt-admin { font: 700 14px/1 var(--font); color: var(--g2); text-decoration: underline; text-underline-offset: 3px; }
+.qc-intro, .qc-stats, .qc-keys, .qc-list { padding: 0 var(--pad); }
+.qc-intro { margin-top: 14px; max-width: 900px; font: 500 15px/1.5 var(--font); color: var(--g1); }
+.qc-stats { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 18px; font: 600 14px/1 var(--font); color: var(--g2); }
+.qc-stats b { color: var(--white); font-size: 20px; margin-right: 4px; }
+.qc-chips { margin-top: 18px; }
+.qc-keys { margin-top: 14px; font: 500 13px/1.4 var(--font); color: var(--g3); }
+.qc-keys kbd { font: 700 12px/1 var(--font); padding: 2px 6px; border-radius: 5px; border: 1px solid var(--g4); color: var(--g1); }
+.qc-list { list-style: none; margin: 18px 0 60px; display: flex; flex-direction: column; gap: 8px; }
+.qc-empty { padding: 30px 0; color: var(--g2); font: 600 15px/1.4 var(--font); }
+.qc-row { background: #151515; border: 1px solid rgba(255, 255, 255, .07); border-radius: 14px; overflow: hidden; }
+.qc-head { width: 100%; display: grid; grid-template-columns: 96px 1fr auto; gap: 14px; align-items: center; padding: 8px 14px 8px 8px; background: none; border: 0; color: var(--white); text-align: left; cursor: pointer; }
+.qc-head:hover { background: rgba(255, 255, 255, .04); }
+.qc-head img, .qc-th0 { width: 96px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; background: #222; display: block; }
+.qc-name { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.qc-name b { font: 700 15px/1.25 var(--font); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qc-name small { font: 500 12.5px/1.3 var(--font); color: var(--g2); }
+.qc-badge { font: 800 12px/1 var(--font); padding: 7px 10px; border-radius: 999px; white-space: nowrap; background: rgba(255, 255, 255, .1); color: var(--g1); }
+.qc-badge.valide { background: #1e7a46; color: #fff; }
+.qc-badge.ecarte { background: #7a1e1e; color: #fff; }
+.qc-ed { padding: 4px 14px 16px; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(255, 255, 255, .06); }
+.qc-wave { position: relative; height: 120px; margin-top: 10px; border-radius: 10px; background: #0b0b0b; cursor: crosshair; touch-action: none; user-select: none; }
+.qc-wave canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.qc-load { position: absolute; inset: 0; display: grid; place-items: center; font: 600 13px/1 var(--font); color: var(--g2); pointer-events: none; }
+.qc-time { display: flex; justify-content: space-between; gap: 10px; font: 600 12.5px/1.2 var(--font); color: var(--g2); font-variant-numeric: tabular-nums; }
+.qc-time #qc-sel { color: var(--white); text-align: center; }
+.qc-auto { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font: 600 12.5px/1.3 var(--font); color: var(--g2); }
+.qc-auto button { font: 700 12px/1 var(--font); padding: 6px 9px; border-radius: 999px; border: 1px solid rgba(46, 204, 113, .5); background: rgba(46, 204, 113, .12); color: #b9f6ca; cursor: pointer; }
+.qc-ctrl, .qc-dec { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.qc-btn { min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .25); background: rgba(255, 255, 255, .06); color: var(--white); font: 700 13px/1 var(--font); cursor: pointer; }
+.qc-btn:hover { background: rgba(255, 255, 255, .14); }
+.qc-btn.main { background: var(--white); color: var(--black); border-color: var(--white); }
+.qc-nudge { display: inline-flex; gap: 4px; }
+.qc-ok, .qc-ko, .qc-reset { min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; font: 800 14px/1 var(--font); cursor: pointer; color: #fff; }
+.qc-ok { background: #1e9e57; }
+.qc-ko { background: #b3261e; }
+.qc-reset { background: rgba(255, 255, 255, .12); }
+.qc-full { margin-left: auto; font: 700 13px/1 var(--font); color: var(--g2); text-decoration: underline; text-underline-offset: 3px; }
+.qc-msg:empty { display: none; }
+.qc-msg { font: 600 13px/1.3 var(--font); }
+.qc-msg.ko { color: #ff6b5e; }

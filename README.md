@@ -69,3 +69,13 @@ python tools/qc_audio.py
 ```
 
 Pour ré-analyser tout le catalogue, ajoute `--all`. Pour afficher le bilan sans rien relancer, utilise `--report`.
+
+### Contrôle qualité à la main (`#/qc`)
+
+Les administrateurs ont accès à une page de contrôle, depuis l'écran du blind test ou celui des pilotes. Elle liste tous les sons, y compris ceux que le script a écartés. Pour chacun, tu peux :
+
+- écouter le son, avec sa forme d'onde et les passages sans voix repérés par le script (en vert) ;
+- recadrer l'extrait du blind test, entre 3 et 30 secondes, en tirant les bords ou en déplaçant la zone rouge ;
+- le valider avec son recadrage, ou l'écarter du blind test. Les raccourcis sont `Espace`, `V`, `X` et `N`.
+
+Les décisions sont enregistrées sur le Supabase du NAS, dans la table `bt_clips`. Le blind test les applique tout de suite. Un son non traité garde le passage repéré par le script. Pour ajouter un administrateur, insère son identifiant dans la table `admins`.
