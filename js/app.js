@@ -147,6 +147,9 @@ function igCode(url) {
 function prepare(raw) {
   const items = [];
   for (const it of raw.items || []) {
+    // contrôle qualité (tools/qc_audio.py) : on écarte ce qui est surtout de la parole ou de la musique,
+    // sauf si le contenu a été validé à la main (« qcOk »: true)
+    if (['parole', 'musique'].includes(it.qc?.verdict) && it.qcOk !== true) continue;
     const base = { brands: [], ...it };
     if (it.type === 'instagram') {
       const code = it.code || igCode(it.url);
@@ -919,7 +922,8 @@ const btPromo = () =>
   `<a class="bt-promo" href="#/blindtest"><span class="bt-ic">${BT_ICON}</span><span><b>Blind test</b><small>Écoute l’extrait, devine la marque</small></span>${CHEV}</a>`;
 
 function viewBlindtest() {
-  const pool = sounds().filter((i) => i.brands.length === 1 && i.src);
+  // seulement des passages contrôlés (tools/qc_audio.py) : 10 s de moteur, sans parole ni musique
+  const pool = sounds().filter((i) => i.brands.length === 1 && i.src && i.qc?.clips?.length && !['parole', 'musique'].includes(i.qc.verdict));
   const brands = [...new Set(pool.map((i) => i.brands[0]))];
   const best = () => store.get('blindtest.best', 0);
   const audio = new Audio();
@@ -945,7 +949,7 @@ function viewBlindtest() {
     stage.innerHTML = `<div class="bt-card bt-intro">
       <span class="bt-big-ic">${BT_ICON}</span>
       <h2>Devine la marque à l’oreille</h2>
-      <p>${BT_ROUNDS} extraits de ${BT_CLIP} secondes, tirés des ${pool.length} enregistrements du catalogue. À la fin de chaque extrait, choisis la bonne marque entre deux propositions.</p>
+      <p>${BT_ROUNDS} extraits de ${BT_CLIP} secondes, tirés de ${pool.length} enregistrements vérifiés : que du moteur, sans voix ni musique. À la fin de chaque extrait, choisis la bonne marque entre deux propositions.</p>
       <button class="bt-go" id="bt-start">Lancer la partie</button>
       ${best() ? `<p class="bt-best">Ton record : ${best()} / ${BT_ROUNDS}</p>` : ''}
     </div>`;
@@ -958,14 +962,7 @@ function viewBlindtest() {
     question();
   };
 
-  // extrait pris après l'introduction, là où le moteur tourne
-  const clipStart = (it) => {
-    const d = it.duration || 0;
-    if (d <= BT_CLIP + 4) return 0;
-    const lo = Math.min(8, d * 0.1);
-    const hi = d - BT_CLIP - 2;
-    return lo + Math.random() * Math.max(0, hi - lo);
-  };
+  const clipStart = (it) => shuffle(it.qc.clips)[0];
 
   const playClip = (it, from, onEnd) => {
     stopClip();

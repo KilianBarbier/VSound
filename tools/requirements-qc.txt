@@ -1,0 +1,5 @@
+tensorflow-cpu>=2.16
+tensorflow-hub>=0.16
+setuptools<81
+numpy
+yt-dlp

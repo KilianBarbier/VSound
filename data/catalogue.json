@@ -26,6 +26,19 @@
         "author": "Motorsports Cars Passion",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=sxXtpMngivM"
+      },
+      "qc": {
+        "engine": 0.184,
+        "speech": 0.039,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          13.4,
+          23.5
+        ],
+        "verdict": "moteur",
+        "seconds": 37
       }
     },
     {
@@ -44,6 +57,15 @@
         "author": "Automotive Mike",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=C3fxp-5NraM"
+      },
+      "qc": {
+        "engine": 0.667,
+        "speech": 0.111,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "mixte",
+        "seconds": 13
       }
     },
     {
@@ -62,6 +84,15 @@
         "author": "Worlds Racing",
         "source": "YouTube",
         "url": "https://www.youtube.com/shorts/Lp394JR8uMo"
+      },
+      "qc": {
+        "engine": 0.632,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "moteur",
+        "seconds": 10
       }
     },
     {
@@ -80,6 +111,25 @@
         "author": "Jalopnik",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=5e304XMnhBA"
+      },
+      "qc": {
+        "engine": 0.663,
+        "speech": 0.042,
+        "music": 0.0,
+        "silence": 0.004,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          85.4,
+          121.4
+        ],
+        "verdict": "moteur",
+        "seconds": 137
       }
     },
     {
@@ -98,6 +148,28 @@
         "author": "pop_moto",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=qwnEGlg84zw"
+      },
+      "qc": {
+        "engine": 0.543,
+        "speech": 0.159,
+        "music": 0.026,
+        "silence": 0.0,
+        "clips": [
+          1.4,
+          11.5,
+          32.6,
+          42.7,
+          52.8,
+          67.2,
+          78.7,
+          94.6,
+          112.3,
+          141.6,
+          151.7,
+          161.8
+        ],
+        "verdict": "mixte",
+        "seconds": 600
       }
     },
     {
@@ -117,6 +189,28 @@
         "author": "NM2255 | Raw Car Sounds",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=AWLFN0o2sl8"
+      },
+      "qc": {
+        "engine": 0.748,
+        "speech": 0.045,
+        "music": 0.003,
+        "silence": 0.019,
+        "clips": [
+          12.0,
+          22.1,
+          47.5,
+          57.6,
+          77.8,
+          87.8,
+          99.8,
+          109.9,
+          125.3,
+          155.5,
+          172.8,
+          182.9
+        ],
+        "verdict": "moteur",
+        "seconds": 514
       }
     },
     {
@@ -136,6 +230,28 @@
         "author": "NM2255 | Raw Car Sounds",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=VkHTpa11njY"
+      },
+      "qc": {
+        "engine": 0.745,
+        "speech": 0.051,
+        "music": 0.002,
+        "silence": 0.004,
+        "clips": [
+          12.5,
+          28.3,
+          38.4,
+          49.0,
+          59.0,
+          69.1,
+          79.2,
+          89.3,
+          99.4,
+          127.7,
+          140.2,
+          150.2
+        ],
+        "verdict": "moteur",
+        "seconds": 397
       }
     },
     {
@@ -155,6 +271,15 @@
         "author": "carwow",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=14bAJg4-p_E"
+      },
+      "qc": {
+        "engine": 0.725,
+        "speech": 0.0,
+        "music": 0.025,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "moteur",
+        "seconds": 20
       }
     },
     {
@@ -174,6 +299,25 @@
         "author": "Hagerty",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=xHEQG9pW9jU"
+      },
+      "qc": {
+        "engine": 0.291,
+        "speech": 0.532,
+        "music": 0.063,
+        "silence": 0.0,
+        "clips": [
+          108.0,
+          118.1,
+          188.6,
+          244.3,
+          255.8,
+          266.4,
+          276.5,
+          550.1,
+          560.2
+        ],
+        "verdict": "parole",
+        "seconds": 600
       }
     },
     {
@@ -194,6 +338,17 @@
         "author": "4enthusiasts",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=fM49pt-2FBE"
+      },
+      "qc": {
+        "engine": 0.169,
+        "speech": 0.0,
+        "music": 0.821,
+        "silence": 0.0,
+        "clips": [
+          7.2
+        ],
+        "verdict": "musique",
+        "seconds": 140
       }
     },
     {
@@ -210,6 +365,28 @@
         "author": "Petrolheadz Channel",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=MmmADq2n8Bs"
+      },
+      "qc": {
+        "engine": 0.741,
+        "speech": 0.013,
+        "music": 0.019,
+        "silence": 0.018,
+        "clips": [
+          42.7,
+          52.8,
+          62.9,
+          75.4,
+          85.4,
+          95.5,
+          121.4,
+          131.5,
+          141.6,
+          151.7,
+          161.8,
+          179.0
+        ],
+        "verdict": "moteur",
+        "seconds": 600
       }
     },
     {
@@ -228,6 +405,28 @@
         "author": "Sie Entertainment",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=m8mgAXhNNPo"
+      },
+      "qc": {
+        "engine": 0.687,
+        "speech": 0.005,
+        "music": 0.025,
+        "silence": 0.0,
+        "clips": [
+          8.6,
+          52.8,
+          67.2,
+          100.8,
+          110.9,
+          140.2,
+          150.2,
+          166.6,
+          176.6,
+          205.4,
+          217.0,
+          229.0
+        ],
+        "verdict": "moteur",
+        "seconds": 600
       }
     },
     {
@@ -246,6 +445,28 @@
         "author": "Barney Ward",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=W60jDOqptN4"
+      },
+      "qc": {
+        "engine": 0.842,
+        "speech": 0.004,
+        "music": 0.014,
+        "silence": 0.0,
+        "clips": [
+          9.1,
+          20.6,
+          34.1,
+          46.6,
+          64.8,
+          74.9,
+          96.5,
+          106.6,
+          116.6,
+          129.6,
+          139.7,
+          149.8
+        ],
+        "verdict": "moteur",
+        "seconds": 600
       }
     },
     {
@@ -264,6 +485,28 @@
         "author": "NM2255 | Raw Car Sounds",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=HFEfGuBjPoU"
+      },
+      "qc": {
+        "engine": 0.77,
+        "speech": 0.012,
+        "music": 0.004,
+        "silence": 0.0,
+        "clips": [
+          9.6,
+          19.7,
+          29.8,
+          39.8,
+          53.8,
+          71.0,
+          81.1,
+          91.2,
+          102.2,
+          112.3,
+          122.4,
+          132.5
+        ],
+        "verdict": "moteur",
+        "seconds": 600
       }
     },
     {
@@ -282,6 +525,20 @@
         "author": "Marchettino",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=uK2nN24TLv8"
+      },
+      "qc": {
+        "engine": 0.692,
+        "speech": 0.023,
+        "music": 0.0,
+        "silence": 0.246,
+        "clips": [
+          9.6,
+          19.7,
+          29.8,
+          39.8
+        ],
+        "verdict": "moteur",
+        "seconds": 63
       }
     },
     {
@@ -301,6 +558,28 @@
         "author": "BurningPiston",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=KFk2wAffl64"
+      },
+      "qc": {
+        "engine": 0.668,
+        "speech": 0.032,
+        "music": 0.014,
+        "silence": 0.029,
+        "clips": [
+          0.5,
+          10.6,
+          60.0,
+          70.1,
+          80.2,
+          90.2,
+          100.3,
+          110.4,
+          120.5,
+          157.0,
+          167.0,
+          177.1
+        ],
+        "verdict": "moteur",
+        "seconds": 379
       }
     },
     {
@@ -317,6 +596,18 @@
         "author": "JonnyF1",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=_GYo4eAZOW0"
+      },
+      "qc": {
+        "engine": 0.558,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          10.1,
+          22.1
+        ],
+        "verdict": "moteur",
+        "seconds": 37
       }
     },
     {
@@ -335,6 +626,28 @@
         "author": "Foot to Pedal",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=F0tfrCQ-N2M"
+      },
+      "qc": {
+        "engine": 0.838,
+        "speech": 0.002,
+        "music": 0.124,
+        "silence": 0.028,
+        "clips": [
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          90.7,
+          100.8,
+          110.9,
+          121.0,
+          131.0,
+          141.1
+        ],
+        "verdict": "mixte",
+        "seconds": 237
       }
     },
     {
@@ -353,6 +666,28 @@
         "author": "statesidesupercars",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=Awi5LQkRfwA"
+      },
+      "qc": {
+        "engine": 0.882,
+        "speech": 0.016,
+        "music": 0.005,
+        "silence": 0.008,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          99.8,
+          109.9,
+          132.5
+        ],
+        "verdict": "moteur",
+        "seconds": 180
       }
     },
     {
@@ -371,6 +706,28 @@
         "author": "cvdzijden - Supercar Videos",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=eAAvR1U56K8"
+      },
+      "qc": {
+        "engine": 0.832,
+        "speech": 0.13,
+        "music": 0.002,
+        "silence": 0.0,
+        "clips": [
+          1.9,
+          12.0,
+          22.1,
+          32.2,
+          42.2,
+          64.8,
+          88.3,
+          98.4,
+          132.5,
+          142.6,
+          152.6,
+          162.7
+        ],
+        "verdict": "mixte",
+        "seconds": 240
       }
     },
     {
@@ -389,6 +746,15 @@
         "author": "StyleNL",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=GU7Ys8OMadE"
+      },
+      "qc": {
+        "engine": 0.514,
+        "speech": 0.081,
+        "music": 0.054,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "mixte",
+        "seconds": 18
       }
     },
     {
@@ -407,6 +773,26 @@
         "author": "NM2255 | Raw Car Sounds",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=B4Th3LxCgb4"
+      },
+      "qc": {
+        "engine": 0.841,
+        "speech": 0.022,
+        "music": 0.0,
+        "silence": 0.018,
+        "clips": [
+          13.4,
+          23.5,
+          33.6,
+          43.7,
+          53.8,
+          63.8,
+          81.1,
+          91.2,
+          101.8,
+          120.5
+        ],
+        "verdict": "moteur",
+        "seconds": 133
       }
     },
     {
@@ -425,6 +811,15 @@
         "author": "Inside Lane",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=od852a2wGFI"
+      },
+      "qc": {
+        "engine": 0.27,
+        "speech": 0.554,
+        "music": 0.014,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "parole",
+        "seconds": 36
       }
     },
     {
@@ -443,6 +838,20 @@
         "author": "cvdzijden - Supercar Videos",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=DUZYGjiSPtk"
+      },
+      "qc": {
+        "engine": 0.493,
+        "speech": 0.436,
+        "music": 0.004,
+        "silence": 0.0,
+        "clips": [
+          28.8,
+          38.9,
+          122.9,
+          133.0
+        ],
+        "verdict": "parole",
+        "seconds": 236
       }
     },
     {
@@ -459,6 +868,28 @@
         "author": "Mike Supercars TopSpeed (Supercars Miami)",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=LxJifkXmRtA"
+      },
+      "qc": {
+        "engine": 0.857,
+        "speech": 0.036,
+        "music": 0.02,
+        "silence": 0.0,
+        "clips": [
+          10.6,
+          20.6,
+          30.7,
+          49.9,
+          60.0,
+          75.8,
+          93.1,
+          103.2,
+          113.3,
+          131.0,
+          141.1,
+          159.8
+        ],
+        "verdict": "moteur",
+        "seconds": 600
       }
     },
     {
@@ -477,6 +908,22 @@
         "author": "Automotive Mike",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=Ca5o7RW2SlA"
+      },
+      "qc": {
+        "engine": 0.629,
+        "speech": 0.15,
+        "music": 0.0,
+        "silence": 0.123,
+        "clips": [
+          0.0,
+          37.9,
+          48.0,
+          62.9,
+          73.0,
+          89.3
+        ],
+        "verdict": "mixte",
+        "seconds": 161
       }
     },
     {
@@ -495,6 +942,28 @@
         "author": "rallyepro43",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=EqKaLw9rvbY"
+      },
+      "qc": {
+        "engine": 0.878,
+        "speech": 0.021,
+        "music": 0.038,
+        "silence": 0.0,
+        "clips": [
+          17.8,
+          27.8,
+          37.9,
+          48.0,
+          58.1,
+          78.2,
+          88.3,
+          98.4,
+          115.7,
+          125.8,
+          137.3,
+          147.4
+        ],
+        "verdict": "moteur",
+        "seconds": 600
       }
     },
     {
@@ -513,6 +982,27 @@
         "author": "NM2255 | Raw Car Sounds",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=xA9Jm7_jNz8"
+      },
+      "qc": {
+        "engine": 0.854,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.015,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          49.0,
+          59.0,
+          69.1,
+          79.2,
+          89.3,
+          99.4,
+          109.4
+        ],
+        "verdict": "moteur",
+        "seconds": 125
       }
     },
     {
@@ -531,6 +1021,15 @@
         "author": "Le Mans Motors Passion",
         "source": "YouTube",
         "url": "https://www.youtube.com/shorts/6t9QsNTyZ9w"
+      },
+      "qc": {
+        "engine": 0.1,
+        "speech": 0.65,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "parole",
+        "seconds": 10
       }
     },
     {
@@ -549,6 +1048,15 @@
         "author": "tbazsi95",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=yfR_Mmm5k_Q"
+      },
+      "qc": {
+        "engine": 0.071,
+        "speech": 0.071,
+        "music": 0.143,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "mixte",
+        "seconds": 7
       }
     },
     {
@@ -567,6 +1075,15 @@
         "author": "JaggaTheBop",
         "source": "YouTube",
         "url": "https://www.youtube.com/shorts/lvL63fWRTd8"
+      },
+      "qc": {
+        "engine": 0.515,
+        "speech": 0.258,
+        "music": 0.015,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "mixte",
+        "seconds": 32
       }
     },
     {
@@ -583,6 +1100,28 @@
         "author": "Cars and Engines",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=r0ivLc0rj_I"
+      },
+      "qc": {
+        "engine": 0.747,
+        "speech": 0.047,
+        "music": 0.004,
+        "silence": 0.051,
+        "clips": [
+          2.4,
+          12.5,
+          22.6,
+          32.6,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          90.7,
+          100.8,
+          110.9,
+          130.1
+        ],
+        "verdict": "moteur",
+        "seconds": 371
       }
     },
     {
@@ -601,6 +1140,28 @@
         "author": "Cars and Engines",
         "source": "YouTube",
         "url": "https://www.youtube.com/watch?v=49UfYA5wZ7M"
+      },
+      "qc": {
+        "engine": 0.832,
+        "speech": 0.01,
+        "music": 0.003,
+        "silence": 0.067,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          58.6,
+          76.3,
+          86.4,
+          96.5,
+          106.6,
+          116.6,
+          126.7
+        ],
+        "verdict": "moteur",
+        "seconds": 300
       }
     },
     {
@@ -619,6 +1180,15 @@
         "author": "Supercar Hunter",
         "source": "YouTube",
         "url": "https://www.youtube.com/shorts/Ilbjr5aYCTQ"
+      },
+      "qc": {
+        "engine": 0.744,
+        "speech": 0.233,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "mixte",
+        "seconds": 21
       }
     },
     {
@@ -639,6 +1209,23 @@
         "url": "https://commons.wikimedia.org/wiki/File:Aston_Martin_One-77_-_engine_and_exhaust_sound_%28YouTube_Z9ql2lAqvQY%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.635,
+        "speech": 0.274,
+        "music": 0.03,
+        "silence": 0.037,
+        "clips": [
+          49.0,
+          59.0,
+          81.6,
+          91.7,
+          101.8,
+          111.8,
+          127.7
+        ],
+        "verdict": "mixte",
+        "seconds": 144
       }
     },
     {
@@ -659,6 +1246,22 @@
         "url": "https://commons.wikimedia.org/wiki/File:Aston_Martin_Vulcan_-_engine_and_exhaust_sound_%28YouTube_fUe9t9jj1Go%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.485,
+        "speech": 0.176,
+        "music": 0.125,
+        "silence": 0.0,
+        "clips": [
+          32.6,
+          85.4,
+          133.0,
+          148.8,
+          168.0,
+          178.1
+        ],
+        "verdict": "mixte",
+        "seconds": 207
       }
     },
     {
@@ -679,6 +1282,17 @@
         "url": "https://commons.wikimedia.org/wiki/File:Aston_Martin_DB9_-_engine_and_exhaust_sound_%28YouTube_44j4UgnbULU%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.55,
+        "speech": 0.256,
+        "music": 0.013,
+        "silence": 0.0,
+        "clips": [
+          53.8
+        ],
+        "verdict": "mixte",
+        "seconds": 77
       }
     },
     {
@@ -699,6 +1313,22 @@
         "url": "https://commons.wikimedia.org/wiki/File:Bugatti_Chiron_-_engine_and_exhaust_sound_%28YouTube_BtBU0O3j_ZE%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.671,
+        "speech": 0.014,
+        "music": 0.188,
+        "silence": 0.019,
+        "clips": [
+          8.6,
+          18.7,
+          28.8,
+          38.9,
+          49.0,
+          65.8
+        ],
+        "verdict": "mixte",
+        "seconds": 102
       }
     },
     {
@@ -719,6 +1349,26 @@
         "url": "https://commons.wikimedia.org/wiki/File:Bugatti_EB110_-_engine_and_exhaust_sound_%28YouTube_r1GoPGO_j8w%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.831,
+        "speech": 0.004,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          3.8,
+          13.9,
+          24.0,
+          34.1,
+          44.2,
+          54.2,
+          64.3,
+          74.4,
+          84.5,
+          94.6
+        ],
+        "verdict": "moteur",
+        "seconds": 111
       }
     },
     {
@@ -739,6 +1389,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Chevrolet_Corvette_C6_Z06_-_engine_and_exhaust_sound_%28YouTube_N3I-54kjT7I%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.888,
+        "speech": 0.0,
+        "music": 0.031,
+        "silence": 0.047,
+        "clips": [
+          0.0,
+          26.4,
+          36.5,
+          46.6,
+          56.6,
+          66.7,
+          76.8,
+          86.9,
+          97.0,
+          107.0,
+          117.1,
+          127.2
+        ],
+        "verdict": "moteur",
+        "seconds": 155
       }
     },
     {
@@ -759,6 +1431,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Dodge_Viper_GTS_-_engine_and_exhaust_sound_%28YouTube_Kcy6fjTiun8%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.743,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.183,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          70.6,
+          90.2,
+          100.3,
+          110.4,
+          120.5
+        ],
+        "verdict": "moteur",
+        "seconds": 245
       }
     },
     {
@@ -779,6 +1473,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ferrari_812_Superfast_-_engine_and_exhaust_sound_%28YouTube_UbQ5e4z5WXc%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.986,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          90.7,
+          100.8,
+          110.9,
+          121.0
+        ],
+        "verdict": "moteur",
+        "seconds": 213
       }
     },
     {
@@ -799,6 +1515,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ferrari_F12_berlinetta_-_engine_and_exhaust_sound_%28YouTube_YGefdcd6d80%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.823,
+        "speech": 0.053,
+        "music": 0.0,
+        "silence": 0.012,
+        "clips": [
+          11.0,
+          21.1,
+          31.2,
+          41.3,
+          63.8,
+          76.3,
+          94.6,
+          104.6,
+          125.3,
+          135.4,
+          145.4,
+          159.4
+        ],
+        "verdict": "moteur",
+        "seconds": 272
       }
     },
     {
@@ -819,6 +1557,22 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ferrari_F40_-_engine_and_exhaust_sound_%28YouTube_yfF5gtwxBzY%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.853,
+        "speech": 0.005,
+        "music": 0.005,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          45.1,
+          55.2,
+          76.8
+        ],
+        "verdict": "moteur",
+        "seconds": 92
       }
     },
     {
@@ -839,6 +1593,20 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ferrari_F50_-_engine_and_exhaust_sound_%28YouTube_lXnOouQrUtM%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.581,
+        "speech": 0.032,
+        "music": 0.024,
+        "silence": 0.0,
+        "clips": [
+          8.6,
+          18.7,
+          37.4,
+          47.5
+        ],
+        "verdict": "moteur",
+        "seconds": 60
       }
     },
     {
@@ -859,6 +1627,18 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ferrari_LaFerrari_-_engine_and_exhaust_sound_%28YouTube_miX50gTQndk%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.54,
+        "speech": 0.239,
+        "music": 0.0,
+        "silence": 0.196,
+        "clips": [
+          30.7,
+          70.6
+        ],
+        "verdict": "mixte",
+        "seconds": 157
       }
     },
     {
@@ -879,6 +1659,15 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ferrari_Testarossa_-_engine_and_exhaust_sound_%28YouTube_jOiYsgNQvEM%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.0,
+        "speech": 0.026,
+        "music": 0.0,
+        "silence": 0.5,
+        "clips": [],
+        "verdict": "mixte",
+        "seconds": 55
       }
     },
     {
@@ -899,6 +1688,17 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ferrari_458_Speciale_-_engine_and_exhaust_sound_%28YouTube_nltPXKAN6BI%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.526,
+        "speech": 0.308,
+        "music": 0.013,
+        "silence": 0.0,
+        "clips": [
+          9.1
+        ],
+        "verdict": "parole",
+        "seconds": 38
       }
     },
     {
@@ -919,6 +1719,18 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ferrari_575M_-_engine_and_exhaust_sound_%28YouTube_u6lF7E-yo2k%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.724,
+        "speech": 0.086,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          6.2,
+          32.6
+        ],
+        "verdict": "mixte",
+        "seconds": 51
       }
     },
     {
@@ -939,6 +1751,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ford_GT40_%281965%29_-_engine_and_exhaust_sound_%28YouTube_CMkcU4WozHM%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.938,
+        "speech": 0.005,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          93.6,
+          107.5,
+          117.6
+        ],
+        "verdict": "moteur",
+        "seconds": 363
       }
     },
     {
@@ -959,6 +1793,20 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ford_Sierra_RS_Cosworth_%28tuned%2C_about_600_hp%29_-_engine_and_exhaust_sound_%28YouTube_7e3q50wwmNE%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 1.0,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2
+        ],
+        "verdict": "moteur",
+        "seconds": 48
       }
     },
     {
@@ -979,6 +1827,24 @@
         "url": "https://commons.wikimedia.org/wiki/File:Honda_S2000_-_engine_and_exhaust_sound_%28YouTube_aTd8viYxxnU%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.773,
+        "speech": 0.0,
+        "music": 0.044,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          51.8,
+          61.9,
+          72.0,
+          87.8,
+          97.9,
+          108.0
+        ],
+        "verdict": "moteur",
+        "seconds": 131
       }
     },
     {
@@ -999,6 +1865,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lamborghini_Countach_-_engine_and_exhaust_sound_%28YouTube_uYv1l31kgKc%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.127,
+        "speech": 0.057,
+        "music": 0.0,
+        "silence": 0.142,
+        "clips": [
+          27.4,
+          47.0,
+          69.1,
+          79.2,
+          89.3
+        ],
+        "verdict": "moteur",
+        "seconds": 102
       }
     },
     {
@@ -1019,6 +1900,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lamborghini_Aventador_SVJ_-_engine_and_exhaust_sound_%28YouTube_zqv9zLtHsUM%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.684,
+        "speech": 0.039,
+        "music": 0.013,
+        "silence": 0.0,
+        "clips": [
+          17.8,
+          49.0,
+          83.5,
+          93.6,
+          103.7,
+          131.0,
+          141.1,
+          151.2,
+          161.3,
+          171.4,
+          195.4,
+          216.0
+        ],
+        "verdict": "moteur",
+        "seconds": 298
       }
     },
     {
@@ -1039,6 +1942,15 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lamborghini_Huracan_Performante_-_engine_and_exhaust_sound_%28YouTube_QsDJ3Y7k4qg%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.0,
+        "speech": 0.929,
+        "music": 0.071,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "parole",
+        "seconds": 317
       }
     },
     {
@@ -1059,6 +1971,17 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lamborghini_Espada_-_engine_and_exhaust_sound_%28YouTube_3D3ryefwttM%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.484,
+        "speech": 0.137,
+        "music": 0.0,
+        "silence": 0.056,
+        "clips": [
+          43.2
+        ],
+        "verdict": "mixte",
+        "seconds": 60
       }
     },
     {
@@ -1079,6 +2002,20 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lancia_Delta_Integrale_-_engine_and_exhaust_sound_%28YouTube_0qq7MZ00ipI%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.886,
+        "speech": 0.0,
+        "music": 0.024,
+        "silence": 0.0,
+        "clips": [
+          15.4,
+          25.4,
+          54.2,
+          64.3
+        ],
+        "verdict": "moteur",
+        "seconds": 80
       }
     },
     {
@@ -1099,6 +2036,20 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lexus_GS_F_-_engine_and_exhaust_sound_%28YouTube_AP2aZpKx2Fw%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.522,
+        "speech": 0.014,
+        "music": 0.138,
+        "silence": 0.007,
+        "clips": [
+          7.7,
+          17.8,
+          27.8,
+          37.9
+        ],
+        "verdict": "mixte",
+        "seconds": 67
       }
     },
     {
@@ -1119,6 +2070,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Maserati_MC12_-_engine_and_exhaust_sound_%28YouTube_lbir2sgqIW0%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.825,
+        "speech": 0.014,
+        "music": 0.002,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.6,
+          25.0,
+          36.0,
+          46.1,
+          58.6,
+          68.6,
+          78.7,
+          88.8,
+          106.1,
+          116.2,
+          126.2
+        ],
+        "verdict": "moteur",
+        "seconds": 273
       }
     },
     {
@@ -1139,6 +2112,25 @@
         "url": "https://commons.wikimedia.org/wiki/File:McLaren_P1_-_engine_and_exhaust_sound_%28YouTube_M1xuT1ue10c%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.821,
+        "speech": 0.014,
+        "music": 0.028,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          31.7,
+          41.8,
+          51.8,
+          61.9,
+          77.8,
+          87.8,
+          97.9,
+          108.0
+        ],
+        "verdict": "moteur",
+        "seconds": 137
       }
     },
     {
@@ -1159,6 +2151,26 @@
         "url": "https://commons.wikimedia.org/wiki/File:McLaren_675LT_-_engine_and_exhaust_sound_%28YouTube_Uc0FP4UDuQ0%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.826,
+        "speech": 0.037,
+        "music": 0.096,
+        "silence": 0.0,
+        "clips": [
+          10.6,
+          20.6,
+          30.7,
+          40.8,
+          50.9,
+          61.0,
+          79.2,
+          89.3,
+          99.4,
+          109.4
+        ],
+        "verdict": "moteur",
+        "seconds": 130
       }
     },
     {
@@ -1179,6 +2191,26 @@
         "url": "https://commons.wikimedia.org/wiki/File:Mazda_RX-7_-_engine_and_exhaust_sound_%28YouTube_4z0y1H2REvE%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.69,
+        "speech": 0.003,
+        "music": 0.066,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.6,
+          97.9,
+          116.2,
+          186.7,
+          196.8,
+          245.3,
+          264.5,
+          274.6,
+          284.6
+        ],
+        "verdict": "moteur",
+        "seconds": 298
       }
     },
     {
@@ -1199,6 +2231,15 @@
         "url": "https://commons.wikimedia.org/wiki/File:Mazda_RX-8_-_engine_and_exhaust_sound_%28YouTube_u-Lc2Nt3OR8%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.549,
+        "speech": 0.176,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "mixte",
+        "seconds": 25
       }
     },
     {
@@ -1219,6 +2260,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_C_63_AMG_%28W205%29_-_engine_and_exhaust_sound_%28YouTube_vF6zks1NLtI%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.929,
+        "speech": 0.004,
+        "music": 0.032,
+        "silence": 0.03,
+        "clips": [
+          8.2,
+          18.2,
+          28.3,
+          38.4,
+          48.5,
+          58.6,
+          68.6,
+          78.7,
+          88.8,
+          98.9,
+          109.0,
+          119.0
+        ],
+        "verdict": "moteur",
+        "seconds": 224
       }
     },
     {
@@ -1239,6 +2302,22 @@
         "url": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_E_55_AMG_%28W211%29_-_engine_and_exhaust_sound_%28YouTube_AtUCKqRvGmA%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.869,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.095,
+        "clips": [
+          1.0,
+          11.0,
+          21.1,
+          31.2,
+          41.3,
+          51.4
+        ],
+        "verdict": "moteur",
+        "seconds": 66
       }
     },
     {
@@ -1259,6 +2338,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Nissan_Skyline_GT-R_-_engine_and_exhaust_sound_%28YouTube_NpqxDM7pejs%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.879,
+        "speech": 0.0,
+        "music": 0.032,
+        "silence": 0.021,
+        "clips": [
+          21.6,
+          31.7,
+          41.8,
+          51.8,
+          82.6,
+          95.0,
+          105.1,
+          115.2,
+          125.3,
+          139.7,
+          149.8,
+          169.0
+        ],
+        "verdict": "moteur",
+        "seconds": 493
       }
     },
     {
@@ -1279,6 +2380,27 @@
         "url": "https://commons.wikimedia.org/wiki/File:Nissan_Skyline_R34_-_engine_and_exhaust_sound_%28YouTube_2L4tuUZNQ_Q%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.581,
+        "speech": 0.3,
+        "music": 0.006,
+        "silence": 0.0,
+        "clips": [
+          33.6,
+          72.0,
+          95.0,
+          117.6,
+          157.4,
+          173.8,
+          237.6,
+          265.9,
+          276.0,
+          300.5,
+          310.6
+        ],
+        "verdict": "parole",
+        "seconds": 431
       }
     },
     {
@@ -1299,6 +2421,19 @@
         "url": "https://commons.wikimedia.org/wiki/File:Porsche_Carrera_GT_-_engine_and_exhaust_sound_%28YouTube_ti9wpsDF4MI%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.44,
+        "speech": 0.005,
+        "music": 0.538,
+        "silence": 0.0,
+        "clips": [
+          40.8,
+          50.9,
+          70.1
+        ],
+        "verdict": "musique",
+        "seconds": 89
       }
     },
     {
@@ -1319,6 +2454,22 @@
         "url": "https://commons.wikimedia.org/wiki/File:Porsche_911_GT3_RS_-_engine_and_exhaust_sound_%28YouTube_hpwTF8TXcaA%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.719,
+        "speech": 0.013,
+        "music": 0.234,
+        "silence": 0.004,
+        "clips": [
+          13.0,
+          23.0,
+          33.1,
+          43.2,
+          64.3,
+          83.5
+        ],
+        "verdict": "mixte",
+        "seconds": 113
       }
     },
     {
@@ -1339,6 +2490,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Porsche_911_GT3_%28997%29_-_engine_and_exhaust_sound_%28YouTube_3WHXKH_Ouc%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.774,
+        "speech": 0.049,
+        "music": 0.015,
+        "silence": 0.001,
+        "clips": [
+          0.0,
+          10.1,
+          27.8,
+          37.9,
+          57.1,
+          71.5,
+          98.9,
+          109.0,
+          144.5,
+          154.6,
+          170.9,
+          194.9
+        ],
+        "verdict": "moteur",
+        "seconds": 452
       }
     },
     {
@@ -1359,6 +2532,24 @@
         "url": "https://commons.wikimedia.org/wiki/File:Porsche_718_Cayman_GT4_-_engine_and_exhaust_sound_%28YouTube_kkIs6pcgVBo%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.943,
+        "speech": 0.019,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          34.6,
+          44.6,
+          54.7,
+          64.8,
+          74.9,
+          85.0
+        ],
+        "verdict": "moteur",
+        "seconds": 101
       }
     },
     {
@@ -1379,6 +2570,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Porsche_928_-_engine_and_exhaust_sound_%28YouTube_47ixZop9ZPs%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.77,
+        "speech": 0.014,
+        "music": 0.0,
+        "silence": 0.072,
+        "clips": [
+          7.2,
+          17.3,
+          27.4,
+          37.4,
+          47.5
+        ],
+        "verdict": "moteur",
+        "seconds": 67
       }
     },
     {
@@ -1399,6 +2605,17 @@
         "url": "https://commons.wikimedia.org/wiki/File:Renault_5_Turbo_2_-_engine_and_exhaust_sound_%28YouTube_9yqNZjwGvCo%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.788,
+        "speech": 0.03,
+        "music": 0.03,
+        "silence": 0.0,
+        "clips": [
+          9.6
+        ],
+        "verdict": "moteur",
+        "seconds": 32
       }
     },
     {
@@ -1419,6 +2636,17 @@
         "url": "https://commons.wikimedia.org/wiki/File:Shelby_Cobra_-_engine_and_exhaust_sound_%28YouTube_7StXF8s_ElU%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.544,
+        "speech": 0.235,
+        "music": 0.0,
+        "silence": 0.015,
+        "clips": [
+          13.9
+        ],
+        "verdict": "mixte",
+        "seconds": 33
       }
     },
     {
@@ -1439,6 +2667,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Shelby_GT350_-_engine_and_exhaust_sound_%28YouTube_tZyiN61fTHI%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.794,
+        "speech": 0.024,
+        "music": 0.03,
+        "silence": 0.0,
+        "clips": [
+          16.3,
+          44.6,
+          79.7,
+          89.8,
+          117.1,
+          134.4,
+          144.5,
+          162.2,
+          178.6,
+          204.0,
+          249.6,
+          277.4
+        ],
+        "verdict": "moteur",
+        "seconds": 533
       }
     },
     {
@@ -1459,6 +2709,18 @@
         "url": "https://commons.wikimedia.org/wiki/File:Toyota_Supra_%28A80%29_-_engine_and_exhaust_sound_%28YouTube_YlRjnMnHRO4%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.667,
+        "speech": 0.058,
+        "music": 0.014,
+        "silence": 0.0,
+        "clips": [
+          9.1,
+          19.2
+        ],
+        "verdict": "moteur",
+        "seconds": 34
       }
     },
     {
@@ -1479,6 +2741,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:BMW_M3_GTR_-_engine_and_exhaust_sound_%28YouTube_r4qL2wTGcFM%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.844,
+        "speech": 0.006,
+        "music": 0.011,
+        "silence": 0.006,
+        "clips": [
+          1.9,
+          16.8,
+          34.6,
+          44.6,
+          89.8,
+          99.8,
+          109.9,
+          120.0,
+          140.2,
+          157.0,
+          167.0,
+          180.0
+        ],
+        "verdict": "moteur",
+        "seconds": 600
       }
     },
     {
@@ -1499,6 +2783,15 @@
         "url": "https://commons.wikimedia.org/wiki/File:BMW_M3_GTS_-_engine_and_exhaust_sound_%28YouTube_5H5IY9_12uM%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.111,
+        "speech": 0.0,
+        "music": 0.852,
+        "silence": 0.0,
+        "clips": [],
+        "verdict": "musique",
+        "seconds": 131
       }
     },
     {
@@ -1519,6 +2812,22 @@
         "url": "https://commons.wikimedia.org/wiki/File:Volkswagen_Beetle_1300_%281972%29_-_engine_and_exhaust_sound_%28YouTube_6eRGDPTtxYI%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.761,
+        "speech": 0.007,
+        "music": 0.0,
+        "silence": 0.063,
+        "clips": [
+          3.4,
+          13.4,
+          23.5,
+          33.6,
+          43.7,
+          53.8
+        ],
+        "verdict": "moteur",
+        "seconds": 69
       }
     },
     {
@@ -1539,6 +2848,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_GTV6_-_engine_and_exhaust_sound_%28YouTube_kX2PYswTWdg%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.97,
+        "speech": 0.01,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          90.7,
+          100.8,
+          110.9
+        ],
+        "verdict": "moteur",
+        "seconds": 192
       }
     },
     {
@@ -1559,6 +2890,20 @@
         "url": "https://commons.wikimedia.org/wiki/File:Datsun_240Z_-_engine_and_exhaust_sound_%28YouTube_onKs-1u-Aeo%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.44,
+        "speech": 0.007,
+        "music": 0.291,
+        "silence": 0.015,
+        "clips": [
+          0.0,
+          13.9,
+          24.0,
+          34.1
+        ],
+        "verdict": "mixte",
+        "seconds": 65
       }
     },
     {
@@ -1579,6 +2924,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Audi_RS3_-_engine_and_exhaust_sound_%28YouTube_uuEytKIzqeY%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.895,
+        "speech": 0.016,
+        "music": 0.002,
+        "silence": 0.0,
+        "clips": [
+          37.9,
+          48.0,
+          58.1,
+          68.2,
+          78.2,
+          88.3,
+          98.4,
+          108.5,
+          118.6,
+          128.6,
+          138.7,
+          148.8
+        ],
+        "verdict": "moteur",
+        "seconds": 537
       }
     },
     {
@@ -1599,6 +2966,28 @@
         "url": "https://commons.wikimedia.org/wiki/File:Subaru_WRX_STI_-_engine_and_exhaust_sound_%28YouTube--bynUdphkbc%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.627,
+        "speech": 0.055,
+        "music": 0.028,
+        "silence": 0.0,
+        "clips": [
+          8.2,
+          18.2,
+          49.9,
+          60.0,
+          70.1,
+          80.2,
+          101.8,
+          122.4,
+          132.5,
+          142.6,
+          152.6,
+          168.0
+        ],
+        "verdict": "moteur",
+        "seconds": 321
       }
     },
     {
@@ -1619,6 +3008,17 @@
         "url": "https://commons.wikimedia.org/wiki/File:Jaguar_F-Type_SVR_-_engine_and_exhaust_sound_%28YouTube_1aYpunE9cHo%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.096,
+        "speech": 0.633,
+        "music": 0.108,
+        "silence": 0.031,
+        "clips": [
+          137.8
+        ],
+        "verdict": "parole",
+        "seconds": 156
       }
     },
     {
@@ -1639,6 +3039,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Chevrolet_Bel_Air_-_engine_and_exhaust_sound_%28YouTube_h2EslS4y9Ds%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.439,
+        "speech": 0.414,
+        "music": 0.0,
+        "silence": 0.121,
+        "clips": [
+          10.1,
+          35.0,
+          47.0,
+          57.1,
+          158.9
+        ],
+        "verdict": "parole",
+        "seconds": 210
       }
     },
     {
@@ -1659,6 +3074,20 @@
         "url": "https://commons.wikimedia.org/wiki/File:Morris_Mini_-_engine_and_exhaust_sound_%28YouTube_K-j53v8lwzM%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.782,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.169,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          35.5
+        ],
+        "verdict": "moteur",
+        "seconds": 60
       }
     },
     {
@@ -1679,6 +3108,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Peugeot_106_Rallye_-_engine_and_exhaust_sound_%28YouTube_Z2iFd9mSyhE%29.opus",
         "license": "CC BY 3.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      "qc": {
+        "engine": 0.991,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3
+        ],
+        "verdict": "moteur",
+        "seconds": 54
       }
     }
   ]

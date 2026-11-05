@@ -53,3 +53,19 @@ Un MP3 hébergé sur un autre domaine doit autoriser le CORS (`Access-Control-Al
 - **Vidéos** : intégrées via les lecteurs officiels de YouTube (mode confidentialité renforcée `youtube-nocookie.com`) et d'Instagram. Elles restent hébergées par leurs auteurs.
 
 Un auteur souhaite le retrait d'un contenu ? Ouvrez une *issue* : il sera retiré.
+
+## Contrôle qualité des sons
+
+Tout ce qui entre dans le catalogue n'est pas forcément du son moteur : certaines vidéos sont des essais commentés, des podcasts ou des montages en musique. [`tools/qc_audio.py`](tools/qc_audio.py) écoute chaque son et chaque vidéo avec YAMNet, le classifieur de sons de Google, et classe chaque demi-seconde en parole, musique, silence ou moteur. Il écrit le résultat dans le champ `qc` de chaque contenu de `data/catalogue.json` :
+
+- `verdict` vaut `moteur`, `mixte`, `parole` ou `musique`. Les contenus `parole` et `musique` sont écartés du site. Pour en garder un quand même, ajoute `"qcOk": true` sur ce contenu.
+- `clips` donne les débuts des passages de 10 secondes sans voix ni musique. Le blind test ne joue que ces passages.
+
+Après chaque import, lance cette commande, qui n'analyse que les nouveaux contenus :
+
+```
+pip install -r tools/requirements-qc.txt   # Python 3.10 à 3.12
+python tools/qc_audio.py
+```
+
+Pour ré-analyser tout le catalogue, ajoute `--all`. Pour afficher le bilan sans rien relancer, utilise `--report`.
