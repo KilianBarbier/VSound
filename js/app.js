@@ -108,6 +108,25 @@ const BRAND_INFO = {
   Morris: { country: 'Royaume-Uni' },
   Peugeot: { country: 'France' },
 };
+// Profils de l'écran « Choose your driver » (Frame 01 de la maquette)
+const PROFILES = [
+  { id: 'camille', name: 'Camille' },
+  { id: 'maxime', name: 'Maxime' },
+  { id: 'amine', name: 'Amine' },
+];
+const currentProfile = () => PROFILES.find((p) => p.id === store.get('profile', null)) || null;
+const followKey = () => 'follow.' + (currentProfile()?.id || 'invite');
+
+function renderUser() {
+  const p = currentProfile();
+  const a = document.querySelector('.user');
+  a.querySelector('span').textContent = p ? p.name : 'Profils';
+  const img = a.querySelector('img');
+  img.src = p ? `${A}profile-${p.id}.jpg` : `${A}user.png`;
+  img.classList.toggle('photo', !!p);
+  a.setAttribute('aria-label', p ? `Profil : ${p.name}, changer de profil` : 'Choisir un profil');
+}
+
 const COUNTRIES = ['Italie', 'Allemagne', 'Japon', 'États-Unis', 'Royaume-Uni', 'France'];
 
 function igCode(url) {
@@ -348,7 +367,7 @@ function viewHome() {
       follow: film.credit.author,
     },
   ];
-  const followed = new Set(store.get('follow', []));
+  const followed = new Set(store.get(followKey(), []));
   const homeBrands = ['BMW', 'Mercedes', 'Toyota', 'Dodge', 'Nissan']
     .map((n) => brandList().find((b) => b.name === n))
     .filter(Boolean);
@@ -408,11 +427,11 @@ function viewHome() {
   hero.addEventListener('click', (e) => {
     const bell = e.target.closest('[data-follow]');
     if (bell) {
-      const f = new Set(store.get('follow', []));
+      const f = new Set(store.get(followKey(), []));
       const name = bell.dataset.follow;
       const on = !f.has(name);
       on ? f.add(name) : f.delete(name);
-      store.set('follow', [...f]);
+      store.set(followKey(), [...f]);
       for (const b of main.querySelectorAll(`[data-follow="${CSS.escape(name)}"]`)) b.setAttribute('aria-pressed', String(on));
       toast(on ? `Vous suivez ${name}` : `Vous ne suivez plus ${name}`);
     }
@@ -506,25 +525,9 @@ function listPage(title, items, sub) {
 /* ================= Sons (Frame 01 + programme) ================= */
 function viewSons(params) {
   const all = sounds();
-  const picks = [
-    ['V12', 'Awi5LQkRfwA'],
-    ['V8', 'r0ivLc0rj_I'],
-    ['Flat', 'Ca5o7RW2SlA'],
-  ].filter(([f]) => all.some((i) => i.family === f));
   let list = all;
   const fams = Object.keys(DB.families).filter((f) => all.some((i) => i.family === f));
   main.innerHTML = `
-  <section class="splash">
-    <img class="bg" src="${A}splash-red.jpg" alt="">
-    <a class="splash-logo" href="#/" aria-label="VSound">${document.querySelector('.logo svg').outerHTML}</a>
-    <h2>CHOISISSEZ VOTRE PROGRAMME</h2>
-    <div class="picks">${picks
-      .map(
-        ([f, vid]) =>
-          `<button class="pick" data-fam="${esc(f)}"><div class="ph"><img src="https://i.ytimg.com/vi/${vid}/hqdefault.jpg" alt="" loading="lazy"></div><b>${esc(famLabel(f))}</b><span>${plural(all.filter((i) => i.family === f).length, 'enregistrement')}</span></button>`,
-      )
-      .join('')}</div>
-  </section>
   <div class="page">
     ${pageHead('Tous les sons', 'Votre son', params.q)}
     <div class="chips">${['', ...fams].map((f) => `<button class="chip" data-f="${esc(f)}" aria-pressed="${(params.f || '') === f}">${f ? esc(famLabel(f)) : 'Tous'}</button>`).join('')}</div>
@@ -552,9 +555,35 @@ function viewSons(params) {
     params.f = c.dataset.f;
     draw();
   });
-  for (const b of main.querySelectorAll('.pick')) b.onclick = () => player.playQueue(shuffle(all.filter((i) => i.family === b.dataset.fam)));
   document.getElementById('all').onclick = () => list.length && player.playQueue(list);
   document.getElementById('shuf').onclick = () => list.length && player.playQueue(shuffle(list));
+}
+
+/* ================= Profils (Frame 01) ================= */
+function viewProfiles(params) {
+  document.body.classList.add('bare');
+  const cur = currentProfile();
+  main.innerHTML = `<section class="profiles">
+    <img class="bg" src="${A}splash-red.jpg" alt="">
+    <div class="profiles-inner">
+      <div class="p-logo" role="img" aria-label="VSound"><svg viewBox="0 0 214 32.15" aria-hidden="true">
+          <defs><mask id="logo-cut-xl"><rect x="44.72" y="3.9" width="165" height="24.45" fill="#fff"/><text x="127.22" y="26.05" text-anchor="middle" textLength="159" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="28.6" fill="#000">SOUND</text></mask></defs>
+          <path d="M22.83 23.21H19.43L29.16 6H37.7L25.67 26.05H16.39L4.35 6H13.07L22.83 23.21Z" fill="currentColor"/>
+          <rect x="44.72" y="3.9" width="165" height="24.45" fill="currentColor" mask="url(#logo-cut-xl)"/>
+        </svg></div>
+      <h1>CHOISISSEZ VOTRE PILOTE</h1>
+      <div class="picks">${PROFILES.map(
+        (p) => `<button class="pick" data-profile="${p.id}" aria-pressed="${cur?.id === p.id}"><span class="ph"><img src="${A}profile-${p.id}.jpg" alt=""></span><b>${esc(p.name)}</b></button>`,
+      ).join('')}</div>
+    </div>
+  </section>`;
+  main.querySelector('.picks').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-profile]');
+    if (!b) return;
+    store.set('profile', b.dataset.profile);
+    renderUser();
+    location.hash = params.next ? decodeURIComponent(params.next) : '#/';
+  });
 }
 
 /* ================= Recherche ================= */
@@ -811,6 +840,7 @@ function route() {
   viewAbort.abort();
   viewAbort = new AbortController();
   top.classList.remove('overlay');
+  document.body.classList.remove('bare');
 
   const raw = location.hash.replace(/^#\/?/, '');
   const [path, qs] = raw.split('?');
@@ -823,11 +853,12 @@ function route() {
     a.classList.toggle('active', on);
     on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current');
   }
-  const titles = { categories: 'Catégories', marques: 'Marques', createurs: 'Créateurs', sons: 'Sons', fil: 'Le fil', recherche: 'Recherche', 'a-propos': 'À propos' };
+  const titles = { profils: 'Profils', categories: 'Catégories', marques: 'Marques', createurs: 'Créateurs', sons: 'Sons', fil: 'Le fil', recherche: 'Recherche', 'a-propos': 'À propos' };
   document.title = titles[page] ? `${titles[page]} — VSound` : 'VSound — la musique des moteurs';
 
   const views = {
-    home: () => viewHome(),
+    home: () => (currentProfile() ? viewHome() : location.replace('#/profils')),
+    profils: () => viewProfiles(params),
     categories: () => viewCategories(),
     c: () => viewCategory(parts[1], parts[2]),
     marques: () => viewBrands(),
@@ -853,6 +884,7 @@ async function boot() {
     console.error(e);
     return;
   }
+  renderUser();
   addEventListener('hashchange', route);
   route();
 }

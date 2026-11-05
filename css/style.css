@@ -57,7 +57,7 @@ main { outline: none; }
   padding: 0 calc(var(--u) * 30) 0 calc(var(--u) * 31);
 }
 .top a, .top button { text-shadow: 0 0 10px rgba(0, 0, 0, .5); }
-.logo { display: block; flex: none; }
+.logo { display: block; flex: none; color: var(--white); }
 .logo svg { display: block; height: calc(var(--u) * 32.15); width: auto; }
 .nav { display: flex; align-items: center; gap: calc(var(--u) * 48); margin-left: calc(var(--u) * 48); }
 .nav a { font: 800 max(13px, calc(var(--u) * 20))/1 var(--font); white-space: nowrap; }
@@ -416,8 +416,31 @@ footer.foot a { text-decoration: underline; }
 .chev.prev img { transform: scaleX(-1); }
 .flip-y { transform: scaleY(-1); }
 .card-label.long { font-size: max(11px, calc(var(--u) * 22)); top: calc(var(--u) * 141); }
-.pick .ph img { height: 134%; margin-top: -17%; }
 @media (max-width: 640px) { .card-label.long { top: auto; } }
 @media (max-width: 640px) {
   .splash-logo, .splash h2, .picks { position: relative; z-index: 1; left: auto; transform: none; }
 }
+
+/* ---------- Écran de profil « Choose your driver » (Frame 01) ---------- */
+body.bare .top { display: none; }
+body.bare { padding-bottom: 0; }
+.profiles { position: relative; min-height: 100dvh; display: grid; place-items: center; overflow: hidden; text-align: center; }
+.profiles > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.profiles-inner { position: relative; display: flex; flex-direction: column; align-items: center; padding: calc(var(--u) * 60) 16px; }
+.p-logo { width: calc(var(--u) * 420); min-width: 240px; color: var(--white); filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .25)); }
+.p-logo svg { width: 100%; height: auto; display: block; }
+.profiles h1 { margin-top: calc(var(--u) * 76); font: 800 max(20px, calc(var(--u) * 40))/1.2 var(--font); text-shadow: 0 4px 4px rgba(0, 0, 0, .25); }
+.profiles .picks { position: static; display: flex; justify-content: center; gap: calc(var(--u) * 71); margin-top: calc(var(--u) * 38); }
+.profiles .pick { width: calc(var(--u) * 350); }
+.profiles .pick .ph { display: block; width: calc(var(--u) * 350); height: calc(var(--u) * 350); box-shadow: 0 0 111px rgba(0, 0, 0, .43); outline: 0 solid var(--white); outline-offset: 0; transition: outline-width .12s; }
+.profiles .pick:hover .ph, .profiles .pick:focus-visible .ph { outline-width: max(3px, calc(var(--u) * 6)); }
+.profiles .pick:focus-visible { outline: none; }
+.profiles .pick b { margin-top: calc(var(--u) * 17); font: 800 max(16px, calc(var(--u) * 40))/1.2 var(--font); text-shadow: 0 4px 4px rgba(0, 0, 0, .25); }
+.user img.photo { object-fit: cover; border: max(2px, calc(var(--u) * 3)) solid var(--white); }
+@media (max-width: 640px) {
+  .profiles .picks { flex-wrap: wrap; gap: 18px; }
+  .profiles .pick, .profiles .pick .ph { width: 40vw; }
+  .profiles .pick .ph { height: 40vw; }
+}
+/* logo sur fond clair : on l'inverse */
+.on-light .logo, .on-light .p-logo { color: #000; filter: none; }

@@ -17,11 +17,10 @@
   <header class="top" id="top">
     <div class="top-inner">
       <a class="logo" href="#/" aria-label="VSound, accueil">
-        <svg viewBox="0 0 214.07 32.15" aria-hidden="true">
-          <rect width="214.07" height="32.15" fill="#000"/>
-          <rect x="44.72" y="3.9" width="165" height="24.45" fill="#fff"/>
-          <path d="M22.83 23.21H19.43L29.16 6H37.7L25.67 26.05H16.39L4.35 6H13.07L22.83 23.21Z" fill="#fff"/>
-          <text x="127.22" y="26.05" text-anchor="middle" textLength="159" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="28.6" fill="#000">SOUND</text>
+        <svg viewBox="0 0 214 32.15" aria-hidden="true">
+          <defs><mask id="logo-cut"><rect x="44.72" y="3.9" width="165" height="24.45" fill="#fff"/><text x="127.22" y="26.05" text-anchor="middle" textLength="159" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="28.6" fill="#000">SOUND</text></mask></defs>
+          <path d="M22.83 23.21H19.43L29.16 6H37.7L25.67 26.05H16.39L4.35 6H13.07L22.83 23.21Z" fill="currentColor"/>
+          <rect x="44.72" y="3.9" width="165" height="24.45" fill="currentColor" mask="url(#logo-cut)"/>
         </svg>
       </a>
       <nav class="nav" aria-label="Navigation principale">
@@ -31,13 +30,14 @@
         <a href="#/createurs" data-nav="createurs">Créateurs</a>
         <a href="#/sons" data-nav="sons">Sons</a>
         <a href="#/fil" data-nav="fil">Le fil</a>
+        <a href="#/a-propos" data-nav="a-propos">À propos</a>
       </nav>
       <div class="top-right">
         <a class="top-search" href="#/recherche" data-nav="recherche">
           <span class="mag" aria-hidden="true"><img class="ring" src="assets/vhub/search-b.svg" alt=""><img class="handle" src="assets/vhub/search-a.svg" alt=""></span>
           <span>Rechercher</span>
         </a>
-        <a class="user" href="#/a-propos" data-nav="a-propos"><span>À propos</span><img src="assets/vhub/user.png" alt=""></a>
+        <a class="user" href="#/profils" data-nav="profils"><span>Profils</span><img src="assets/vhub/user.png" alt=""></a>
       </div>
     </div>
   </header>
