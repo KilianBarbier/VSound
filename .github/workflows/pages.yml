@@ -23,7 +23,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Vérifier le catalogue
-        run: node -e "const c=require('./data/catalogue.json');const ids=new Set();for(const i of c.items){if(ids.has(i.id))throw new Error('id en double: '+i.id);ids.add(i.id);if(!c.families[i.family])throw new Error('famille inconnue: '+i.id)}console.log(c.items.length+' éléments OK')"
+        run: |
+          node -e "
+            const c = require('./data/catalogue.json');
+            const ids = new Set();
+            for (const i of c.items) {
+              if (ids.has(i.id)) throw new Error('id en double : ' + i.id);
+              ids.add(i.id);
+              if (!c.families[i.family]) throw new Error('famille inconnue : ' + i.id);
+            }
+            console.log(c.items.length + ' éléments OK');
+          "
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
