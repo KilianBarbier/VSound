@@ -215,7 +215,7 @@ function draw({ canvas, style }, data) {
   }
   if (style === 'bars') {
     const bw = w / n;
-    g.fillStyle = '#d4af6a';
+    g.fillStyle = '#ffffff';
     for (let i = 0; i < n; i++) {
       const bh = Math.max(1.5, vals[i] * h);
       g.fillRect(i * bw + 1, h - bh, bw - 2, bh);
@@ -225,9 +225,9 @@ function draw({ canvas, style }, data) {
   // style « salle de concert » : ondes symétriques
   const mid = h * 0.5;
   const grad = g.createLinearGradient(0, 0, w, 0);
-  grad.addColorStop(0, 'rgba(212,175,106,0)');
-  grad.addColorStop(0.5, 'rgba(240,211,154,0.9)');
-  grad.addColorStop(1, 'rgba(212,175,106,0)');
+  grad.addColorStop(0, 'rgba(255,255,255,0)');
+  grad.addColorStop(0.5, 'rgba(255,255,255,0.95)');
+  grad.addColorStop(1, 'rgba(255,255,255,0)');
   g.fillStyle = grad;
   const bw = w / n;
   for (let i = 0; i < n; i++) {
