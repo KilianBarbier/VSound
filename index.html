@@ -5,26 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>VSound — la musique des moteurs</title>
   <meta name="description" content="VSound : une plateforme dédiée uniquement aux sons de moteurs. Vidéos, Reels et enregistrements crédités, à écouter comme de la musique classique.">
-  <meta name="theme-color" content="#0d0b0a">
+  <meta name="theme-color" content="#000000">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip" href="#main">Aller au contenu</a>
-  <header class="top">
-    <a class="logo" href="#/" aria-label="VSound, accueil"><i>V</i><b>SOUND</b></a>
-    <nav class="nav" aria-label="Navigation principale">
-      <a href="#/" data-nav="home">Accueil</a>
-      <a href="#/fil" data-nav="fil">Le fil</a>
-      <a href="#/videos" data-nav="videos">Vidéos</a>
-      <a href="#/sons" data-nav="sons">Sons</a>
-      <a href="#/a-propos" data-nav="a-propos">À propos</a>
-    </nav>
-    <div class="top-right">
-      <a class="top-search" href="#/videos?focus=1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/></svg><span>Rechercher</span></a>
+  <header class="top" id="top">
+    <div class="top-inner">
+      <a class="logo" href="#/" aria-label="VSound, accueil">
+        <svg viewBox="0 0 214.07 32.15" aria-hidden="true">
+          <rect width="214.07" height="32.15" fill="#000"/>
+          <rect x="44.72" y="3.9" width="165" height="24.45" fill="#fff"/>
+          <path d="M22.83 23.21H19.43L29.16 6H37.7L25.67 26.05H16.39L4.35 6H13.07L22.83 23.21Z" fill="#fff"/>
+          <text x="127.22" y="26.05" text-anchor="middle" textLength="159" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="28.6" fill="#000">SOUND</text>
+        </svg>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#/" data-nav="home">Accueil</a>
+        <a href="#/categories" data-nav="categories">Catégories</a>
+        <a href="#/marques" data-nav="marques">Marques</a>
+        <a href="#/createurs" data-nav="createurs">Créateurs</a>
+        <a href="#/sons" data-nav="sons">Sons</a>
+        <a href="#/fil" data-nav="fil">Le fil</a>
+      </nav>
+      <div class="top-right">
+        <a class="top-search" href="#/recherche" data-nav="recherche">
+          <span class="mag" aria-hidden="true"><img class="ring" src="assets/vhub/search-b.svg" alt=""><img class="handle" src="assets/vhub/search-a.svg" alt=""></span>
+          <span>Rechercher</span>
+        </a>
+        <a class="user" href="#/a-propos" data-nav="a-propos"><span>À propos</span><img src="assets/vhub/user.png" alt=""></a>
+      </div>
     </div>
   </header>
 

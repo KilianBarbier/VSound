@@ -19,6 +19,9 @@
       "car": "Mazda 787B",
       "engine": "Rotatif 4 rotors R26B",
       "family": "Rotary",
+      "brands": [
+        "Mazda"
+      ],
       "credit": {
         "author": "Motorsports Cars Passion",
         "source": "YouTube",
@@ -34,6 +37,9 @@
       "car": "Mazda 787B",
       "engine": "Rotatif 4 rotors R26B",
       "family": "Rotary",
+      "brands": [
+        "Mazda"
+      ],
       "credit": {
         "author": "Automotive Mike",
         "source": "YouTube",
@@ -49,6 +55,9 @@
       "car": "Mazda 787B",
       "engine": "Rotatif 4 rotors R26B",
       "family": "Rotary",
+      "brands": [
+        "Mazda"
+      ],
       "credit": {
         "author": "Worlds Racing",
         "source": "YouTube",
@@ -64,6 +73,9 @@
       "car": "Mazda 787B",
       "engine": "Rotatif 4 rotors R26B",
       "family": "Rotary",
+      "brands": [
+        "Mazda"
+      ],
       "credit": {
         "author": "Jalopnik",
         "source": "YouTube",
@@ -79,6 +91,9 @@
       "car": "Mazda 787B",
       "engine": "Rotatif 4 rotors R26B",
       "family": "Rotary",
+      "brands": [
+        "Mazda"
+      ],
       "credit": {
         "author": "pop_moto",
         "source": "YouTube",
@@ -94,6 +109,10 @@
       "car": "Lexus LFA · Porsche Carrera GT",
       "engine": "V10 atmosphériques",
       "family": "V10",
+      "brands": [
+        "Lexus",
+        "Porsche"
+      ],
       "credit": {
         "author": "NM2255 | Raw Car Sounds",
         "source": "YouTube",
@@ -109,6 +128,10 @@
       "car": "Lexus LFA · Porsche Carrera GT",
       "engine": "V10 atmosphériques",
       "family": "V10",
+      "brands": [
+        "Lexus",
+        "Porsche"
+      ],
       "credit": {
         "author": "NM2255 | Raw Car Sounds",
         "source": "YouTube",
@@ -124,6 +147,10 @@
       "car": "Lexus LFA · Porsche Carrera GT",
       "engine": "V10 atmosphériques",
       "family": "V10",
+      "brands": [
+        "Lexus",
+        "Porsche"
+      ],
       "credit": {
         "author": "carwow",
         "source": "YouTube",
@@ -139,6 +166,10 @@
       "car": "Lexus LFA · Carrera GT · Audi RS3",
       "engine": "V10 et 5 cylindres",
       "family": "V10",
+      "brands": [
+        "Lexus",
+        "Audi"
+      ],
       "credit": {
         "author": "Hagerty",
         "source": "YouTube",
@@ -154,6 +185,11 @@
       "car": "Dodge Viper ACR · Lexus LFA · Porsche Carrera GT",
       "engine": "V10",
       "family": "V10",
+      "brands": [
+        "Dodge",
+        "Lexus",
+        "Porsche"
+      ],
       "credit": {
         "author": "4enthusiasts",
         "source": "YouTube",
@@ -169,6 +205,7 @@
       "car": "Compilation",
       "engine": "V10",
       "family": "V10",
+      "brands": [],
       "credit": {
         "author": "Petrolheadz Channel",
         "source": "YouTube",
@@ -184,6 +221,9 @@
       "car": "Ferrari F2004 (F1)",
       "engine": "V10 3,0 L Tipo 053",
       "family": "V10",
+      "brands": [
+        "Ferrari"
+      ],
       "credit": {
         "author": "Sie Entertainment",
         "source": "YouTube",
@@ -199,6 +239,9 @@
       "car": "Ferrari F1",
       "engine": "V10 3,0 L",
       "family": "V10",
+      "brands": [
+        "Ferrari"
+      ],
       "credit": {
         "author": "Barney Ward",
         "source": "YouTube",
@@ -214,6 +257,9 @@
       "car": "Ferrari F1",
       "engine": "V10 3,0 L",
       "family": "V10",
+      "brands": [
+        "Ferrari"
+      ],
       "credit": {
         "author": "NM2255 | Raw Car Sounds",
         "source": "YouTube",
@@ -229,6 +275,9 @@
       "car": "Ferrari F2004 (F1)",
       "engine": "V10 3,0 L Tipo 053",
       "family": "V10",
+      "brands": [
+        "Ferrari"
+      ],
       "credit": {
         "author": "Marchettino",
         "source": "YouTube",
@@ -244,6 +293,10 @@
       "car": "Honda, Ferrari, Williams…",
       "engine": "V10 3,0 L",
       "family": "V10",
+      "brands": [
+        "Ferrari",
+        "Honda"
+      ],
       "credit": {
         "author": "BurningPiston",
         "source": "YouTube",
@@ -259,6 +312,7 @@
       "car": "Formule 1, plusieurs époques",
       "engine": "V12 · V10 · V8 · V6",
       "family": "Exotic",
+      "brands": [],
       "credit": {
         "author": "JonnyF1",
         "source": "YouTube",
@@ -274,6 +328,9 @@
       "car": "Rolls-Royce Merlin (moteur d’avion)",
       "engine": "V12 27 L",
       "family": "V12",
+      "brands": [
+        "Rolls-Royce"
+      ],
       "credit": {
         "author": "Foot to Pedal",
         "source": "YouTube",
@@ -289,6 +346,9 @@
       "car": "Lamborghini Murciélago",
       "engine": "V12 6,2 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
       "credit": {
         "author": "statesidesupercars",
         "source": "YouTube",
@@ -304,6 +364,9 @@
       "car": "Lamborghini Aventador SVJ",
       "engine": "V12 6,5 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
       "credit": {
         "author": "cvdzijden - Supercar Videos",
         "source": "YouTube",
@@ -319,6 +382,9 @@
       "car": "Lamborghini Aventador S",
       "engine": "V12 6,5 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
       "credit": {
         "author": "StyleNL",
         "source": "YouTube",
@@ -334,6 +400,9 @@
       "car": "Ferrari LaFerrari",
       "engine": "V12 6,3 L hybride",
       "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
       "credit": {
         "author": "NM2255 | Raw Car Sounds",
         "source": "YouTube",
@@ -349,6 +418,9 @@
       "car": "Ferrari LaFerrari",
       "engine": "V12 6,3 L hybride",
       "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
       "credit": {
         "author": "Inside Lane",
         "source": "YouTube",
@@ -364,6 +436,9 @@
       "car": "Ferrari GTC4Lusso",
       "engine": "V12 6,3 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
       "credit": {
         "author": "cvdzijden - Supercar Videos",
         "source": "YouTube",
@@ -379,6 +454,7 @@
       "car": "Compilation",
       "engine": "Surtout des V12",
       "family": "V12",
+      "brands": [],
       "credit": {
         "author": "Mike Supercars TopSpeed (Supercars Miami)",
         "source": "YouTube",
@@ -394,6 +470,9 @@
       "car": "Porsche 911 GT3 RSR",
       "engine": "6 cylindres à plat atmosphérique",
       "family": "Flat",
+      "brands": [
+        "Porsche"
+      ],
       "credit": {
         "author": "Automotive Mike",
         "source": "YouTube",
@@ -409,6 +488,9 @@
       "car": "Porsche 911 GT3 · GT3 RS",
       "engine": "6 cylindres à plat atmosphérique",
       "family": "Flat",
+      "brands": [
+        "Porsche"
+      ],
       "credit": {
         "author": "rallyepro43",
         "source": "YouTube",
@@ -424,6 +506,9 @@
       "car": "Porsche 911 GT3 RS (991)",
       "engine": "6 cylindres à plat 4,0 L",
       "family": "Flat",
+      "brands": [
+        "Porsche"
+      ],
       "credit": {
         "author": "NM2255 | Raw Car Sounds",
         "source": "YouTube",
@@ -439,6 +524,9 @@
       "car": "Porsche 911 GT3 RS",
       "engine": "6 cylindres à plat atmosphérique",
       "family": "Flat",
+      "brands": [
+        "Porsche"
+      ],
       "credit": {
         "author": "Le Mans Motors Passion",
         "source": "YouTube",
@@ -454,6 +542,9 @@
       "car": "Porsche 911 GT3 RS",
       "engine": "6 cylindres à plat atmosphérique",
       "family": "Flat",
+      "brands": [
+        "Porsche"
+      ],
       "credit": {
         "author": "tbazsi95",
         "source": "YouTube",
@@ -469,6 +560,9 @@
       "car": "Shelby Cobra",
       "engine": "V8 atmosphérique",
       "family": "V8",
+      "brands": [
+        "Shelby"
+      ],
       "credit": {
         "author": "JaggaTheBop",
         "source": "YouTube",
@@ -484,6 +578,7 @@
       "car": "Compilation",
       "engine": "V8",
       "family": "V8",
+      "brands": [],
       "credit": {
         "author": "Cars and Engines",
         "source": "YouTube",
@@ -499,6 +594,9 @@
       "car": "Ford Flathead",
       "engine": "V8 à soupapes latérales",
       "family": "V8",
+      "brands": [
+        "Ford"
+      ],
       "credit": {
         "author": "Cars and Engines",
         "source": "YouTube",
@@ -514,6 +612,9 @@
       "car": "Bugatti Tourbillon",
       "engine": "V16 8,3 L hybride",
       "family": "Exotic",
+      "brands": [
+        "Bugatti"
+      ],
       "credit": {
         "author": "Supercar Hunter",
         "source": "YouTube",
@@ -526,6 +627,10 @@
       "title": "Aston Martin One-77",
       "engine": "V12 7,3 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Aston Martin"
+      ],
+      "thumb": "https://i.ytimg.com/vi/Z9ql2lAqvQY/hqdefault.jpg",
       "duration": 144,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ef/Aston_Martin_One-77_-_engine_and_exhaust_sound_%28YouTube_Z9ql2lAqvQY%29.opus/Aston_Martin_One-77_-_engine_and_exhaust_sound_%28YouTube_Z9ql2lAqvQY%29.opus.mp3",
       "credit": {
@@ -542,6 +647,10 @@
       "title": "Aston Martin Vulcan",
       "engine": "V12 7,0 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Aston Martin"
+      ],
+      "thumb": "https://i.ytimg.com/vi/fUe9t9jj1Go/hqdefault.jpg",
       "duration": 207,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/0a/Aston_Martin_Vulcan_-_engine_and_exhaust_sound_%28YouTube_fUe9t9jj1Go%29.opus/Aston_Martin_Vulcan_-_engine_and_exhaust_sound_%28YouTube_fUe9t9jj1Go%29.opus.mp3",
       "credit": {
@@ -558,6 +667,10 @@
       "title": "Aston Martin DB9",
       "engine": "V12 5,9 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Aston Martin"
+      ],
+      "thumb": "https://i.ytimg.com/vi/44j4UgnbULU/hqdefault.jpg",
       "duration": 77,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/69/Aston_Martin_DB9_-_engine_and_exhaust_sound_%28YouTube_44j4UgnbULU%29.opus/Aston_Martin_DB9_-_engine_and_exhaust_sound_%28YouTube_44j4UgnbULU%29.opus.mp3",
       "credit": {
@@ -574,6 +687,10 @@
       "title": "Bugatti Chiron",
       "engine": "W16 8,0 L quadriturbo",
       "family": "Exotic",
+      "brands": [
+        "Bugatti"
+      ],
+      "thumb": "https://i.ytimg.com/vi/BtBU0O3j_ZE/hqdefault.jpg",
       "duration": 102,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e6/Bugatti_Chiron_-_engine_and_exhaust_sound_%28YouTube_BtBU0O3j_ZE%29.opus/Bugatti_Chiron_-_engine_and_exhaust_sound_%28YouTube_BtBU0O3j_ZE%29.opus.mp3",
       "credit": {
@@ -590,6 +707,10 @@
       "title": "Bugatti EB110",
       "engine": "V12 3,5 L quadriturbo",
       "family": "V12",
+      "brands": [
+        "Bugatti"
+      ],
+      "thumb": "https://i.ytimg.com/vi/r1GoPGO_j8w/hqdefault.jpg",
       "duration": 111,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/44/Bugatti_EB110_-_engine_and_exhaust_sound_%28YouTube_r1GoPGO_j8w%29.opus/Bugatti_EB110_-_engine_and_exhaust_sound_%28YouTube_r1GoPGO_j8w%29.opus.mp3",
       "credit": {
@@ -606,6 +727,10 @@
       "title": "Chevrolet Corvette C6 Z06",
       "engine": "V8 7,0 L atmosphérique",
       "family": "V8",
+      "brands": [
+        "Chevrolet"
+      ],
+      "thumb": "https://i.ytimg.com/vi/N3I-54kjT7I/hqdefault.jpg",
       "duration": 155,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a5/Chevrolet_Corvette_C6_Z06_-_engine_and_exhaust_sound_%28YouTube_N3I-54kjT7I%29.opus/Chevrolet_Corvette_C6_Z06_-_engine_and_exhaust_sound_%28YouTube_N3I-54kjT7I%29.opus.mp3",
       "credit": {
@@ -622,6 +747,10 @@
       "title": "Dodge Viper GTS",
       "engine": "V10 8,0 L atmosphérique",
       "family": "V10",
+      "brands": [
+        "Dodge"
+      ],
+      "thumb": "https://i.ytimg.com/vi/Kcy6fjTiun8/hqdefault.jpg",
       "duration": 245,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ee/Dodge_Viper_GTS_-_engine_and_exhaust_sound_%28YouTube_Kcy6fjTiun8%29.opus/Dodge_Viper_GTS_-_engine_and_exhaust_sound_%28YouTube_Kcy6fjTiun8%29.opus.mp3",
       "credit": {
@@ -638,6 +767,10 @@
       "title": "Ferrari 812 Superfast",
       "engine": "V12 6,5 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "thumb": "https://i.ytimg.com/vi/UbQ5e4z5WXc/hqdefault.jpg",
       "duration": 213,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/79/Ferrari_812_Superfast_-_engine_and_exhaust_sound_%28YouTube_UbQ5e4z5WXc%29.opus/Ferrari_812_Superfast_-_engine_and_exhaust_sound_%28YouTube_UbQ5e4z5WXc%29.opus.mp3",
       "credit": {
@@ -654,6 +787,10 @@
       "title": "Ferrari F12 berlinetta",
       "engine": "V12 6,3 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "thumb": "https://i.ytimg.com/vi/YGefdcd6d80/hqdefault.jpg",
       "duration": 272,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c9/Ferrari_F12_berlinetta_-_engine_and_exhaust_sound_%28YouTube_YGefdcd6d80%29.opus/Ferrari_F12_berlinetta_-_engine_and_exhaust_sound_%28YouTube_YGefdcd6d80%29.opus.mp3",
       "credit": {
@@ -670,6 +807,10 @@
       "title": "Ferrari F40",
       "engine": "V8 2,9 L biturbo",
       "family": "V8",
+      "brands": [
+        "Ferrari"
+      ],
+      "thumb": "https://i.ytimg.com/vi/yfF5gtwxBzY/hqdefault.jpg",
       "duration": 92,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/56/Ferrari_F40_-_engine_and_exhaust_sound_%28YouTube_yfF5gtwxBzY%29.opus/Ferrari_F40_-_engine_and_exhaust_sound_%28YouTube_yfF5gtwxBzY%29.opus.mp3",
       "credit": {
@@ -686,6 +827,10 @@
       "title": "Ferrari F50",
       "engine": "V12 4,7 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "thumb": "https://i.ytimg.com/vi/lXnOouQrUtM/hqdefault.jpg",
       "duration": 60,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1e/Ferrari_F50_-_engine_and_exhaust_sound_%28YouTube_lXnOouQrUtM%29.opus/Ferrari_F50_-_engine_and_exhaust_sound_%28YouTube_lXnOouQrUtM%29.opus.mp3",
       "credit": {
@@ -702,6 +847,10 @@
       "title": "Ferrari LaFerrari",
       "engine": "V12 6,3 L hybride",
       "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "thumb": "https://i.ytimg.com/vi/miX50gTQndk/hqdefault.jpg",
       "duration": 157,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/96/Ferrari_LaFerrari_-_engine_and_exhaust_sound_%28YouTube_miX50gTQndk%29.opus/Ferrari_LaFerrari_-_engine_and_exhaust_sound_%28YouTube_miX50gTQndk%29.opus.mp3",
       "credit": {
@@ -718,6 +867,10 @@
       "title": "Ferrari Testarossa",
       "engine": "12 cylindres à plat 4,9 L",
       "family": "Flat",
+      "brands": [
+        "Ferrari"
+      ],
+      "thumb": "https://i.ytimg.com/vi/jOiYsgNQvEM/hqdefault.jpg",
       "duration": 55,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d2/Ferrari_Testarossa_-_engine_and_exhaust_sound_%28YouTube_jOiYsgNQvEM%29.opus/Ferrari_Testarossa_-_engine_and_exhaust_sound_%28YouTube_jOiYsgNQvEM%29.opus.mp3",
       "credit": {
@@ -734,6 +887,10 @@
       "title": "Ferrari 458 Speciale",
       "engine": "V8 4,5 L atmosphérique, vilebrequin plat",
       "family": "V8",
+      "brands": [
+        "Ferrari"
+      ],
+      "thumb": "https://i.ytimg.com/vi/nltPXKAN6BI/hqdefault.jpg",
       "duration": 38,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/bd/Ferrari_458_Speciale_-_engine_and_exhaust_sound_%28YouTube_nltPXKAN6BI%29.opus/Ferrari_458_Speciale_-_engine_and_exhaust_sound_%28YouTube_nltPXKAN6BI%29.opus.mp3",
       "credit": {
@@ -750,6 +907,10 @@
       "title": "Ferrari 575M",
       "engine": "V12 5,7 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "thumb": "https://i.ytimg.com/vi/u6lF7E-yo2k/hqdefault.jpg",
       "duration": 51,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4f/Ferrari_575M_-_engine_and_exhaust_sound_%28YouTube_u6lF7E-yo2k%29.opus/Ferrari_575M_-_engine_and_exhaust_sound_%28YouTube_u6lF7E-yo2k%29.opus.mp3",
       "credit": {
@@ -766,6 +927,10 @@
       "title": "Ford GT40 (1965)",
       "engine": "V8 4,7 L atmosphérique",
       "family": "V8",
+      "brands": [
+        "Ford"
+      ],
+      "thumb": "https://i.ytimg.com/vi/CMkcU4WozHM/hqdefault.jpg",
       "duration": 363,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/09/Ford_GT40_%281965%29_-_engine_and_exhaust_sound_%28YouTube_CMkcU4WozHM%29.opus/Ford_GT40_%281965%29_-_engine_and_exhaust_sound_%28YouTube_CMkcU4WozHM%29.opus.mp3",
       "credit": {
@@ -782,6 +947,10 @@
       "title": "Ford Sierra RS Cosworth (préparée, ~600 ch)",
       "engine": "4 cylindres en ligne 2,0 L turbo",
       "family": "Inline",
+      "brands": [
+        "Ford"
+      ],
+      "thumb": "https://i.ytimg.com/vi/7e3q50wwmNE/hqdefault.jpg",
       "duration": 48,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Ford_Sierra_RS_Cosworth_%28tuned%2C_about_600_hp%29_-_engine_and_exhaust_sound_%28YouTube_7e3q50wwmNE%29.opus/Ford_Sierra_RS_Cosworth_%28tuned%2C_about_600_hp%29_-_engine_and_exhaust_sound_%28YouTube_7e3q50wwmNE%29.opus.mp3",
       "credit": {
@@ -798,6 +967,10 @@
       "title": "Honda S2000",
       "engine": "4 cylindres en ligne 2,0 L VTEC",
       "family": "Inline",
+      "brands": [
+        "Honda"
+      ],
+      "thumb": "https://i.ytimg.com/vi/aTd8viYxxnU/hqdefault.jpg",
       "duration": 131,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/bb/Honda_S2000_-_engine_and_exhaust_sound_%28YouTube_aTd8viYxxnU%29.opus/Honda_S2000_-_engine_and_exhaust_sound_%28YouTube_aTd8viYxxnU%29.opus.mp3",
       "credit": {
@@ -814,6 +987,10 @@
       "title": "Lamborghini Countach",
       "engine": "V12 atmosphérique",
       "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
+      "thumb": "https://i.ytimg.com/vi/uYv1l31kgKc/hqdefault.jpg",
       "duration": 102,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5c/Lamborghini_Countach_-_engine_and_exhaust_sound_%28YouTube_uYv1l31kgKc%29.opus/Lamborghini_Countach_-_engine_and_exhaust_sound_%28YouTube_uYv1l31kgKc%29.opus.mp3",
       "credit": {
@@ -830,6 +1007,10 @@
       "title": "Lamborghini Aventador SVJ",
       "engine": "V12 6,5 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
+      "thumb": "https://i.ytimg.com/vi/zqv9zLtHsUM/hqdefault.jpg",
       "duration": 298,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5c/Lamborghini_Aventador_SVJ_-_engine_and_exhaust_sound_%28YouTube_zqv9zLtHsUM%29.opus/Lamborghini_Aventador_SVJ_-_engine_and_exhaust_sound_%28YouTube_zqv9zLtHsUM%29.opus.mp3",
       "credit": {
@@ -846,6 +1027,10 @@
       "title": "Lamborghini Huracán Performante",
       "engine": "V10 5,2 L atmosphérique",
       "family": "V10",
+      "brands": [
+        "Lamborghini"
+      ],
+      "thumb": "https://i.ytimg.com/vi/QsDJ3Y7k4qg/hqdefault.jpg",
       "duration": 317,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/69/Lamborghini_Huracan_Performante_-_engine_and_exhaust_sound_%28YouTube_QsDJ3Y7k4qg%29.opus/Lamborghini_Huracan_Performante_-_engine_and_exhaust_sound_%28YouTube_QsDJ3Y7k4qg%29.opus.mp3",
       "credit": {
@@ -862,6 +1047,10 @@
       "title": "Lamborghini Espada",
       "engine": "V12 3,9 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
+      "thumb": "https://i.ytimg.com/vi/3D3ryefwttM/hqdefault.jpg",
       "duration": 60,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c2/Lamborghini_Espada_-_engine_and_exhaust_sound_%28YouTube_3D3ryefwttM%29.opus/Lamborghini_Espada_-_engine_and_exhaust_sound_%28YouTube_3D3ryefwttM%29.opus.mp3",
       "credit": {
@@ -878,6 +1067,10 @@
       "title": "Lancia Delta Integrale",
       "engine": "4 cylindres en ligne 2,0 L turbo",
       "family": "Inline",
+      "brands": [
+        "Lancia"
+      ],
+      "thumb": "https://i.ytimg.com/vi/0qq7MZ00ipI/hqdefault.jpg",
       "duration": 80,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1e/Lancia_Delta_Integrale_-_engine_and_exhaust_sound_%28YouTube_0qq7MZ00ipI%29.opus/Lancia_Delta_Integrale_-_engine_and_exhaust_sound_%28YouTube_0qq7MZ00ipI%29.opus.mp3",
       "credit": {
@@ -894,6 +1087,10 @@
       "title": "Lexus GS F",
       "engine": "V8 5,0 L atmosphérique",
       "family": "V8",
+      "brands": [
+        "Lexus"
+      ],
+      "thumb": "https://i.ytimg.com/vi/AP2aZpKx2Fw/hqdefault.jpg",
       "duration": 67,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/21/Lexus_GS_F_-_engine_and_exhaust_sound_%28YouTube_AP2aZpKx2Fw%29.opus/Lexus_GS_F_-_engine_and_exhaust_sound_%28YouTube_AP2aZpKx2Fw%29.opus.mp3",
       "credit": {
@@ -910,6 +1107,10 @@
       "title": "Maserati MC12",
       "engine": "V12 6,0 L atmosphérique",
       "family": "V12",
+      "brands": [
+        "Maserati"
+      ],
+      "thumb": "https://i.ytimg.com/vi/lbir2sgqIW0/hqdefault.jpg",
       "duration": 273,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/aa/Maserati_MC12_-_engine_and_exhaust_sound_%28YouTube_lbir2sgqIW0%29.opus/Maserati_MC12_-_engine_and_exhaust_sound_%28YouTube_lbir2sgqIW0%29.opus.mp3",
       "credit": {
@@ -926,6 +1127,10 @@
       "title": "McLaren P1",
       "engine": "V8 3,8 L biturbo hybride",
       "family": "V8",
+      "brands": [
+        "McLaren"
+      ],
+      "thumb": "https://i.ytimg.com/vi/M1xuT1ue10c/hqdefault.jpg",
       "duration": 137,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/63/McLaren_P1_-_engine_and_exhaust_sound_%28YouTube_M1xuT1ue10c%29.opus/McLaren_P1_-_engine_and_exhaust_sound_%28YouTube_M1xuT1ue10c%29.opus.mp3",
       "credit": {
@@ -942,6 +1147,10 @@
       "title": "McLaren 675LT",
       "engine": "V8 3,8 L biturbo",
       "family": "V8",
+      "brands": [
+        "McLaren"
+      ],
+      "thumb": "https://i.ytimg.com/vi/Uc0FP4UDuQ0/hqdefault.jpg",
       "duration": 130,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c3/McLaren_675LT_-_engine_and_exhaust_sound_%28YouTube_Uc0FP4UDuQ0%29.opus/McLaren_675LT_-_engine_and_exhaust_sound_%28YouTube_Uc0FP4UDuQ0%29.opus.mp3",
       "credit": {
@@ -958,6 +1167,10 @@
       "title": "Mazda RX-7",
       "engine": "Rotatif birotor",
       "family": "Rotary",
+      "brands": [
+        "Mazda"
+      ],
+      "thumb": "https://i.ytimg.com/vi/4z0y1H2REvE/hqdefault.jpg",
       "duration": 298,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/35/Mazda_RX-7_-_engine_and_exhaust_sound_%28YouTube_4z0y1H2REvE%29.opus/Mazda_RX-7_-_engine_and_exhaust_sound_%28YouTube_4z0y1H2REvE%29.opus.mp3",
       "credit": {
@@ -974,6 +1187,10 @@
       "title": "Mazda RX-8",
       "engine": "Rotatif birotor Renesis",
       "family": "Rotary",
+      "brands": [
+        "Mazda"
+      ],
+      "thumb": "https://i.ytimg.com/vi/u-Lc2Nt3OR8/hqdefault.jpg",
       "duration": 25,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/7e/Mazda_RX-8_-_engine_and_exhaust_sound_%28YouTube_u-Lc2Nt3OR8%29.opus/Mazda_RX-8_-_engine_and_exhaust_sound_%28YouTube_u-Lc2Nt3OR8%29.opus.mp3",
       "credit": {
@@ -990,6 +1207,10 @@
       "title": "Mercedes-AMG C 63 (W205)",
       "engine": "V8 4,0 L biturbo",
       "family": "V8",
+      "brands": [
+        "Mercedes"
+      ],
+      "thumb": "https://i.ytimg.com/vi/vF6zks1NLtI/hqdefault.jpg",
       "duration": 224,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/14/Mercedes-Benz_C_63_AMG_%28W205%29_-_engine_and_exhaust_sound_%28YouTube_vF6zks1NLtI%29.opus/Mercedes-Benz_C_63_AMG_%28W205%29_-_engine_and_exhaust_sound_%28YouTube_vF6zks1NLtI%29.opus.mp3",
       "credit": {
@@ -1006,6 +1227,10 @@
       "title": "Mercedes-Benz E 55 AMG (W211)",
       "engine": "V8 5,4 L à compresseur",
       "family": "V8",
+      "brands": [
+        "Mercedes"
+      ],
+      "thumb": "https://i.ytimg.com/vi/AtUCKqRvGmA/hqdefault.jpg",
       "duration": 66,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/ad/Mercedes-Benz_E_55_AMG_%28W211%29_-_engine_and_exhaust_sound_%28YouTube_AtUCKqRvGmA%29.opus/Mercedes-Benz_E_55_AMG_%28W211%29_-_engine_and_exhaust_sound_%28YouTube_AtUCKqRvGmA%29.opus.mp3",
       "credit": {
@@ -1022,6 +1247,10 @@
       "title": "Nissan Skyline GT-R",
       "engine": "6 cylindres en ligne biturbo",
       "family": "Inline",
+      "brands": [
+        "Nissan"
+      ],
+      "thumb": "https://i.ytimg.com/vi/NpqxDM7pejs/hqdefault.jpg",
       "duration": 493,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d6/Nissan_Skyline_GT-R_-_engine_and_exhaust_sound_%28YouTube_NpqxDM7pejs%29.opus/Nissan_Skyline_GT-R_-_engine_and_exhaust_sound_%28YouTube_NpqxDM7pejs%29.opus.mp3",
       "credit": {
@@ -1038,6 +1267,10 @@
       "title": "Nissan Skyline R34",
       "engine": "6 cylindres en ligne",
       "family": "Inline",
+      "brands": [
+        "Nissan"
+      ],
+      "thumb": "https://i.ytimg.com/vi/2L4tuUZNQ_Q/hqdefault.jpg",
       "duration": 431,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b2/Nissan_Skyline_R34_-_engine_and_exhaust_sound_%28YouTube_2L4tuUZNQ_Q%29.opus/Nissan_Skyline_R34_-_engine_and_exhaust_sound_%28YouTube_2L4tuUZNQ_Q%29.opus.mp3",
       "credit": {
@@ -1054,6 +1287,10 @@
       "title": "Porsche Carrera GT",
       "engine": "V10 5,7 L atmosphérique",
       "family": "V10",
+      "brands": [
+        "Porsche"
+      ],
+      "thumb": "https://i.ytimg.com/vi/ti9wpsDF4MI/hqdefault.jpg",
       "duration": 89,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/38/Porsche_Carrera_GT_-_engine_and_exhaust_sound_%28YouTube_ti9wpsDF4MI%29.opus/Porsche_Carrera_GT_-_engine_and_exhaust_sound_%28YouTube_ti9wpsDF4MI%29.opus.mp3",
       "credit": {
@@ -1070,6 +1307,10 @@
       "title": "Porsche 911 GT3 RS",
       "engine": "6 cylindres à plat atmosphérique",
       "family": "Flat",
+      "brands": [
+        "Porsche"
+      ],
+      "thumb": "https://i.ytimg.com/vi/hpwTF8TXcaA/hqdefault.jpg",
       "duration": 113,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/0b/Porsche_911_GT3_RS_-_engine_and_exhaust_sound_%28YouTube_hpwTF8TXcaA%29.opus/Porsche_911_GT3_RS_-_engine_and_exhaust_sound_%28YouTube_hpwTF8TXcaA%29.opus.mp3",
       "credit": {
@@ -1086,6 +1327,10 @@
       "title": "Porsche 911 GT3 (997)",
       "engine": "6 cylindres à plat atmosphérique",
       "family": "Flat",
+      "brands": [
+        "Porsche"
+      ],
+      "thumb": null,
       "duration": 452,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c8/Porsche_911_GT3_%28997%29_-_engine_and_exhaust_sound_%28YouTube_3WHXKH_Ouc%29.opus/Porsche_911_GT3_%28997%29_-_engine_and_exhaust_sound_%28YouTube_3WHXKH_Ouc%29.opus.mp3",
       "credit": {
@@ -1102,6 +1347,10 @@
       "title": "Porsche 718 Cayman GT4",
       "engine": "6 cylindres à plat 4,0 L atmosphérique",
       "family": "Flat",
+      "brands": [
+        "Porsche"
+      ],
+      "thumb": "https://i.ytimg.com/vi/kkIs6pcgVBo/hqdefault.jpg",
       "duration": 101,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3d/Porsche_718_Cayman_GT4_-_engine_and_exhaust_sound_%28YouTube_kkIs6pcgVBo%29.opus/Porsche_718_Cayman_GT4_-_engine_and_exhaust_sound_%28YouTube_kkIs6pcgVBo%29.opus.mp3",
       "credit": {
@@ -1118,6 +1367,10 @@
       "title": "Porsche 928",
       "engine": "V8 atmosphérique",
       "family": "V8",
+      "brands": [
+        "Porsche"
+      ],
+      "thumb": "https://i.ytimg.com/vi/47ixZop9ZPs/hqdefault.jpg",
       "duration": 67,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/51/Porsche_928_-_engine_and_exhaust_sound_%28YouTube_47ixZop9ZPs%29.opus/Porsche_928_-_engine_and_exhaust_sound_%28YouTube_47ixZop9ZPs%29.opus.mp3",
       "credit": {
@@ -1134,6 +1387,10 @@
       "title": "Renault 5 Turbo 2",
       "engine": "4 cylindres en ligne 1,4 L turbo",
       "family": "Inline",
+      "brands": [
+        "Renault"
+      ],
+      "thumb": "https://i.ytimg.com/vi/9yqNZjwGvCo/hqdefault.jpg",
       "duration": 32,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d3/Renault_5_Turbo_2_-_engine_and_exhaust_sound_%28YouTube_9yqNZjwGvCo%29.opus/Renault_5_Turbo_2_-_engine_and_exhaust_sound_%28YouTube_9yqNZjwGvCo%29.opus.mp3",
       "credit": {
@@ -1150,6 +1407,10 @@
       "title": "Shelby Cobra",
       "engine": "V8 atmosphérique",
       "family": "V8",
+      "brands": [
+        "Shelby"
+      ],
+      "thumb": "https://i.ytimg.com/vi/7StXF8s_ElU/hqdefault.jpg",
       "duration": 33,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/49/Shelby_Cobra_-_engine_and_exhaust_sound_%28YouTube_7StXF8s_ElU%29.opus/Shelby_Cobra_-_engine_and_exhaust_sound_%28YouTube_7StXF8s_ElU%29.opus.mp3",
       "credit": {
@@ -1166,6 +1427,10 @@
       "title": "Shelby GT350",
       "engine": "V8 5,2 L atmosphérique, vilebrequin plat",
       "family": "V8",
+      "brands": [
+        "Shelby"
+      ],
+      "thumb": "https://i.ytimg.com/vi/tZyiN61fTHI/hqdefault.jpg",
       "duration": 533,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a8/Shelby_GT350_-_engine_and_exhaust_sound_%28YouTube_tZyiN61fTHI%29.opus/Shelby_GT350_-_engine_and_exhaust_sound_%28YouTube_tZyiN61fTHI%29.opus.mp3",
       "credit": {
@@ -1182,6 +1447,10 @@
       "title": "Toyota Supra (A80)",
       "engine": "6 cylindres en ligne 3,0 L biturbo",
       "family": "Inline",
+      "brands": [
+        "Toyota"
+      ],
+      "thumb": "https://i.ytimg.com/vi/YlRjnMnHRO4/hqdefault.jpg",
       "duration": 34,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/fe/Toyota_Supra_%28A80%29_-_engine_and_exhaust_sound_%28YouTube_YlRjnMnHRO4%29.opus/Toyota_Supra_%28A80%29_-_engine_and_exhaust_sound_%28YouTube_YlRjnMnHRO4%29.opus.mp3",
       "credit": {
@@ -1198,6 +1467,10 @@
       "title": "BMW M3 GTR",
       "engine": "V8 4,0 L atmosphérique",
       "family": "V8",
+      "brands": [
+        "BMW"
+      ],
+      "thumb": "https://i.ytimg.com/vi/r4qL2wTGcFM/hqdefault.jpg",
       "duration": 600,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/96/BMW_M3_GTR_-_engine_and_exhaust_sound_%28YouTube_r4qL2wTGcFM%29.opus/BMW_M3_GTR_-_engine_and_exhaust_sound_%28YouTube_r4qL2wTGcFM%29.opus.mp3",
       "credit": {
@@ -1214,6 +1487,10 @@
       "title": "BMW M3 GTS",
       "engine": "V8 4,4 L atmosphérique",
       "family": "V8",
+      "brands": [
+        "BMW"
+      ],
+      "thumb": "https://i.ytimg.com/vi/5H5IY9_12uM/hqdefault.jpg",
       "duration": 131,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3b/BMW_M3_GTS_-_engine_and_exhaust_sound_%28YouTube_5H5IY9_12uM%29.opus/BMW_M3_GTS_-_engine_and_exhaust_sound_%28YouTube_5H5IY9_12uM%29.opus.mp3",
       "credit": {
@@ -1230,6 +1507,10 @@
       "title": "Volkswagen Coccinelle 1300 (1972)",
       "engine": "4 cylindres à plat refroidi par air",
       "family": "Flat",
+      "brands": [
+        "Volkswagen"
+      ],
+      "thumb": "https://i.ytimg.com/vi/6eRGDPTtxYI/hqdefault.jpg",
       "duration": 69,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/dc/Volkswagen_Beetle_1300_%281972%29_-_engine_and_exhaust_sound_%28YouTube_6eRGDPTtxYI%29.opus/Volkswagen_Beetle_1300_%281972%29_-_engine_and_exhaust_sound_%28YouTube_6eRGDPTtxYI%29.opus.mp3",
       "credit": {
@@ -1246,6 +1527,10 @@
       "title": "Alfa Romeo GTV6",
       "engine": "V6 2,5 L « Busso »",
       "family": "V6",
+      "brands": [
+        "Alfa Romeo"
+      ],
+      "thumb": "https://i.ytimg.com/vi/kX2PYswTWdg/hqdefault.jpg",
       "duration": 193,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/86/Alfa_Romeo_GTV6_-_engine_and_exhaust_sound_%28YouTube_kX2PYswTWdg%29.opus/Alfa_Romeo_GTV6_-_engine_and_exhaust_sound_%28YouTube_kX2PYswTWdg%29.opus.mp3",
       "credit": {
@@ -1262,6 +1547,10 @@
       "title": "Datsun 240Z",
       "engine": "6 cylindres en ligne 2,4 L",
       "family": "Inline",
+      "brands": [
+        "Datsun"
+      ],
+      "thumb": "https://i.ytimg.com/vi/onKs-1u-Aeo/hqdefault.jpg",
       "duration": 65,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/38/Datsun_240Z_-_engine_and_exhaust_sound_%28YouTube_onKs-1u-Aeo%29.opus/Datsun_240Z_-_engine_and_exhaust_sound_%28YouTube_onKs-1u-Aeo%29.opus.mp3",
       "credit": {
@@ -1278,6 +1567,10 @@
       "title": "Audi RS3",
       "engine": "5 cylindres en ligne 2,5 L turbo",
       "family": "Inline",
+      "brands": [
+        "Audi"
+      ],
+      "thumb": "https://i.ytimg.com/vi/uuEytKIzqeY/hqdefault.jpg",
       "duration": 537,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4d/Audi_RS3_-_engine_and_exhaust_sound_%28YouTube_uuEytKIzqeY%29.opus/Audi_RS3_-_engine_and_exhaust_sound_%28YouTube_uuEytKIzqeY%29.opus.mp3",
       "credit": {
@@ -1294,6 +1587,10 @@
       "title": "Subaru WRX STI",
       "engine": "4 cylindres à plat turbo",
       "family": "Flat",
+      "brands": [
+        "Subaru"
+      ],
+      "thumb": null,
       "duration": 321,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/7d/Subaru_WRX_STI_-_engine_and_exhaust_sound_%28YouTube--bynUdphkbc%29.opus/Subaru_WRX_STI_-_engine_and_exhaust_sound_%28YouTube--bynUdphkbc%29.opus.mp3",
       "credit": {
@@ -1310,6 +1607,10 @@
       "title": "Jaguar F-Type SVR",
       "engine": "V8 5,0 L à compresseur",
       "family": "V8",
+      "brands": [
+        "Jaguar"
+      ],
+      "thumb": "https://i.ytimg.com/vi/1aYpunE9cHo/hqdefault.jpg",
       "duration": 156,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/12/Jaguar_F-Type_SVR_-_engine_and_exhaust_sound_%28YouTube_1aYpunE9cHo%29.opus/Jaguar_F-Type_SVR_-_engine_and_exhaust_sound_%28YouTube_1aYpunE9cHo%29.opus.mp3",
       "credit": {
@@ -1326,6 +1627,10 @@
       "title": "Chevrolet Bel Air",
       "engine": "V8 atmosphérique",
       "family": "V8",
+      "brands": [
+        "Chevrolet"
+      ],
+      "thumb": "https://i.ytimg.com/vi/h2EslS4y9Ds/hqdefault.jpg",
       "duration": 210,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/72/Chevrolet_Bel_Air_-_engine_and_exhaust_sound_%28YouTube_h2EslS4y9Ds%29.opus/Chevrolet_Bel_Air_-_engine_and_exhaust_sound_%28YouTube_h2EslS4y9Ds%29.opus.mp3",
       "credit": {
@@ -1342,6 +1647,10 @@
       "title": "Morris Mini",
       "engine": "4 cylindres en ligne (série A)",
       "family": "Inline",
+      "brands": [
+        "Morris"
+      ],
+      "thumb": "https://i.ytimg.com/vi/K-j53v8lwzM/hqdefault.jpg",
       "duration": 60,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b5/Morris_Mini_-_engine_and_exhaust_sound_%28YouTube_K-j53v8lwzM%29.opus/Morris_Mini_-_engine_and_exhaust_sound_%28YouTube_K-j53v8lwzM%29.opus.mp3",
       "credit": {
@@ -1358,6 +1667,10 @@
       "title": "Peugeot 106 Rallye",
       "engine": "4 cylindres en ligne atmosphérique",
       "family": "Inline",
+      "brands": [
+        "Peugeot"
+      ],
+      "thumb": "https://i.ytimg.com/vi/Z2iFd9mSyhE/hqdefault.jpg",
       "duration": 54,
       "src": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b8/Peugeot_106_Rallye_-_engine_and_exhaust_sound_%28YouTube_Z2iFd9mSyhE%29.opus/Peugeot_106_Rallye_-_engine_and_exhaust_sound_%28YouTube_Z2iFd9mSyhE%29.opus.mp3",
       "credit": {

@@ -2,10 +2,14 @@
 
 Une plateforme dédiée **uniquement** aux sons de moteurs, à écouter comme de la musique classique.
 
-- **Le fil** : vidéos YouTube, Shorts et Reels Instagram à faire défiler verticalement, une par écran.
-- **Vidéos** : une galerie filtrable, avec une page individuelle et partageable pour chaque contenu.
+Le design reprend la maquette Figma « The VHub » (pages Home, Categories, Brands, Creators et l'écran rouge de sélection) ; ses visuels sont dans `assets/vhub/`.
+
+- **Accueil** : héros en carrousel avec carte créateur, puis les marques et des rangées de contenus.
+- **Catégories** : architecture (V12, V10, V8…), pays d'origine et format, en rangées à chevrons.
+- **Marques** et **Créateurs** : chaque marque et chaque auteur a sa page.
 - **Sons** : des enregistrements audio crédités, lus à la suite par un lecteur qui continue pendant la navigation (visualiseur, file d'attente, contrôles de l'écran verrouillé).
-- **Architectures** : V12, V10, V8, V6, à plat, en ligne, rotatif, hors norme.
+- **Le fil** : vidéos YouTube, Shorts et Reels Instagram à faire défiler verticalement, une par écran.
+- Chaque contenu a sa page individuelle, partageable (`#/s/<id>`).
 
 Site 100 % statique (HTML, CSS, JavaScript sans dépendance), publié sur GitHub Pages.
 
@@ -19,7 +23,7 @@ Puis ouvrir <http://localhost:5173>. Un serveur est nécessaire : `file://` emp�
 
 ## Ajouter du contenu
 
-Tout le catalogue tient dans [`data/catalogue.json`](data/catalogue.json), avec une entrée par contenu. `id` doit être unique et `family` doit être une des clés de `families`.
+Tout le catalogue tient dans [`data/catalogue.json`](data/catalogue.json), avec une entrée par contenu. `id` doit être unique et `family` doit être une des clés de `families`. Ajoutez `"brands": ["Ferrari"]` pour rattacher un contenu à une marque (le pays d'origine en découle), et `"thumb"` pour donner une vignette à un enregistrement audio.
 
 ```jsonc
 // Vidéo YouTube (ajouter "vertical": true pour un Short)
