@@ -935,23 +935,18 @@ const btPromo = () =>
   `<a class="bt-promo" href="#/blindtest"><span class="bt-ic">${BT_ICON}</span><span><b>Blind test</b><small>Écoute l’extrait, devine la marque</small></span>${CHEV}</a>`;
 
 function viewBlindtest() {
-  // Extraits jouables : ceux validés à la main dans le contrôle qualité (#/qc), avec leur recadrage ;
-  // à défaut, les passages repérés par tools/qc_audio.py (10 s sans voix ni musique). Les sons écartés sont exclus.
-  let decisions = {};
+  // Extraits jouables : uniquement ceux validés à la main dans le contrôle qualité (#/qc), avec leur recadrage.
+  // Les mauvaises réponses proposées sont tirées de toutes les marques candidates, pour varier.
+  let decisions = null;
   let pool = [];
-  let brands = [];
+  const brands = [...new Set(btCandidates().filter((i) => i.brands.length === 1).map((i) => i.brands[0]))];
   const buildPool = () => {
     pool = [];
     for (const it of btCandidates()) {
-      if (it.brands.length !== 1) continue;
-      const d = decisions[it.id];
-      if (d?.status === 'ecarte') continue;
-      if (d?.status === 'valide') pool.push({ it, starts: [d.clip_start], len: d.clip_end - d.clip_start, checked: true });
-      else if (it.qc?.clips?.length && isPure(it)) pool.push({ it, starts: it.qc.clips, len: BT_CLIP });
+      const d = decisions?.[it.id];
+      if (it.brands.length === 1 && d?.status === 'valide') pool.push({ it, starts: [d.clip_start], len: d.clip_end - d.clip_start });
     }
-    brands = [...new Set(pool.map((r) => r.it.brands[0]))];
   };
-  buildPool();
   const best = () => store.get('blindtest.best', 0);
   const audio = new Audio();
   audio.preload = 'auto';
@@ -981,15 +976,22 @@ function viewBlindtest() {
 
   const intro = () => {
     stopClip();
+    const n = Math.min(BT_ROUNDS, pool.length);
+    const body = !decisions
+      ? '<p>Chargement des extraits…</p>'
+      : n < 2
+        ? '<p>Pas encore assez d’extraits validés pour jouer. Reviens bientôt !</p>'
+        : `<p>${n} extraits de quelques secondes, tirés de ${pool.length} enregistrements vérifiés à l’oreille : que du moteur, sans voix ni musique. À la fin de chaque extrait, choisis la bonne marque entre deux propositions.</p>
+      <button class="bt-go" id="bt-start">Lancer la partie</button>`;
     stage.innerHTML = `<div class="bt-card bt-intro">
       <span class="bt-big-ic">${BT_ICON}</span>
       <h2>Devine la marque à l’oreille</h2>
-      <p>${BT_ROUNDS} extraits de quelques secondes, tirés de ${pool.length} enregistrements vérifiés : que du moteur, sans voix ni musique. À la fin de chaque extrait, choisis la bonne marque entre deux propositions.</p>
-      <button class="bt-go" id="bt-start">Lancer la partie</button>
+      ${body}
       ${best() ? `<p class="bt-best">Ton record : ${best()} / ${BT_ROUNDS}</p>` : ''}
       ${auth.isAdmin() ? '<a class="bt-admin" href="#/qc">Contrôle qualité des extraits</a>' : ''}
     </div>`;
-    document.getElementById('bt-start').onclick = start;
+    const go = document.getElementById('bt-start');
+    if (go) go.onclick = start;
   };
 
   auth
@@ -999,7 +1001,11 @@ function viewBlindtest() {
       buildPool();
       if (!game) intro();
     })
-    .catch((e) => console.warn('Décisions du contrôle qualité indisponibles', e));
+    .catch((e) => {
+      console.warn('Décisions du contrôle qualité indisponibles', e);
+      decisions = {};
+      if (!game) intro();
+    });
 
   const start = () => {
     player.pause();
@@ -1218,7 +1224,7 @@ function viewQC(params) {
 
   main.innerHTML = `<div class="page qc">
     ${pageHead('Contrôle qualité', '', '', 'Contrôle')}
-    <p class="page-sub qc-intro">Écoute chaque son, recadre l’extrait du blind test, puis valide-le ou écarte-le. Tant qu’un son n’est pas traité, le blind test utilise le passage repéré automatiquement.</p>
+    <p class="page-sub qc-intro">Écoute chaque son, recadre l’extrait du blind test, puis valide-le ou écarte-le. Seuls les extraits validés ici sont joués dans le blind test.</p>
     <div class="qc-stats" id="qc-stats"></div>
     <div class="chips qc-chips" id="qc-f">${[
       ['todo', 'À traiter'],

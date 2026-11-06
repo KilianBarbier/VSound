@@ -78,7 +78,7 @@ Les administrateurs ont accès à une page de contrôle, depuis l'écran du blin
 - recadrer l'extrait du blind test, entre 3 et 30 secondes, en tirant les bords ou en déplaçant la zone rouge ;
 - le valider avec son recadrage, ou l'écarter du blind test. Les raccourcis sont `Espace`, `V`, `X` et `N`.
 
-Les décisions sont enregistrées sur le Supabase du NAS, dans la table `bt_clips`. Le blind test les applique tout de suite. Un son non traité garde le passage repéré par le script. Pour ajouter un administrateur, insère son identifiant dans la table `admins`.
+Les décisions sont enregistrées sur le Supabase du NAS, dans la table `bt_clips`. Le blind test les applique tout de suite. Seuls les extraits validés sont joués : un son non traité n'apparaît pas dans le blind test. Pour ajouter un administrateur, insère son identifiant dans la table `admins`.
 
 Pour les vidéos YouTube, la page lit une copie légère (360p) stockée sur le NAS, donc sans publicité, avec une vraie forme d'onde. Ces copies sont dans le bucket privé `qc-media`, lisible seulement par les administrateurs, et ne sont pas sauvegardées. Une vidéo qui n'a pas encore de copie passe par le lecteur YouTube. Pour copier les vidéos qui manquent, par exemple après avoir lancé `find_pure_sounds.py` :
 
