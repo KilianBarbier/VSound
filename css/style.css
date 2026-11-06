@@ -533,3 +533,16 @@ body.bare { padding-bottom: 0; }
 .qc-msg:empty { display: none; }
 .qc-msg { font: 600 13px/1.3 var(--font); }
 .qc-msg.ko { color: #ff6b5e; }
+
+/* Blind test : vidéo YouTube floutée (on entend sans voir) */
+.bt-ythost { position: relative; width: min(640px, 100%); margin: 0 auto; height: 0; overflow: hidden; border-radius: 22px; transition: height .25s; }
+.bt-ythost.on { height: 170px; margin-top: max(20px, calc(var(--u) * 30)); background: #000; }
+.bt-ytframe { position: absolute; inset: -70px -40px; filter: blur(34px) saturate(1.2) brightness(.8); }
+.bt-ytframe iframe { width: 100%; height: 100%; border: 0; }
+.bt-ythost p { position: absolute; inset: 0; display: none; place-items: center; padding: 20px; text-align: center; font: 800 18px/1.3 var(--font); color: #fff; text-shadow: 0 2px 8px rgba(0, 0, 0, .7); pointer-events: none; }
+.bt-ythost.tap p { display: grid; }
+.bt-ythost.on + .bt-stage { padding-top: 16px; }
+.qc-yt { width: min(560px, 100%); aspect-ratio: 16 / 9; margin-top: 10px; border-radius: 10px; overflow: hidden; background: #000; }
+.qc-yt iframe { width: 100%; height: 100%; border: 0; display: block; }
+.qc-wave.flat { height: 54px; }
+.qc-cover { width: min(560px, 100%); aspect-ratio: 16 / 9; object-fit: cover; margin-top: 10px; border-radius: 10px; display: block; }

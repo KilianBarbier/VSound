@@ -79,3 +79,15 @@ Les administrateurs ont accès à une page de contrôle, depuis l'écran du blin
 - le valider avec son recadrage, ou l'écarter du blind test. Les raccourcis sont `Espace`, `V`, `X` et `N`.
 
 Les décisions sont enregistrées sur le Supabase du NAS, dans la table `bt_clips`. Le blind test les applique tout de suite. Un son non traité garde le passage repéré par le script. Pour ajouter un administrateur, insère son identifiant dans la table `admins`.
+
+### Trouver du son pur sur YouTube
+
+[`tools/find_pure_sounds.py`](tools/find_pure_sounds.py) cherche sur YouTube des vidéos annoncées comme du son pur (« pure sound », « engine sound only », « no music »…) pour chaque voiture de [`tools/cars.json`](tools/cars.json). Il écarte les jeux vidéo, essais, podcasts et réactions, puis écoute chaque candidate avec le contrôle qualité. Une vidéo n'est ajoutée que si elle contient moins de 5 % de voix et moins de 5 % de musique, avec au moins deux passages propres. Le script garde au plus deux vidéos par voiture.
+
+Pour couvrir d'autres modèles, ajoute-les dans `cars.json` puis lance :
+
+```
+python tools/find_pure_sounds.py
+```
+
+Sur le site, ne sont affichés que les contenus « purs » : moins de 10 % de voix et moins de 15 % de musique. Le blind test joue aussi ces vidéos, floutées pour qu'on n'en voie que le son.

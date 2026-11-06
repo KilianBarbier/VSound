@@ -1,5 +1,6 @@
 import { Player } from './player.js';
 import * as auth from './auth.js';
+import { createYT } from './yt.js';
 
 const main = document.getElementById('main');
 const top = document.getElementById('top');
@@ -119,6 +120,8 @@ const BRAND_INFO = {
   Jaguar: { country: 'Royaume-Uni' },
   Morris: { country: 'Royaume-Uni' },
   Peugeot: { country: 'France' },
+  Pagani: { country: 'Italie' },
+  Mitsubishi: { country: 'Japon' },
 };
 // Pilotes du compte connecté (écran « Choisissez votre pilote »)
 const currentProfile = () => auth.currentPilot();
@@ -144,12 +147,18 @@ function igCode(url) {
   return m ? m[1] : null;
 }
 
+// Son pur : pas (ou presque pas) de voix ni de musique d'après le contrôle qualité
+const isPure = (it) => {
+  const q = it.qc;
+  if (!q || q.verdict === 'erreur') return true; // pas encore analysé
+  return !['parole', 'musique'].includes(q.verdict) && (q.speech ?? 0) < 0.1 && (q.music ?? 0) < 0.15;
+};
 function prepare(raw) {
   const items = [];
   for (const it of raw.items || []) {
     // contrôle qualité (tools/qc_audio.py) : on écarte ce qui est surtout de la parole ou de la musique,
     // sauf si le contenu a été validé à la main (« qcOk »: true)
-    if (['parole', 'musique'].includes(it.qc?.verdict) && it.qcOk !== true) continue;
+    if (!isPure(it) && it.qcOk !== true) continue;
     const base = { brands: [], ...it };
     if (it.type === 'instagram') {
       const code = it.code || igCode(it.url);
@@ -164,8 +173,9 @@ function prepare(raw) {
 
 const visuals = () => DB.items.filter((i) => i.type !== 'audio');
 const sounds = () => DB.items.filter((i) => i.type === 'audio');
-// tous les sons, y compris ceux écartés automatiquement (pour le contrôle qualité et le blind test)
-const allAudio = () => (DB.all || DB.items).filter((i) => i.type === 'audio');
+// candidats du blind test, y compris ceux écartés automatiquement (pour le contrôle qualité) :
+// les MP3, et les vidéos YouTube dont le contrôle qualité a trouvé des passages sans voix ni musique
+const btCandidates = () => (DB.all || DB.items).filter((i) => (i.type === 'audio' && i.src) || (i.type === 'youtube' && i.qc?.clips?.length));
 const famLabel = (f) => DB.families[f] || f || '';
 const typeLabel = (it) => (it.type === 'audio' ? 'Son' : it.type === 'instagram' ? 'Reel' : it.vertical ? 'Short' : 'Vidéo');
 const thumbOf = (it) => (it.type === 'youtube' ? `https://i.ytimg.com/vi/${encodeURIComponent(it.videoId)}/hqdefault.jpg` : it.thumb || null);
@@ -932,12 +942,12 @@ function viewBlindtest() {
   let brands = [];
   const buildPool = () => {
     pool = [];
-    for (const it of allAudio()) {
-      if (it.brands.length !== 1 || !it.src) continue;
+    for (const it of btCandidates()) {
+      if (it.brands.length !== 1) continue;
       const d = decisions[it.id];
       if (d?.status === 'ecarte') continue;
       if (d?.status === 'valide') pool.push({ it, starts: [d.clip_start], len: d.clip_end - d.clip_start, checked: true });
-      else if (it.qc?.clips?.length && !['parole', 'musique'].includes(it.qc.verdict)) pool.push({ it, starts: it.qc.clips, len: BT_CLIP });
+      else if (it.qc?.clips?.length && isPure(it)) pool.push({ it, starts: it.qc.clips, len: BT_CLIP });
     }
     brands = [...new Set(pool.map((r) => r.it.brands[0]))];
   };
@@ -947,19 +957,27 @@ function viewBlindtest() {
   audio.preload = 'auto';
   let game = null;
   let timer = 0;
+  let ytp = null; // lecteur YouTube, créé au premier extrait vidéo et gardé toute la partie
   const stopClip = () => {
     clearTimeout(timer);
+    clearTimeout(stopClip.poll);
     cancelAnimationFrame(stopClip.raf);
     audio.pause();
+    ytp?.pause();
   };
   cleanup.push(() => {
     stopClip();
     audio.removeAttribute('src');
     audio.load();
+    ytp?.destroy();
   });
 
-  main.innerHTML = `<div class="page bt">${pageHead('Blind test', '')}<div class="bt-stage" id="bt"></div></div>${footer()}`;
+  // la vidéo est floutée : on entend le moteur sans voir la voiture ni le titre
+  main.innerHTML = `<div class="page bt">${pageHead('Blind test', '')}
+    <div class="bt-ythost" id="bt-ythost" aria-hidden="true"><div class="bt-ytframe"></div><p>Touchez la vidéo floutée pour lancer le son</p></div>
+    <div class="bt-stage" id="bt"></div></div>${footer()}`;
   const stage = document.getElementById('bt');
+  const host = document.getElementById('bt-ythost');
 
   const intro = () => {
     stopClip();
@@ -989,28 +1007,57 @@ function viewBlindtest() {
     question();
   };
 
+  // barre de progression, fondu sur la dernière seconde, arrêt au bout de « len » secondes
+  const runClip = (len, setVol, onEnd) => {
+    const t0 = performance.now();
+    const bar = stage.querySelector('.bt-progress i');
+    const tick = () => {
+      const p = Math.min(1, (performance.now() - t0) / (len * 1000));
+      if (bar) bar.style.transform = `scaleX(${p})`;
+      const left = len * (1 - p);
+      if (left < 1) setVol(Math.max(0, left));
+      if (p < 1) stopClip.raf = requestAnimationFrame(tick);
+    };
+    stopClip.raf = requestAnimationFrame(tick);
+    timer = setTimeout(() => {
+      stopClip();
+      onEnd();
+    }, len * 1000);
+  };
+
+  // Vidéo YouTube : on attend qu'elle joue vraiment le bon passage (après une éventuelle publicité,
+  // coupée en sourdine) avant de lancer le chrono. Sur téléphone, le premier son exige de toucher la vidéo.
+  const playYT = async (it, from, len, onEnd) => {
+    host.classList.add('on');
+    if (!ytp) ytp = await createYT(host.querySelector('.bt-ytframe'));
+    ytp.load(it.videoId, from, { muted: true });
+    const t0 = performance.now();
+    const wait = () => {
+      const inClip = ytp.playing && ytp.videoId === it.videoId && Math.abs(ytp.currentTime - from) < 3 && (!it.duration || Math.abs(ytp.duration - it.duration) < 6);
+      if (inClip) {
+        host.classList.remove('tap');
+        ytp.mute(false);
+        ytp.volume(1);
+        return runClip(len, (v) => ytp.volume(v), onEnd);
+      }
+      if (!ytp.playing && performance.now() - t0 > 2500) {
+        host.classList.add('tap');
+        const st = stage.querySelector('.bt-status');
+        if (st) st.textContent = 'Touchez la vidéo floutée pour lancer le son';
+      }
+      stopClip.poll = setTimeout(wait, 120);
+    };
+    wait();
+  };
+
   const playClip = (it, from, len, onEnd) => {
     stopClip();
+    if (it.type === 'youtube') return playYT(it, from, len, onEnd);
+    host.classList.remove('on', 'tap');
     const go = () => {
       audio.currentTime = from;
       audio.volume = 1;
-      const t0 = performance.now();
-      const bar = stage.querySelector('.bt-progress i');
-      const tick = () => {
-        const p = Math.min(1, (performance.now() - t0) / (len * 1000));
-        if (bar) bar.style.transform = `scaleX(${p})`;
-        // fondu sur la dernière seconde
-        const left = len * (1 - p);
-        if (left < 1) audio.volume = Math.max(0, left);
-        if (p < 1) stopClip.raf = requestAnimationFrame(tick);
-      };
-      audio.play().then(() => {
-        stopClip.raf = requestAnimationFrame(tick);
-        timer = setTimeout(() => {
-          stopClip();
-          onEnd();
-        }, len * 1000);
-      }, () => {
+      audio.play().then(() => runClip(len, (v) => (audio.volume = v), onEnd), () => {
         stage.querySelector('.bt-status').textContent = 'Touchez pour lancer le son';
         stage.querySelector('.bt-eq').onclick = () => playClip(it, from, len, onEnd);
       });
@@ -1141,7 +1188,7 @@ function viewQC(params) {
     main.innerHTML = `<div class="page">${pageHead('Contrôle qualité', '')}<p class="page-sub qc-empty">Cette page est réservée aux administrateurs de VSound.</p></div>${footer()}`;
     return;
   }
-  const list = allAudio().filter((i) => i.src);
+  const list = btCandidates();
   let decisions = {};
   let filter = ['todo', 'valide', 'ecarte', 'all'].includes(params.f) ? params.f : 'todo';
   let openId = null;
@@ -1151,9 +1198,18 @@ function viewQC(params) {
   const peaks = new Map(); // id -> Float32Array des crêtes
   let ed = null; // éditeur ouvert
   let raf = 0;
+  // ce qu'on écoute : l'élément <audio> pour un MP3, un lecteur YouTube pour une vidéo
+  const idle = { currentTime: 0, paused: true, play: () => Promise.resolve(), pause() {} };
+  let media = audio;
+  let ytp = null;
+  const dropYT = () => {
+    ytp?.destroy();
+    ytp = null;
+  };
   cleanup.push(() => {
     cancelAnimationFrame(raf);
     audio.pause();
+    dropYT();
     audio.removeAttribute('src');
     audio.load();
   });
@@ -1208,6 +1264,8 @@ function viewQC(params) {
   const close = () => {
     cancelAnimationFrame(raf);
     audio.pause();
+    dropYT();
+    media = audio;
     ed = null;
     openId = null;
   };
@@ -1261,8 +1319,10 @@ function viewQC(params) {
     const auto = it.qc?.clips || [];
     const first = d?.status === 'valide' ? d.clip_start : auto[0] ?? Math.min(5, Math.max(0, dur - BT_CLIP));
     ed = { it, dur, a: first, b: d?.status === 'valide' ? d.clip_end : Math.min(dur, first + BT_CLIP), mode: null, wave: null };
+    const isYT = it.type === 'youtube';
     box.innerHTML = `
-      <div class="qc-wave" id="qc-wave"><canvas></canvas><p class="qc-load">Chargement de la forme d’onde…</p></div>
+      ${isYT ? '<div class="qc-yt"><div></div></div>' : it.thumb ? `<img class="qc-cover" src="${esc(it.thumb.replace('/hqdefault.', '/mqdefault.'))}" alt="">` : ''}
+      <div class="qc-wave${isYT ? ' flat' : ''}" id="qc-wave"><canvas></canvas>${isYT ? '' : '<p class="qc-load">Chargement de la forme d’onde…</p>'}</div>
       <div class="qc-time"><span id="qc-pos">0:00.0</span><span id="qc-sel"></span><span>${fmtT(dur)}</span></div>
       ${auto.length ? `<div class="qc-auto"><span>Passages repérés sans voix :</span>${auto.map((c) => `<button data-auto="${c}">${fmtT(c)}</button>`).join('')}</div>` : '<p class="qc-auto"><span>Aucun passage sans voix repéré automatiquement : écoute et choisis toi-même.</span></p>'}
       <div class="qc-ctrl">
@@ -1282,9 +1342,20 @@ function viewQC(params) {
     const wave = box.querySelector('#qc-wave');
     const cv = wave.querySelector('canvas');
     ed.wave = wave;
-    if (audio.dataset.id !== it.id) {
-      audio.dataset.id = it.id;
-      audio.src = it.src;
+    if (isYT) {
+      media = idle;
+      createYT(box.querySelector('.qc-yt > div')).then((y) => {
+        if (!ed || ed.it !== it) return y.destroy();
+        ytp = y;
+        y.cue(it.videoId, ed.a);
+        media = y;
+      });
+    } else {
+      media = audio;
+      if (audio.dataset.id !== it.id) {
+        audio.dataset.id = it.id;
+        audio.src = it.src;
+      }
     }
     const clamp = () => {
       ed.a = Math.max(0, Math.min(ed.a, ed.dur - 3));
@@ -1323,22 +1394,23 @@ function viewQC(params) {
       for (const t of [ed.a, ed.b]) g.fillRect(x(t) - 1.5, 0, 3, h);
       // tête de lecture
       g.fillStyle = '#ffd60a';
-      g.fillRect(x(audio.currentTime || 0) - 1, 0, 2, h);
-      document.getElementById('qc-pos').textContent = fmtT(audio.currentTime || 0);
+      g.fillRect(x(media.currentTime || 0) - 1, 0, 2, h);
+      document.getElementById('qc-pos').textContent = fmtT(media.currentTime || 0);
       document.getElementById('qc-sel').textContent = `Extrait ${fmtT(ed.a)} → ${fmtT(ed.b)} (${(ed.b - ed.a).toFixed(1)} s)`;
     };
     ed.draw = draw;
     const loop = () => {
       draw();
-      if (ed?.clipEnd != null && audio.currentTime >= ed.clipEnd) {
-        audio.pause();
+      if (ed?.clipEnd != null && media.currentTime >= ed.clipEnd) {
+        media.pause();
         ed.clipEnd = null;
       }
       raf = requestAnimationFrame(loop);
     };
     cancelAnimationFrame(raf);
     loop();
-    loadPeaks(it)
+    if (!isYT)
+      loadPeaks(it)
       .then(() => wave.querySelector('.qc-load')?.remove())
       .catch(() => (wave.querySelector('.qc-load').textContent = 'Forme d’onde indisponible, l’écoute reste possible.'));
 
@@ -1377,7 +1449,7 @@ function viewQC(params) {
       clamp();
     });
     const up = () => {
-      if (ed.mode && !ed.moved) audio.currentTime = ed.t0;
+      if (ed.mode && !ed.moved) media.currentTime = ed.t0;
       if (ed.mode === 'new' && ed.moved && ed.b - ed.a < 3) ed.b = ed.a + BT_CLIP;
       clamp();
       ed.mode = null;
@@ -1388,9 +1460,9 @@ function viewQC(params) {
 
   const playClipQC = () => {
     if (!ed) return;
-    audio.currentTime = ed.a;
+    media.currentTime = ed.a;
     ed.clipEnd = ed.b;
-    audio.play();
+    media.play();
   };
   const msg = (t, ok = true) => {
     const m = document.getElementById('qc-msg');
@@ -1425,12 +1497,12 @@ function viewQC(params) {
     if (act === 'clip') playClipQC();
     else if (act === 'free') {
       ed.clipEnd = null;
-      audio.paused ? audio.play() : audio.pause();
+      media.paused ? media.play() : media.pause();
     } else if (act === 'a') {
-      ed.a = Math.min(audio.currentTime, ed.b - 3);
+      ed.a = Math.min(media.currentTime, ed.b - 3);
       if (ed.b - ed.a > 30) ed.b = ed.a + 30;
     } else if (act === 'b') {
-      ed.b = Math.max(audio.currentTime, ed.a + 3);
+      ed.b = Math.max(media.currentTime, ed.a + 3);
       if (ed.b - ed.a > 30) ed.a = ed.b - 30;
     } else if (act === 'm' || act === 'p') {
       const dt = act === 'm' ? -0.5 : 0.5;
@@ -1466,7 +1538,7 @@ function viewQC(params) {
       const k = e.key.toLowerCase();
       if (k === ' ') {
         e.preventDefault();
-        audio.paused ? playClipQC() : audio.pause();
+        media.paused ? playClipQC() : media.pause();
       } else if (k === 'v') decide('valide');
       else if (k === 'x') decide('ecarte');
       else if (k === 'n') nextTodo();

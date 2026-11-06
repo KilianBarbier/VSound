@@ -3124,6 +3124,3538 @@
         "verdict": "moteur",
         "seconds": 54
       }
+    },
+    {
+      "id": "nissan-skyline-gt-r-r34-son-pur",
+      "type": "youtube",
+      "videoId": "FqwYomXmPco",
+      "vertical": false,
+      "title": "Nissan Skyline GT-R R34 — son pur",
+      "car": "Nissan Skyline GT-R R34",
+      "engine": "6 cylindres en ligne 2,6 L biturbo RB26DETT",
+      "family": "Inline",
+      "brands": [
+        "Nissan"
+      ],
+      "duration": 49,
+      "credit": {
+        "author": "GTR 340",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=FqwYomXmPco"
+      },
+      "qc": {
+        "engine": 0.882,
+        "speech": 0.039,
+        "music": 0.01,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          22.6
+        ],
+        "verdict": "moteur",
+        "seconds": 49
+      },
+      "found": "auto"
+    },
+    {
+      "id": "nissan-skyline-gt-r-r34-son-pur-isnhln",
+      "type": "youtube",
+      "videoId": "ISNhlna1TsU",
+      "vertical": true,
+      "title": "Nissan Skyline GT-R R34 — son pur",
+      "car": "Nissan Skyline GT-R R34",
+      "engine": "6 cylindres en ligne 2,6 L biturbo RB26DETT",
+      "family": "Inline",
+      "brands": [
+        "Nissan"
+      ],
+      "duration": 60,
+      "credit": {
+        "author": "Dan Car Drive ",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=ISNhlna1TsU"
+      },
+      "qc": {
+        "engine": 0.895,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3
+        ],
+        "verdict": "moteur",
+        "seconds": 60
+      },
+      "found": "auto"
+    },
+    {
+      "id": "nissan-gt-r-r35-son-pur",
+      "type": "youtube",
+      "videoId": "bZreTOIph_Y",
+      "vertical": false,
+      "title": "Nissan GT-R R35 — son pur",
+      "car": "Nissan GT-R R35",
+      "engine": "V6 3,8 L biturbo",
+      "family": "V6",
+      "brands": [
+        "Nissan"
+      ],
+      "duration": 129,
+      "credit": {
+        "author": "Rev & Reveal",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=bZreTOIph_Y"
+      },
+      "qc": {
+        "engine": 0.948,
+        "speech": 0.0,
+        "music": 0.011,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          42.2,
+          52.3,
+          62.4,
+          72.5,
+          82.6,
+          100.8,
+          110.9
+        ],
+        "verdict": "moteur",
+        "seconds": 129
+      },
+      "found": "auto"
+    },
+    {
+      "id": "toyota-supra-a80-son-pur",
+      "type": "youtube",
+      "videoId": "PSukCXnDEUA",
+      "vertical": false,
+      "title": "Toyota Supra A80 — son pur",
+      "car": "Toyota Supra A80",
+      "engine": "6 cylindres en ligne 3,0 L biturbo 2JZ-GTE",
+      "family": "Inline",
+      "brands": [
+        "Toyota"
+      ],
+      "duration": 495,
+      "credit": {
+        "author": "NM2255 | Raw Car Sounds",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=PSukCXnDEUA"
+      },
+      "qc": {
+        "engine": 0.948,
+        "speech": 0.001,
+        "music": 0.003,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          91.7,
+          101.8,
+          111.8
+        ],
+        "verdict": "moteur",
+        "seconds": 495
+      },
+      "found": "auto"
+    },
+    {
+      "id": "toyota-supra-a80-son-pur-ntccfr",
+      "type": "youtube",
+      "videoId": "ntccfR-YCyU",
+      "vertical": false,
+      "title": "Toyota Supra A80 — son pur",
+      "car": "Toyota Supra A80",
+      "engine": "6 cylindres en ligne 3,0 L biturbo 2JZ-GTE",
+      "family": "Inline",
+      "brands": [
+        "Toyota"
+      ],
+      "duration": 130,
+      "credit": {
+        "author": "HALCYON",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=ntccfR-YCyU"
+      },
+      "qc": {
+        "engine": 0.915,
+        "speech": 0.011,
+        "music": 0.004,
+        "silence": 0.019,
+        "clips": [
+          13.9,
+          24.0,
+          37.4,
+          47.5,
+          57.6,
+          67.7,
+          77.8,
+          87.8,
+          97.9,
+          108.0
+        ],
+        "verdict": "moteur",
+        "seconds": 130
+      },
+      "found": "auto"
+    },
+    {
+      "id": "toyota-2000gt-son-pur",
+      "type": "youtube",
+      "videoId": "4Nt5yBozRDU",
+      "vertical": false,
+      "title": "Toyota 2000GT — son pur",
+      "car": "Toyota 2000GT",
+      "engine": "6 cylindres en ligne 2,0 L",
+      "family": "Inline",
+      "brands": [
+        "Toyota"
+      ],
+      "duration": 244,
+      "credit": {
+        "author": "Graham Rahal Performance",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=4Nt5yBozRDU"
+      },
+      "qc": {
+        "engine": 0.803,
+        "speech": 0.024,
+        "music": 0.008,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          47.0,
+          57.1,
+          67.2,
+          96.0,
+          113.3,
+          123.4,
+          133.4,
+          143.5
+        ],
+        "verdict": "moteur",
+        "seconds": 244
+      },
+      "found": "auto"
+    },
+    {
+      "id": "toyota-2000gt-son-pur-cmw-n5",
+      "type": "youtube",
+      "videoId": "Cmw-N51XdgA",
+      "vertical": true,
+      "title": "Toyota 2000GT — son pur",
+      "car": "Toyota 2000GT",
+      "engine": "6 cylindres en ligne 2,0 L",
+      "family": "Inline",
+      "brands": [
+        "Toyota"
+      ],
+      "duration": 121,
+      "credit": {
+        "author": "pondad32",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=Cmw-N51XdgA"
+      },
+      "qc": {
+        "engine": 0.952,
+        "speech": 0.016,
+        "music": 0.004,
+        "silence": 0.0,
+        "clips": [
+          1.9,
+          12.0,
+          22.1,
+          32.2,
+          42.2,
+          52.3,
+          62.4,
+          72.5,
+          82.6,
+          92.6,
+          102.7
+        ],
+        "verdict": "moteur",
+        "seconds": 121
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mazda-rx-7-fd-son-pur",
+      "type": "youtube",
+      "videoId": "akYsY1o1r7E",
+      "vertical": false,
+      "title": "Mazda RX-7 FD — son pur",
+      "car": "Mazda RX-7 FD",
+      "engine": "Rotatif birotor 1,3 L biturbo 13B-REW",
+      "family": "Rotary",
+      "brands": [
+        "Mazda"
+      ],
+      "duration": 245,
+      "credit": {
+        "author": "Gareth Bargate",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=akYsY1o1r7E"
+      },
+      "qc": {
+        "engine": 0.733,
+        "speech": 0.0,
+        "music": 0.031,
+        "silence": 0.0,
+        "clips": [
+          8.2,
+          18.2,
+          28.3,
+          38.4,
+          48.5,
+          115.7,
+          125.8,
+          135.8,
+          145.9,
+          165.1,
+          182.4,
+          196.3
+        ],
+        "verdict": "moteur",
+        "seconds": 245
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mazda-rx-7-fd-son-pur-qlnyo5",
+      "type": "youtube",
+      "videoId": "qlNYo5oUc2k",
+      "vertical": false,
+      "title": "Mazda RX-7 FD — son pur",
+      "car": "Mazda RX-7 FD",
+      "engine": "Rotatif birotor 1,3 L biturbo 13B-REW",
+      "family": "Rotary",
+      "brands": [
+        "Mazda"
+      ],
+      "duration": 393,
+      "credit": {
+        "author": "KOYORIDE",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=qlNYo5oUc2k"
+      },
+      "qc": {
+        "engine": 0.856,
+        "speech": 0.038,
+        "music": 0.016,
+        "silence": 0.0,
+        "clips": [
+          15.8,
+          25.9,
+          36.0,
+          46.1,
+          56.2,
+          70.1,
+          80.2,
+          90.2,
+          108.5,
+          118.6,
+          128.6,
+          138.7
+        ],
+        "verdict": "moteur",
+        "seconds": 393
+      },
+      "found": "auto"
+    },
+    {
+      "id": "honda-nsx-son-pur",
+      "type": "youtube",
+      "videoId": "w5EmSwNqG0Q",
+      "vertical": false,
+      "title": "Honda NSX — son pur",
+      "car": "Honda NSX",
+      "engine": "V6 3,0 L atmosphérique",
+      "family": "V6",
+      "brands": [
+        "Honda"
+      ],
+      "duration": 553,
+      "credit": {
+        "author": "Krispy Media",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=w5EmSwNqG0Q"
+      },
+      "qc": {
+        "engine": 0.616,
+        "speech": 0.017,
+        "music": 0.003,
+        "silence": 0.025,
+        "clips": [
+          10.1,
+          27.4,
+          37.4,
+          47.5,
+          57.6,
+          74.9,
+          85.9,
+          96.0,
+          137.8,
+          154.1,
+          164.2,
+          182.4
+        ],
+        "verdict": "moteur",
+        "seconds": 553
+      },
+      "found": "auto"
+    },
+    {
+      "id": "honda-nsx-son-pur-pcal41",
+      "type": "youtube",
+      "videoId": "PCAL41XyHZs",
+      "vertical": false,
+      "title": "Honda NSX — son pur",
+      "car": "Honda NSX",
+      "engine": "V6 3,0 L atmosphérique",
+      "family": "V6",
+      "brands": [
+        "Honda"
+      ],
+      "duration": 377,
+      "credit": {
+        "author": "Oscar_Driver",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=PCAL41XyHZs"
+      },
+      "qc": {
+        "engine": 0.95,
+        "speech": 0.004,
+        "music": 0.001,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          90.7,
+          100.8,
+          110.9
+        ],
+        "verdict": "moteur",
+        "seconds": 377
+      },
+      "found": "auto"
+    },
+    {
+      "id": "honda-s2000-son-pur",
+      "type": "youtube",
+      "videoId": "bM-Fe_dqEJw",
+      "vertical": false,
+      "title": "Honda S2000 — son pur",
+      "car": "Honda S2000",
+      "engine": "4 cylindres en ligne 2,0 L atmosphérique F20C",
+      "family": "Inline",
+      "brands": [
+        "Honda"
+      ],
+      "duration": 40,
+      "credit": {
+        "author": "Vag Tsak",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=bM-Fe_dqEJw"
+      },
+      "qc": {
+        "engine": 0.928,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          9.1,
+          19.2,
+          29.3
+        ],
+        "verdict": "moteur",
+        "seconds": 40
+      },
+      "found": "auto"
+    },
+    {
+      "id": "honda-s2000-son-pur-qt1pm2",
+      "type": "youtube",
+      "videoId": "qT1Pm2dVamc",
+      "vertical": false,
+      "title": "Honda S2000 turbo — son pur",
+      "car": "Honda S2000 turbo",
+      "engine": "4 cylindres en ligne 2,0 L turbo",
+      "family": "Inline",
+      "brands": [
+        "Honda"
+      ],
+      "duration": 75,
+      "credit": {
+        "author": "Elliott Tucker",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=qT1Pm2dVamc"
+      },
+      "qc": {
+        "engine": 0.955,
+        "speech": 0.0,
+        "music": 0.006,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5
+        ],
+        "verdict": "moteur",
+        "seconds": 75
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mitsubishi-lancer-evolution-son-pur",
+      "type": "youtube",
+      "videoId": "3TvRSKP_uyU",
+      "vertical": false,
+      "title": "Mitsubishi Lancer Evolution — son pur",
+      "car": "Mitsubishi Lancer Evolution",
+      "engine": "4 cylindres en ligne 2,0 L turbo 4G63",
+      "family": "Inline",
+      "brands": [
+        "Mitsubishi"
+      ],
+      "duration": 533,
+      "credit": {
+        "author": "amjayes2",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=3TvRSKP_uyU"
+      },
+      "qc": {
+        "engine": 0.85,
+        "speech": 0.041,
+        "music": 0.013,
+        "silence": 0.001,
+        "clips": [
+          0.0,
+          26.9,
+          86.9,
+          97.0,
+          107.0,
+          128.2,
+          138.2,
+          150.7,
+          160.8,
+          189.6,
+          199.7,
+          210.7
+        ],
+        "verdict": "moteur",
+        "seconds": 533
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mitsubishi-lancer-evolution-son-pur-pan87b",
+      "type": "youtube",
+      "videoId": "PAN87Bt-c5w",
+      "vertical": false,
+      "title": "Mitsubishi Lancer Evolution — son pur",
+      "car": "Mitsubishi Lancer Evolution",
+      "engine": "4 cylindres en ligne 2,0 L turbo 4G63",
+      "family": "Inline",
+      "brands": [
+        "Mitsubishi"
+      ],
+      "duration": 208,
+      "credit": {
+        "author": "rosmanao videos",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=PAN87Bt-c5w"
+      },
+      "qc": {
+        "engine": 0.88,
+        "speech": 0.023,
+        "music": 0.039,
+        "silence": 0.002,
+        "clips": [
+          14.4,
+          24.5,
+          34.6,
+          44.6,
+          54.7,
+          64.8,
+          74.9,
+          85.0,
+          95.0,
+          105.1,
+          115.2,
+          125.3
+        ],
+        "verdict": "moteur",
+        "seconds": 207
+      },
+      "found": "auto"
+    },
+    {
+      "id": "subaru-impreza-22b-son-pur",
+      "type": "youtube",
+      "videoId": "I44nw4k87Iw",
+      "vertical": false,
+      "title": "Subaru Impreza 555 Groupe A — son pur",
+      "car": "Subaru Impreza 555 Groupe A",
+      "engine": "4 cylindres à plat 2,0 L turbo EJ20",
+      "family": "Flat",
+      "brands": [
+        "Subaru"
+      ],
+      "duration": 240,
+      "credit": {
+        "author": "MattyB727 - Car Videos",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=I44nw4k87Iw"
+      },
+      "qc": {
+        "engine": 0.709,
+        "speech": 0.014,
+        "music": 0.006,
+        "silence": 0.08,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          59.5,
+          69.6,
+          106.1,
+          122.4,
+          132.5,
+          163.7,
+          173.8
+        ],
+        "verdict": "moteur",
+        "seconds": 240
+      },
+      "found": "auto"
+    },
+    {
+      "id": "subaru-impreza-22b-son-pur-scnw-g",
+      "type": "youtube",
+      "videoId": "scNw-giOdNE",
+      "vertical": false,
+      "title": "Subaru Impreza WRX (GC8) — son pur",
+      "car": "Subaru Impreza WRX (GC8)",
+      "engine": "4 cylindres à plat 2,0 L turbo EJ20",
+      "family": "Flat",
+      "brands": [
+        "Subaru"
+      ],
+      "duration": 67,
+      "credit": {
+        "author": "RNDO Media",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=scNw-giOdNE"
+      },
+      "qc": {
+        "engine": 0.82,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.173,
+        "clips": [
+          9.6,
+          19.7,
+          29.8,
+          39.8,
+          49.9
+        ],
+        "verdict": "moteur",
+        "seconds": 67
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lexus-lfa-son-pur",
+      "type": "youtube",
+      "videoId": "F0m6dvpK4m8",
+      "vertical": false,
+      "title": "Lexus LFA — son pur",
+      "car": "Lexus LFA",
+      "engine": "V10 4,8 L atmosphérique",
+      "family": "V10",
+      "brands": [
+        "Lexus"
+      ],
+      "duration": 133,
+      "credit": {
+        "author": "CarSpotterQVS",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=F0m6dvpK4m8"
+      },
+      "qc": {
+        "engine": 0.816,
+        "speech": 0.004,
+        "music": 0.004,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          13.9,
+          24.0,
+          34.1,
+          44.6,
+          54.7,
+          69.1,
+          79.2,
+          89.3,
+          99.4,
+          109.4,
+          119.5
+        ],
+        "verdict": "moteur",
+        "seconds": 133
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lexus-lfa-son-pur-yodjcq",
+      "type": "youtube",
+      "videoId": "yodjCqZ4E4I",
+      "vertical": false,
+      "title": "Lexus LFA — son pur",
+      "car": "Lexus LFA",
+      "engine": "V10 4,8 L atmosphérique",
+      "family": "V10",
+      "brands": [
+        "Lexus"
+      ],
+      "duration": 372,
+      "credit": {
+        "author": "SPORTCARS DAILY VIDEOS",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=yodjCqZ4E4I"
+      },
+      "qc": {
+        "engine": 0.689,
+        "speech": 0.004,
+        "music": 0.031,
+        "silence": 0.012,
+        "clips": [
+          0.0,
+          15.4,
+          35.5,
+          67.2,
+          77.3,
+          87.8,
+          104.6,
+          130.1,
+          143.5,
+          163.7,
+          173.8,
+          183.8
+        ],
+        "verdict": "moteur",
+        "seconds": 372
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-f40-son-pur",
+      "type": "youtube",
+      "videoId": "daMfGYh3qck",
+      "vertical": false,
+      "title": "Ferrari F40 — son pur",
+      "car": "Ferrari F40",
+      "engine": "V8 2,9 L biturbo",
+      "family": "V8",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 517,
+      "credit": {
+        "author": "NM2255 | Raw Car Sounds",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=daMfGYh3qck"
+      },
+      "qc": {
+        "engine": 0.919,
+        "speech": 0.006,
+        "music": 0.004,
+        "silence": 0.02,
+        "clips": [
+          5.8,
+          15.8,
+          25.9,
+          36.0,
+          66.2,
+          78.7,
+          88.8,
+          98.9,
+          109.0,
+          119.0,
+          129.1,
+          139.2
+        ],
+        "verdict": "moteur",
+        "seconds": 517
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-f40-son-pur-pytjzc",
+      "type": "youtube",
+      "videoId": "pyTjZc2LR-k",
+      "vertical": false,
+      "title": "Ferrari F40 — son pur",
+      "car": "Ferrari F40",
+      "engine": "V8 2,9 L biturbo",
+      "family": "V8",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 336,
+      "credit": {
+        "author": "Pure sound motorsport",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=pyTjZc2LR-k"
+      },
+      "qc": {
+        "engine": 0.843,
+        "speech": 0.013,
+        "music": 0.024,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          16.8,
+          26.9,
+          37.0,
+          47.0,
+          57.1,
+          67.2,
+          77.3,
+          87.4,
+          97.4,
+          107.5,
+          117.6
+        ],
+        "verdict": "moteur",
+        "seconds": 336
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-enzo-son-pur",
+      "type": "youtube",
+      "videoId": "zad4cHmsxQo",
+      "vertical": false,
+      "title": "Ferrari Enzo — son pur",
+      "car": "Ferrari Enzo",
+      "engine": "V12 6,0 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 182,
+      "credit": {
+        "author": "TFJJ",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=zad4cHmsxQo"
+      },
+      "qc": {
+        "engine": 0.963,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.016,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          90.7,
+          100.8,
+          110.9
+        ],
+        "verdict": "moteur",
+        "seconds": 181
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-enzo-son-pur-x4xvet",
+      "type": "youtube",
+      "videoId": "X4xVeTWHHp8",
+      "vertical": false,
+      "title": "Ferrari Enzo — son pur",
+      "car": "Ferrari Enzo",
+      "engine": "V12 6,0 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 69,
+      "credit": {
+        "author": "SupercarChannel92",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=X4xVeTWHHp8"
+      },
+      "qc": {
+        "engine": 0.972,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4
+        ],
+        "verdict": "moteur",
+        "seconds": 69
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-458-italia-son-pur",
+      "type": "youtube",
+      "videoId": "0fBpNMYn7mU",
+      "vertical": false,
+      "title": "Ferrari 458 Italia — son pur",
+      "car": "Ferrari 458 Italia",
+      "engine": "V8 4,5 L atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 173,
+      "credit": {
+        "author": "Automann-TV",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=0fBpNMYn7mU"
+      },
+      "qc": {
+        "engine": 0.894,
+        "speech": 0.006,
+        "music": 0.003,
+        "silence": 0.031,
+        "clips": [
+          0.0,
+          15.8,
+          38.9,
+          49.0,
+          59.0,
+          69.1,
+          79.2,
+          89.3,
+          99.4,
+          109.4,
+          119.5,
+          129.6
+        ],
+        "verdict": "moteur",
+        "seconds": 173
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-458-italia-son-pur-dxusyz",
+      "type": "youtube",
+      "videoId": "DXusyZpE-a8",
+      "vertical": false,
+      "title": "Ferrari 458 Italia — son pur",
+      "car": "Ferrari 458 Italia",
+      "engine": "V8 4,5 L atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 708,
+      "credit": {
+        "author": "Socal Exotics",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=DXusyZpE-a8"
+      },
+      "qc": {
+        "engine": 0.865,
+        "speech": 0.01,
+        "music": 0.01,
+        "silence": 0.0,
+        "clips": [
+          3.4,
+          13.4,
+          44.6,
+          54.7,
+          64.8,
+          81.6,
+          91.7,
+          101.8,
+          111.8,
+          121.9,
+          152.6,
+          162.7
+        ],
+        "verdict": "moteur",
+        "seconds": 600
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-599-gto-son-pur",
+      "type": "youtube",
+      "videoId": "USg5FN61kyM",
+      "vertical": false,
+      "title": "Ferrari 599 GTO — son pur",
+      "car": "Ferrari 599 GTO",
+      "engine": "V12 6,0 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 43,
+      "credit": {
+        "author": "hannes911",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=USg5FN61kyM"
+      },
+      "qc": {
+        "engine": 0.528,
+        "speech": 0.011,
+        "music": 0.0,
+        "silence": 0.247,
+        "clips": [
+          5.8,
+          15.8,
+          25.9
+        ],
+        "verdict": "moteur",
+        "seconds": 43
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-599-gto-son-pur-aftb-p",
+      "type": "youtube",
+      "videoId": "aFTB-PJVPQ8",
+      "vertical": false,
+      "title": "Ferrari 599 GTO — son pur",
+      "car": "Ferrari 599 GTO",
+      "engine": "V12 6,0 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 347,
+      "credit": {
+        "author": "Gumbal",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=aFTB-PJVPQ8"
+      },
+      "qc": {
+        "engine": 0.94,
+        "speech": 0.029,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          9.6,
+          19.7,
+          29.8,
+          39.8,
+          57.6,
+          67.7,
+          77.8,
+          87.8,
+          103.2,
+          113.3,
+          123.4,
+          133.4
+        ],
+        "verdict": "moteur",
+        "seconds": 347
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-488-pista-son-pur",
+      "type": "youtube",
+      "videoId": "Hek9fWu_1Dg",
+      "vertical": false,
+      "title": "Ferrari 488 Pista — son pur",
+      "car": "Ferrari 488 Pista",
+      "engine": "V8 3,9 L biturbo",
+      "family": "V8",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 415,
+      "credit": {
+        "author": "ExoticCarspotters",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=Hek9fWu_1Dg"
+      },
+      "qc": {
+        "engine": 0.892,
+        "speech": 0.031,
+        "music": 0.0,
+        "silence": 0.049,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          74.4,
+          84.5,
+          97.0,
+          107.0,
+          117.1,
+          127.2,
+          137.3,
+          147.4
+        ],
+        "verdict": "moteur",
+        "seconds": 414
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-250-gto-son-pur",
+      "type": "youtube",
+      "videoId": "wkSA4qxCCyk",
+      "vertical": false,
+      "title": "Ferrari 250 GTO — son pur",
+      "car": "Ferrari 250 GTO",
+      "engine": "V12 3,0 L Colombo",
+      "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 430,
+      "credit": {
+        "author": "Nick Green",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=wkSA4qxCCyk"
+      },
+      "qc": {
+        "engine": 0.939,
+        "speech": 0.0,
+        "music": 0.001,
+        "silence": 0.053,
+        "clips": [
+          0.0,
+          13.4,
+          23.5,
+          33.6,
+          43.7,
+          53.8,
+          63.8,
+          73.9,
+          84.0,
+          94.1,
+          104.2,
+          114.2
+        ],
+        "verdict": "moteur",
+        "seconds": 430
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ferrari-250-gto-son-pur-_j3n4y",
+      "type": "youtube",
+      "videoId": "_j3n4yHPZcw",
+      "vertical": false,
+      "title": "Ferrari 250 GTO — son pur",
+      "car": "Ferrari 250 GTO",
+      "engine": "V12 3,0 L Colombo",
+      "family": "V12",
+      "brands": [
+        "Ferrari"
+      ],
+      "duration": 153,
+      "credit": {
+        "author": "Robbert Alblas",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=_j3n4yHPZcw"
+      },
+      "qc": {
+        "engine": 0.947,
+        "speech": 0.0,
+        "music": 0.019,
+        "silence": 0.0,
+        "clips": [
+          9.1,
+          19.2,
+          32.6,
+          42.7,
+          52.8,
+          72.0,
+          82.1,
+          92.2,
+          102.2,
+          119.0,
+          131.0,
+          141.1
+        ],
+        "verdict": "moteur",
+        "seconds": 153
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lamborghini-aventador-son-pur",
+      "type": "youtube",
+      "videoId": "KIVWEbqFb9Q",
+      "vertical": false,
+      "title": "Lamborghini Aventador — son pur",
+      "car": "Lamborghini Aventador",
+      "engine": "V12 6,5 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
+      "duration": 49,
+      "credit": {
+        "author": "CarsAndCars",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=KIVWEbqFb9Q"
+      },
+      "qc": {
+        "engine": 0.941,
+        "speech": 0.0,
+        "music": 0.01,
+        "silence": 0.0,
+        "clips": [
+          1.0,
+          11.0,
+          21.1,
+          38.4
+        ],
+        "verdict": "moteur",
+        "seconds": 49
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lamborghini-aventador-son-pur-mlbg8f",
+      "type": "youtube",
+      "videoId": "MLbG8Fh2OmE",
+      "vertical": false,
+      "title": "Lamborghini Aventador SVJ — son pur",
+      "car": "Lamborghini Aventador SVJ",
+      "engine": "V12 6,5 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
+      "duration": 409,
+      "credit": {
+        "author": "AutoTopNL",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=MLbG8Fh2OmE"
+      },
+      "qc": {
+        "engine": 0.779,
+        "speech": 0.034,
+        "music": 0.022,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          31.2,
+          41.3,
+          51.4,
+          61.4,
+          79.2,
+          121.0,
+          137.8,
+          155.0,
+          165.1,
+          175.2,
+          188.6
+        ],
+        "verdict": "moteur",
+        "seconds": 409
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lamborghini-huracan-son-pur",
+      "type": "youtube",
+      "videoId": "b8bgo3aFOqY",
+      "vertical": false,
+      "title": "Lamborghini Huracán Tecnica — son pur",
+      "car": "Lamborghini Huracán Tecnica",
+      "engine": "V10 5,2 L atmosphérique",
+      "family": "V10",
+      "brands": [
+        "Lamborghini"
+      ],
+      "duration": 254,
+      "credit": {
+        "author": "Automann-TV",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=b8bgo3aFOqY"
+      },
+      "qc": {
+        "engine": 0.917,
+        "speech": 0.004,
+        "music": 0.004,
+        "silence": 0.021,
+        "clips": [
+          0.0,
+          19.2,
+          29.3,
+          39.4,
+          49.4,
+          59.5,
+          69.6,
+          79.7,
+          89.8,
+          112.8,
+          139.7,
+          149.8
+        ],
+        "verdict": "moteur",
+        "seconds": 254
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lamborghini-huracan-son-pur-rslwwz",
+      "type": "youtube",
+      "videoId": "RslWWzXj1Zg",
+      "vertical": false,
+      "title": "Lamborghini Huracán STO — son pur",
+      "car": "Lamborghini Huracán STO",
+      "engine": "V10 5,2 L atmosphérique",
+      "family": "V10",
+      "brands": [
+        "Lamborghini"
+      ],
+      "duration": 513,
+      "credit": {
+        "author": "NOVITEC ",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=RslWWzXj1Zg"
+      },
+      "qc": {
+        "engine": 0.919,
+        "speech": 0.002,
+        "music": 0.003,
+        "silence": 0.0,
+        "clips": [
+          7.7,
+          17.8,
+          27.8,
+          37.9,
+          48.0,
+          58.1,
+          68.2,
+          78.2,
+          88.3,
+          98.4,
+          108.5,
+          118.6
+        ],
+        "verdict": "moteur",
+        "seconds": 513
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lamborghini-diablo-son-pur",
+      "type": "youtube",
+      "videoId": "lNFEOj4U5u8",
+      "vertical": false,
+      "title": "Lamborghini Diablo — son pur",
+      "car": "Lamborghini Diablo",
+      "engine": "V12 5,7 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
+      "duration": 190,
+      "credit": {
+        "author": "Gumbal",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=lNFEOj4U5u8"
+      },
+      "qc": {
+        "engine": 0.919,
+        "speech": 0.023,
+        "music": 0.008,
+        "silence": 0.0,
+        "clips": [
+          1.0,
+          11.0,
+          21.1,
+          31.2,
+          50.4,
+          60.5,
+          78.7,
+          92.2,
+          102.2,
+          112.3,
+          122.4,
+          132.5
+        ],
+        "verdict": "moteur",
+        "seconds": 190
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lamborghini-diablo-son-pur-awoi50",
+      "type": "youtube",
+      "videoId": "aWOI50atfyA",
+      "vertical": false,
+      "title": "Lamborghini Diablo — son pur",
+      "car": "Lamborghini Diablo",
+      "engine": "V12 5,7 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
+      "duration": 107,
+      "credit": {
+        "author": "DtRockstar1",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=aWOI50atfyA"
+      },
+      "qc": {
+        "engine": 0.941,
+        "speech": 0.0,
+        "music": 0.009,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          32.6,
+          42.7,
+          52.8,
+          62.9,
+          73.0,
+          83.0,
+          93.1
+        ],
+        "verdict": "moteur",
+        "seconds": 107
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lamborghini-countach-son-pur",
+      "type": "youtube",
+      "videoId": "C5c-BtB76rI",
+      "vertical": false,
+      "title": "Lamborghini Countach — son pur",
+      "car": "Lamborghini Countach",
+      "engine": "V12 atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
+      "duration": 67,
+      "credit": {
+        "author": "Countach Daisy",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=C5c-BtB76rI"
+      },
+      "qc": {
+        "engine": 0.899,
+        "speech": 0.014,
+        "music": 0.007,
+        "silence": 0.051,
+        "clips": [
+          2.9,
+          13.0,
+          23.0,
+          33.1,
+          43.2
+        ],
+        "verdict": "moteur",
+        "seconds": 67
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lamborghini-countach-son-pur-xh_5sn",
+      "type": "youtube",
+      "videoId": "xH_5Snf6BWg",
+      "vertical": false,
+      "title": "Lamborghini Countach — son pur",
+      "car": "Lamborghini Countach",
+      "engine": "V12 atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
+      "duration": 41,
+      "credit": {
+        "author": "S AGATA",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=xH_5Snf6BWg"
+      },
+      "qc": {
+        "engine": 0.976,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2
+        ],
+        "verdict": "moteur",
+        "seconds": 41
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lamborghini-murcielago-son-pur",
+      "type": "youtube",
+      "videoId": "dJ7ftIpP3OM",
+      "vertical": false,
+      "title": "Lamborghini Murciélago — son pur",
+      "car": "Lamborghini Murciélago",
+      "engine": "V12 6,5 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Lamborghini"
+      ],
+      "duration": 641,
+      "credit": {
+        "author": "NM2255 | Raw Car Sounds",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=dJ7ftIpP3OM"
+      },
+      "qc": {
+        "engine": 0.842,
+        "speech": 0.029,
+        "music": 0.01,
+        "silence": 0.002,
+        "clips": [
+          12.0,
+          22.1,
+          36.0,
+          58.1,
+          68.2,
+          78.2,
+          88.3,
+          112.8,
+          122.9,
+          133.0,
+          174.2,
+          188.2
+        ],
+        "verdict": "moteur",
+        "seconds": 600
+      },
+      "found": "auto"
+    },
+    {
+      "id": "pagani-zonda-son-pur",
+      "type": "youtube",
+      "videoId": "JpKApV-OycQ",
+      "vertical": false,
+      "title": "Pagani Zonda Revolución — son pur",
+      "car": "Pagani Zonda Revolución",
+      "engine": "V12 7,3 L atmosphérique AMG",
+      "family": "V12",
+      "brands": [
+        "Pagani"
+      ],
+      "duration": 567,
+      "credit": {
+        "author": "NM2255 | Raw Car Sounds",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=JpKApV-OycQ"
+      },
+      "qc": {
+        "engine": 0.721,
+        "speech": 0.036,
+        "music": 0.023,
+        "silence": 0.012,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          48.0,
+          58.1,
+          68.2,
+          81.1,
+          110.4,
+          126.2,
+          136.3,
+          146.4
+        ],
+        "verdict": "moteur",
+        "seconds": 567
+      },
+      "found": "auto"
+    },
+    {
+      "id": "pagani-zonda-son-pur-zhedcj",
+      "type": "youtube",
+      "videoId": "zHeDCJcPlJ4",
+      "vertical": false,
+      "title": "Pagani Zonda Revolución — son pur",
+      "car": "Pagani Zonda Revolución",
+      "engine": "V12 7,3 L atmosphérique AMG",
+      "family": "V12",
+      "brands": [
+        "Pagani"
+      ],
+      "duration": 153,
+      "credit": {
+        "author": "Marchettino",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=zHeDCJcPlJ4"
+      },
+      "qc": {
+        "engine": 0.864,
+        "speech": 0.003,
+        "music": 0.013,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.7,
+          47.5,
+          57.6,
+          70.1,
+          87.4,
+          97.4,
+          113.3,
+          123.4,
+          133.4
+        ],
+        "verdict": "moteur",
+        "seconds": 153
+      },
+      "found": "auto"
+    },
+    {
+      "id": "porsche-carrera-gt-son-pur",
+      "type": "youtube",
+      "videoId": "su_njTmDciQ",
+      "vertical": false,
+      "title": "Porsche Carrera GT — son pur",
+      "car": "Porsche Carrera GT",
+      "engine": "V10 5,7 L atmosphérique",
+      "family": "V10",
+      "brands": [
+        "Porsche"
+      ],
+      "duration": 201,
+      "credit": {
+        "author": "cars2see_",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=su_njTmDciQ"
+      },
+      "qc": {
+        "engine": 0.511,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.067,
+        "clips": [
+          2.9,
+          13.0,
+          23.0,
+          33.1,
+          43.2,
+          53.3,
+          63.4,
+          73.4,
+          83.5,
+          93.6,
+          103.7,
+          113.8
+        ],
+        "verdict": "moteur",
+        "seconds": 201
+      },
+      "found": "auto"
+    },
+    {
+      "id": "porsche-carrera-gt-son-pur-jiqmzb",
+      "type": "youtube",
+      "videoId": "jiqMzbc3F1M",
+      "vertical": false,
+      "title": "Porsche Carrera GT — son pur",
+      "car": "Porsche Carrera GT",
+      "engine": "V10 5,7 L atmosphérique",
+      "family": "V10",
+      "brands": [
+        "Porsche"
+      ],
+      "duration": 147,
+      "credit": {
+        "author": "The19Tommy85",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=jiqMzbc3F1M"
+      },
+      "qc": {
+        "engine": 0.803,
+        "speech": 0.039,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          11.0,
+          55.7,
+          65.8,
+          80.2,
+          90.2,
+          100.3,
+          110.4
+        ],
+        "verdict": "moteur",
+        "seconds": 147
+      },
+      "found": "auto"
+    },
+    {
+      "id": "porsche-918-spyder-son-pur",
+      "type": "youtube",
+      "videoId": "1Xa61unj6KI",
+      "vertical": false,
+      "title": "Porsche 918 Spyder — son pur",
+      "car": "Porsche 918 Spyder",
+      "engine": "V8 4,6 L atmosphérique hybride",
+      "family": "V8",
+      "brands": [
+        "Porsche"
+      ],
+      "duration": 242,
+      "credit": {
+        "author": "NM2255 | Raw Car Sounds",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=1Xa61unj6KI"
+      },
+      "qc": {
+        "engine": 0.893,
+        "speech": 0.002,
+        "music": 0.01,
+        "silence": 0.002,
+        "clips": [
+          6.7,
+          16.8,
+          36.0,
+          46.1,
+          56.2,
+          66.2,
+          76.3,
+          86.4,
+          96.5,
+          106.6,
+          116.6,
+          126.7
+        ],
+        "verdict": "moteur",
+        "seconds": 242
+      },
+      "found": "auto"
+    },
+    {
+      "id": "porsche-918-spyder-son-pur-jdnimq",
+      "type": "youtube",
+      "videoId": "JDnIMQL6r2U",
+      "vertical": false,
+      "title": "Porsche 918 Spyder — son pur",
+      "car": "Porsche 918 Spyder",
+      "engine": "V8 4,6 L atmosphérique hybride",
+      "family": "V8",
+      "brands": [
+        "Porsche"
+      ],
+      "duration": 242,
+      "credit": {
+        "author": "Car Groms",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=JDnIMQL6r2U"
+      },
+      "qc": {
+        "engine": 0.808,
+        "speech": 0.022,
+        "music": 0.008,
+        "silence": 0.0,
+        "clips": [
+          6.7,
+          33.1,
+          47.5,
+          57.6,
+          67.7,
+          85.4,
+          95.5,
+          105.6,
+          115.7,
+          125.8,
+          135.8,
+          145.9
+        ],
+        "verdict": "moteur",
+        "seconds": 242
+      },
+      "found": "auto"
+    },
+    {
+      "id": "porsche-911-gt3-rs-992-son-pur",
+      "type": "youtube",
+      "videoId": "brFIuU7Xef0",
+      "vertical": false,
+      "title": "Porsche 911 GT3 RS (992) — son pur",
+      "car": "Porsche 911 GT3 RS (992)",
+      "engine": "6 cylindres à plat 4,0 L atmosphérique",
+      "family": "Flat",
+      "brands": [
+        "Porsche"
+      ],
+      "duration": 481,
+      "credit": {
+        "author": "AutoTopNL",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=brFIuU7Xef0"
+      },
+      "qc": {
+        "engine": 0.789,
+        "speech": 0.008,
+        "music": 0.021,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          33.6,
+          43.7,
+          53.8,
+          66.2,
+          76.3,
+          86.4,
+          119.5,
+          131.0,
+          141.1,
+          151.2,
+          161.3
+        ],
+        "verdict": "moteur",
+        "seconds": 481
+      },
+      "found": "auto"
+    },
+    {
+      "id": "porsche-911-gt3-rs-992-son-pur-n9sjyu",
+      "type": "youtube",
+      "videoId": "N9SjyUdVCWM",
+      "vertical": false,
+      "title": "Porsche 911 GT3 RS (992) — son pur",
+      "car": "Porsche 911 GT3 RS (992)",
+      "engine": "6 cylindres à plat 4,0 L atmosphérique",
+      "family": "Flat",
+      "brands": [
+        "Porsche"
+      ],
+      "duration": 482,
+      "credit": {
+        "author": "NM2255 | Raw Car Sounds",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=N9SjyUdVCWM"
+      },
+      "qc": {
+        "engine": 0.768,
+        "speech": 0.005,
+        "music": 0.038,
+        "silence": 0.015,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          42.7,
+          52.8,
+          62.9,
+          82.6,
+          97.9,
+          112.3,
+          135.8,
+          145.9,
+          156.0
+        ],
+        "verdict": "moteur",
+        "seconds": 482
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mclaren-p1-son-pur",
+      "type": "youtube",
+      "videoId": "1WqhJLkhzk8",
+      "vertical": false,
+      "title": "McLaren P1 — son pur",
+      "car": "McLaren P1",
+      "engine": "V8 3,8 L biturbo hybride",
+      "family": "V8",
+      "brands": [
+        "McLaren"
+      ],
+      "duration": 219,
+      "credit": {
+        "author": "Gumbal",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=1WqhJLkhzk8"
+      },
+      "qc": {
+        "engine": 0.941,
+        "speech": 0.026,
+        "music": 0.0,
+        "silence": 0.002,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          56.2,
+          66.2,
+          76.3,
+          89.3,
+          99.4,
+          123.8,
+          142.1
+        ],
+        "verdict": "moteur",
+        "seconds": 218
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mercedes-benz-sls-amg-son-pur",
+      "type": "youtube",
+      "videoId": "QMiG4fCXwlM",
+      "vertical": false,
+      "title": "Mercedes-Benz SLS AMG — son pur",
+      "car": "Mercedes-Benz SLS AMG",
+      "engine": "V8 6,2 L atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Mercedes"
+      ],
+      "duration": 730,
+      "credit": {
+        "author": "Rotor Engine",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=QMiG4fCXwlM"
+      },
+      "qc": {
+        "engine": 0.882,
+        "speech": 0.001,
+        "music": 0.019,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          26.4,
+          36.5,
+          46.6,
+          56.6,
+          66.7,
+          76.8,
+          86.9,
+          97.0,
+          107.0,
+          117.1
+        ],
+        "verdict": "moteur",
+        "seconds": 600
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mercedes-benz-sls-amg-son-pur-bcxknc",
+      "type": "youtube",
+      "videoId": "BCxKNCStPFY",
+      "vertical": false,
+      "title": "Mercedes-Benz SLS AMG — son pur",
+      "car": "Mercedes-Benz SLS AMG",
+      "engine": "V8 6,2 L atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Mercedes"
+      ],
+      "duration": 88,
+      "credit": {
+        "author": "Automann-TV",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=BCxKNCStPFY"
+      },
+      "qc": {
+        "engine": 0.902,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.087,
+        "clips": [
+          5.8,
+          15.8,
+          25.9,
+          36.0,
+          46.1,
+          56.2,
+          66.2,
+          76.3
+        ],
+        "verdict": "moteur",
+        "seconds": 88
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mercedes-amg-gt-black-series-son-pur",
+      "type": "youtube",
+      "videoId": "MNHpKboiSDs",
+      "vertical": false,
+      "title": "Mercedes-AMG GT Black Series — son pur",
+      "car": "Mercedes-AMG GT Black Series",
+      "engine": "V8 4,0 L biturbo à vilebrequin plat",
+      "family": "V8",
+      "brands": [
+        "Mercedes"
+      ],
+      "duration": 122,
+      "credit": {
+        "author": "AutoTopNL",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=MNHpKboiSDs"
+      },
+      "qc": {
+        "engine": 0.882,
+        "speech": 0.0,
+        "music": 0.02,
+        "silence": 0.008,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          43.2,
+          53.3,
+          72.5,
+          82.6,
+          92.6,
+          102.7
+        ],
+        "verdict": "moteur",
+        "seconds": 122
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mercedes-amg-gt-black-series-son-pur-1iyzky",
+      "type": "youtube",
+      "videoId": "1IyzKYz4b8o",
+      "vertical": false,
+      "title": "Mercedes-Benz C 63 AMG Black Series — son pur",
+      "car": "Mercedes-Benz C 63 AMG Black Series",
+      "engine": "V8 6,2 L atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Mercedes"
+      ],
+      "duration": 49,
+      "credit": {
+        "author": "Racing Specialists",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=1IyzKYz4b8o"
+      },
+      "qc": {
+        "engine": 0.99,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2
+        ],
+        "verdict": "moteur",
+        "seconds": 49
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mercedes-benz-clk-gtr-son-pur",
+      "type": "youtube",
+      "videoId": "lP_tk6Pd5VA",
+      "vertical": false,
+      "title": "Mercedes-Benz CLK GTR — son pur",
+      "car": "Mercedes-Benz CLK GTR",
+      "engine": "V12 6,9 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Mercedes"
+      ],
+      "duration": 53,
+      "credit": {
+        "author": "road589",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=lP_tk6Pd5VA"
+      },
+      "qc": {
+        "engine": 0.872,
+        "speech": 0.0,
+        "music": 0.009,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.7,
+          40.8
+        ],
+        "verdict": "moteur",
+        "seconds": 52
+      },
+      "found": "auto"
+    },
+    {
+      "id": "mercedes-benz-clk-gtr-son-pur-lucyx_",
+      "type": "youtube",
+      "videoId": "luCYx_HANig",
+      "vertical": false,
+      "title": "Mercedes-Benz CLK GTR — son pur",
+      "car": "Mercedes-Benz CLK GTR",
+      "engine": "V12 6,9 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Mercedes"
+      ],
+      "duration": 152,
+      "credit": {
+        "author": "912fordgt",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=luCYx_HANig"
+      },
+      "qc": {
+        "engine": 0.864,
+        "speech": 0.025,
+        "music": 0.006,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          90.7,
+          100.8,
+          110.9,
+          121.0
+        ],
+        "verdict": "moteur",
+        "seconds": 152
+      },
+      "found": "auto"
+    },
+    {
+      "id": "bmw-m3-e46-son-pur",
+      "type": "youtube",
+      "videoId": "Y4LHq-3vkiM",
+      "vertical": false,
+      "title": "BMW M3 E46 — son pur",
+      "car": "BMW M3 E46",
+      "engine": "6 cylindres en ligne 3,2 L atmosphérique S54",
+      "family": "Inline",
+      "brands": [
+        "BMW"
+      ],
+      "duration": 761,
+      "credit": {
+        "author": "MunichVenom",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=Y4LHq-3vkiM"
+      },
+      "qc": {
+        "engine": 0.902,
+        "speech": 0.0,
+        "music": 0.017,
+        "silence": 0.0,
+        "clips": [
+          6.7,
+          16.8,
+          26.9,
+          37.0,
+          47.0,
+          57.1,
+          72.0,
+          88.8,
+          98.9,
+          115.7,
+          125.8,
+          135.8
+        ],
+        "verdict": "moteur",
+        "seconds": 600
+      },
+      "found": "auto"
+    },
+    {
+      "id": "bmw-m3-e46-son-pur-3nfz1r",
+      "type": "youtube",
+      "videoId": "3NFz1r-XX6g",
+      "vertical": false,
+      "title": "BMW M3 E46 — son pur",
+      "car": "BMW M3 E46",
+      "engine": "6 cylindres en ligne 3,2 L atmosphérique S54",
+      "family": "Inline",
+      "brands": [
+        "BMW"
+      ],
+      "duration": 228,
+      "credit": {
+        "author": "HillClimb Monsters",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=3NFz1r-XX6g"
+      },
+      "qc": {
+        "engine": 0.732,
+        "speech": 0.032,
+        "music": 0.015,
+        "silence": 0.023,
+        "clips": [
+          7.2,
+          31.7,
+          50.4,
+          60.5,
+          70.6,
+          82.1,
+          98.4,
+          108.5,
+          129.1,
+          150.7,
+          171.8,
+          181.9
+        ],
+        "verdict": "moteur",
+        "seconds": 227
+      },
+      "found": "auto"
+    },
+    {
+      "id": "bmw-m3-e92-son-pur",
+      "type": "youtube",
+      "videoId": "wJKdFnXdcek",
+      "vertical": false,
+      "title": "BMW M3 E92 — son pur",
+      "car": "BMW M3 E92",
+      "engine": "V8 4,0 L atmosphérique S65",
+      "family": "V8",
+      "brands": [
+        "BMW"
+      ],
+      "duration": 829,
+      "credit": {
+        "author": "Cars & Pyro",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=wJKdFnXdcek"
+      },
+      "qc": {
+        "engine": 0.934,
+        "speech": 0.033,
+        "music": 0.002,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          32.2,
+          42.2,
+          52.3,
+          62.4,
+          85.9,
+          104.2,
+          114.2,
+          124.3,
+          136.3,
+          149.3
+        ],
+        "verdict": "moteur",
+        "seconds": 600
+      },
+      "found": "auto"
+    },
+    {
+      "id": "bmw-m3-e92-son-pur-89kcty",
+      "type": "youtube",
+      "videoId": "89kctY3LvqM",
+      "vertical": false,
+      "title": "BMW M3 E92 — son pur",
+      "car": "BMW M3 E92",
+      "engine": "V8 4,0 L atmosphérique S65",
+      "family": "V8",
+      "brands": [
+        "BMW"
+      ],
+      "duration": 237,
+      "credit": {
+        "author": "AutoTopNL",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=89kctY3LvqM"
+      },
+      "qc": {
+        "engine": 0.929,
+        "speech": 0.004,
+        "music": 0.012,
+        "silence": 0.0,
+        "clips": [
+          10.1,
+          25.9,
+          36.0,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          90.7,
+          100.8,
+          110.9,
+          121.0,
+          132.0
+        ],
+        "verdict": "moteur",
+        "seconds": 237
+      },
+      "found": "auto"
+    },
+    {
+      "id": "bmw-m5-e60-son-pur",
+      "type": "youtube",
+      "videoId": "OH2wzlDHxxs",
+      "vertical": false,
+      "title": "BMW M5 E60 — son pur",
+      "car": "BMW M5 E60",
+      "engine": "V10 5,0 L atmosphérique S85",
+      "family": "V10",
+      "brands": [
+        "BMW"
+      ],
+      "duration": 256,
+      "credit": {
+        "author": "LOUDER",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=OH2wzlDHxxs"
+      },
+      "qc": {
+        "engine": 0.979,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.006,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          90.7,
+          100.8,
+          110.9
+        ],
+        "verdict": "moteur",
+        "seconds": 256
+      },
+      "found": "auto"
+    },
+    {
+      "id": "bmw-m5-e60-son-pur-gcqae0",
+      "type": "youtube",
+      "videoId": "GcQAe0Gv0ic",
+      "vertical": false,
+      "title": "BMW M5 E60 — son pur",
+      "car": "BMW M5 E60",
+      "engine": "V10 5,0 L atmosphérique S85",
+      "family": "V10",
+      "brands": [
+        "BMW"
+      ],
+      "duration": 111,
+      "credit": {
+        "author": "The19Tommy85",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=GcQAe0Gv0ic"
+      },
+      "qc": {
+        "engine": 0.904,
+        "speech": 0.03,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          37.9,
+          49.9,
+          60.0,
+          70.1,
+          89.8
+        ],
+        "verdict": "moteur",
+        "seconds": 111
+      },
+      "found": "auto"
+    },
+    {
+      "id": "audi-r8-v10-son-pur",
+      "type": "youtube",
+      "videoId": "LiBD0h0XyG8",
+      "vertical": false,
+      "title": "Audi R8 V10 — son pur",
+      "car": "Audi R8 V10",
+      "engine": "V10 5,2 L atmosphérique",
+      "family": "V10",
+      "brands": [
+        "Audi"
+      ],
+      "duration": 184,
+      "credit": {
+        "author": "Automann-TV",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=LiBD0h0XyG8"
+      },
+      "qc": {
+        "engine": 0.864,
+        "speech": 0.003,
+        "music": 0.016,
+        "silence": 0.029,
+        "clips": [
+          0.0,
+          10.1,
+          25.4,
+          35.5,
+          45.6,
+          55.7,
+          65.8,
+          83.0,
+          93.1,
+          103.2,
+          113.3,
+          123.4
+        ],
+        "verdict": "moteur",
+        "seconds": 183
+      },
+      "found": "auto"
+    },
+    {
+      "id": "audi-r8-v10-son-pur-x6akmr",
+      "type": "youtube",
+      "videoId": "X6akmRLRN4s",
+      "vertical": false,
+      "title": "Audi R8 V10 — son pur",
+      "car": "Audi R8 V10",
+      "engine": "V10 5,2 L atmosphérique",
+      "family": "V10",
+      "brands": [
+        "Audi"
+      ],
+      "duration": 221,
+      "credit": {
+        "author": "NM2255 | Raw Car Sounds",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=X6akmRLRN4s"
+      },
+      "qc": {
+        "engine": 0.658,
+        "speech": 0.022,
+        "music": 0.044,
+        "silence": 0.05,
+        "clips": [
+          1.9,
+          12.0,
+          22.1,
+          32.2,
+          42.2,
+          52.3,
+          88.8,
+          107.0,
+          125.3,
+          164.6,
+          180.0
+        ],
+        "verdict": "moteur",
+        "seconds": 221
+      },
+      "found": "auto"
+    },
+    {
+      "id": "audi-sport-quattro-s1-son-pur",
+      "type": "youtube",
+      "videoId": "-i8u-TRwsYk",
+      "vertical": false,
+      "title": "Audi Sport quattro S1 — son pur",
+      "car": "Audi Sport quattro S1",
+      "engine": "5 cylindres en ligne 2,1 L turbo",
+      "family": "Inline",
+      "brands": [
+        "Audi"
+      ],
+      "duration": 806,
+      "credit": {
+        "author": "zeroundersteer",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=-i8u-TRwsYk"
+      },
+      "qc": {
+        "engine": 0.917,
+        "speech": 0.015,
+        "music": 0.006,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          12.0,
+          28.3,
+          38.4,
+          76.3,
+          96.5,
+          106.6,
+          116.6,
+          126.7,
+          136.8,
+          146.9,
+          157.0
+        ],
+        "verdict": "moteur",
+        "seconds": 600
+      },
+      "found": "auto"
+    },
+    {
+      "id": "audi-sport-quattro-s1-son-pur-ntndz-",
+      "type": "youtube",
+      "videoId": "ntndz-tSjPM",
+      "vertical": false,
+      "title": "Audi Sport quattro S1 — son pur",
+      "car": "Audi Sport quattro S1",
+      "engine": "5 cylindres en ligne 2,1 L turbo",
+      "family": "Inline",
+      "brands": [
+        "Audi"
+      ],
+      "duration": 109,
+      "credit": {
+        "author": "Péter Juhász",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=ntndz-tSjPM"
+      },
+      "qc": {
+        "engine": 0.969,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          70.6,
+          80.6,
+          90.7
+        ],
+        "verdict": "moteur",
+        "seconds": 109
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ford-gt-son-pur",
+      "type": "youtube",
+      "videoId": "4FPJplJLPpI",
+      "vertical": false,
+      "title": "Ford GT40 — son pur",
+      "car": "Ford GT40",
+      "engine": "V8 atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Ford"
+      ],
+      "duration": 300,
+      "credit": {
+        "author": "SchwaaFilms",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=4FPJplJLPpI"
+      },
+      "qc": {
+        "engine": 0.982,
+        "speech": 0.0,
+        "music": 0.002,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          44.2,
+          54.2,
+          64.3,
+          74.4,
+          87.8,
+          97.9,
+          108.0,
+          123.8
+        ],
+        "verdict": "moteur",
+        "seconds": 300
+      },
+      "found": "auto"
+    },
+    {
+      "id": "ford-gt-son-pur-ip9wh5",
+      "type": "youtube",
+      "videoId": "iP9WH5hCdRw",
+      "vertical": false,
+      "title": "Ford GT GT1 — son pur",
+      "car": "Ford GT GT1",
+      "engine": "V8 atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Ford"
+      ],
+      "duration": 52,
+      "credit": {
+        "author": "Belgian-Motorsport",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=iP9WH5hCdRw"
+      },
+      "qc": {
+        "engine": 0.907,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          2.9,
+          13.0,
+          23.0,
+          33.1
+        ],
+        "verdict": "moteur",
+        "seconds": 52
+      },
+      "found": "auto"
+    },
+    {
+      "id": "shelby-mustang-gt350-son-pur",
+      "type": "youtube",
+      "videoId": "pbN3mutJeU4",
+      "vertical": false,
+      "title": "Shelby Mustang GT350 — son pur",
+      "car": "Shelby Mustang GT350",
+      "engine": "V8 5,2 L à vilebrequin plat",
+      "family": "V8",
+      "brands": [
+        "Shelby"
+      ],
+      "duration": 481,
+      "credit": {
+        "author": "Texas Revving",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=pbN3mutJeU4"
+      },
+      "qc": {
+        "engine": 0.911,
+        "speech": 0.001,
+        "music": 0.004,
+        "silence": 0.004,
+        "clips": [
+          0.0,
+          21.1,
+          31.2,
+          41.3,
+          53.8,
+          63.8,
+          73.9,
+          84.0,
+          94.1,
+          104.2,
+          114.2,
+          124.3
+        ],
+        "verdict": "moteur",
+        "seconds": 481
+      },
+      "found": "auto"
+    },
+    {
+      "id": "shelby-mustang-gt350-son-pur-scmka5",
+      "type": "youtube",
+      "videoId": "scmKA5Og9GY",
+      "vertical": false,
+      "title": "Shelby Mustang GT350 — son pur",
+      "car": "Shelby Mustang GT350",
+      "engine": "V8 5,2 L à vilebrequin plat",
+      "family": "V8",
+      "brands": [
+        "Shelby"
+      ],
+      "duration": 500,
+      "credit": {
+        "author": "CarVisuals",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=scmKA5Og9GY"
+      },
+      "qc": {
+        "engine": 0.391,
+        "speech": 0.011,
+        "music": 0.013,
+        "silence": 0.185,
+        "clips": [
+          12.0,
+          22.1,
+          32.2,
+          48.0,
+          58.1,
+          68.2,
+          78.2,
+          90.7,
+          100.8,
+          110.9,
+          121.0,
+          132.0
+        ],
+        "verdict": "moteur",
+        "seconds": 500
+      },
+      "found": "auto"
+    },
+    {
+      "id": "chevrolet-corvette-c6-zr1-son-pur",
+      "type": "youtube",
+      "videoId": "G8hypjaS8Ks",
+      "vertical": false,
+      "title": "Chevrolet Corvette C6 ZR1 — son pur",
+      "car": "Chevrolet Corvette C6 ZR1",
+      "engine": "V8 6,2 L à compresseur",
+      "family": "V8",
+      "brands": [
+        "Chevrolet"
+      ],
+      "duration": 59,
+      "credit": {
+        "author": "Blade_RunnerZR1",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=G8hypjaS8Ks"
+      },
+      "qc": {
+        "engine": 0.975,
+        "speech": 0.0,
+        "music": 0.016,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          36.5,
+          46.6
+        ],
+        "verdict": "moteur",
+        "seconds": 59
+      },
+      "found": "auto"
+    },
+    {
+      "id": "chevrolet-corvette-c6-zr1-son-pur-fzlks5",
+      "type": "youtube",
+      "videoId": "fZLKs5chthk",
+      "vertical": false,
+      "title": "Chevrolet Corvette C6 ZR1 — son pur",
+      "car": "Chevrolet Corvette C6 ZR1",
+      "engine": "V8 6,2 L à compresseur",
+      "family": "V8",
+      "brands": [
+        "Chevrolet"
+      ],
+      "duration": 67,
+      "credit": {
+        "author": "BrianZuk",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=fZLKs5chthk"
+      },
+      "qc": {
+        "engine": 0.957,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4
+        ],
+        "verdict": "moteur",
+        "seconds": 67
+      },
+      "found": "auto"
+    },
+    {
+      "id": "dodge-viper-son-pur",
+      "type": "youtube",
+      "videoId": "pQ-Wavuw-0E",
+      "vertical": false,
+      "title": "Dodge Viper — son pur",
+      "car": "Dodge Viper",
+      "engine": "V10 9,0 L atmosphérique (préparé)",
+      "family": "V10",
+      "brands": [
+        "Dodge"
+      ],
+      "duration": 272,
+      "credit": {
+        "author": "@SneakySnakes",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=pQ-Wavuw-0E"
+      },
+      "qc": {
+        "engine": 0.892,
+        "speech": 0.004,
+        "music": 0.014,
+        "silence": 0.005,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          68.2,
+          78.2,
+          88.3,
+          98.4,
+          121.0,
+          131.0
+        ],
+        "verdict": "moteur",
+        "seconds": 272
+      },
+      "found": "auto"
+    },
+    {
+      "id": "dodge-challenger-srt-hellcat-son-pur",
+      "type": "youtube",
+      "videoId": "cKx-cb0fzeo",
+      "vertical": false,
+      "title": "Dodge Challenger SRT Hellcat — son pur",
+      "car": "Dodge Challenger SRT Hellcat",
+      "engine": "V8 6,2 L à compresseur",
+      "family": "V8",
+      "brands": [
+        "Dodge"
+      ],
+      "duration": 106,
+      "credit": {
+        "author": "Visual Car Reviews",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=cKx-cb0fzeo"
+      },
+      "qc": {
+        "engine": 0.905,
+        "speech": 0.027,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          12.5,
+          43.7,
+          53.8,
+          71.0,
+          81.1,
+          91.2
+        ],
+        "verdict": "moteur",
+        "seconds": 106
+      },
+      "found": "auto"
+    },
+    {
+      "id": "aston-martin-valkyrie-son-pur",
+      "type": "youtube",
+      "videoId": "tqB9AkivKrM",
+      "vertical": false,
+      "title": "Aston Martin Valkyrie LM — son pur",
+      "car": "Aston Martin Valkyrie LM",
+      "engine": "V12 6,5 L atmosphérique Cosworth",
+      "family": "V12",
+      "brands": [
+        "Aston Martin"
+      ],
+      "duration": 709,
+      "credit": {
+        "author": "19Bozzy92",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=tqB9AkivKrM"
+      },
+      "qc": {
+        "engine": 0.689,
+        "speech": 0.002,
+        "music": 0.02,
+        "silence": 0.008,
+        "clips": [
+          3.8,
+          16.3,
+          42.7,
+          73.9,
+          93.1,
+          103.2,
+          131.0,
+          141.1,
+          151.2,
+          177.6,
+          187.7,
+          197.8
+        ],
+        "verdict": "moteur",
+        "seconds": 600
+      },
+      "found": "auto"
+    },
+    {
+      "id": "aston-martin-valkyrie-son-pur--gmn3t",
+      "type": "youtube",
+      "videoId": "-gmn3towcUo",
+      "vertical": false,
+      "title": "Aston Martin Valkyrie GTP — son pur",
+      "car": "Aston Martin Valkyrie GTP",
+      "engine": "V12 6,5 L atmosphérique Cosworth",
+      "family": "V12",
+      "brands": [
+        "Aston Martin"
+      ],
+      "duration": 567,
+      "credit": {
+        "author": "IMSA Official",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=-gmn3towcUo"
+      },
+      "qc": {
+        "engine": 0.875,
+        "speech": 0.0,
+        "music": 0.033,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          37.0,
+          57.1,
+          74.9,
+          85.9,
+          96.0,
+          116.2,
+          126.2,
+          136.3,
+          158.4
+        ],
+        "verdict": "moteur",
+        "seconds": 567
+      },
+      "found": "auto"
+    },
+    {
+      "id": "aston-martin-v12-vantage-son-pur",
+      "type": "youtube",
+      "videoId": "wVMpoW5UOms",
+      "vertical": false,
+      "title": "Aston Martin V12 Vantage — son pur",
+      "car": "Aston Martin V12 Vantage",
+      "engine": "V12 6,0 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Aston Martin"
+      ],
+      "duration": 190,
+      "credit": {
+        "author": "NM2255 | Raw Car Sounds",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=wVMpoW5UOms"
+      },
+      "qc": {
+        "engine": 0.863,
+        "speech": 0.005,
+        "music": 0.0,
+        "silence": 0.005,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          56.2,
+          66.2,
+          76.3,
+          86.4,
+          96.5,
+          106.6,
+          116.6
+        ],
+        "verdict": "moteur",
+        "seconds": 190
+      },
+      "found": "auto"
+    },
+    {
+      "id": "aston-martin-v12-vantage-son-pur-hvvah5",
+      "type": "youtube",
+      "videoId": "hvvAH513wQU",
+      "vertical": false,
+      "title": "Aston Martin V12 Vantage — son pur",
+      "car": "Aston Martin V12 Vantage",
+      "engine": "V12 6,0 L atmosphérique",
+      "family": "V12",
+      "brands": [
+        "Aston Martin"
+      ],
+      "duration": 193,
+      "credit": {
+        "author": "Automann-TV",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=hvvAH513wQU"
+      },
+      "qc": {
+        "engine": 0.92,
+        "speech": 0.0,
+        "music": 0.0,
+        "silence": 0.068,
+        "clips": [
+          4.3,
+          14.4,
+          24.5,
+          34.6,
+          44.6,
+          54.7,
+          64.8,
+          74.9,
+          85.0,
+          95.0,
+          105.1,
+          115.2
+        ],
+        "verdict": "moteur",
+        "seconds": 192
+      },
+      "found": "auto"
+    },
+    {
+      "id": "alfa-romeo-8c-competizione-son-pur",
+      "type": "youtube",
+      "videoId": "yJxtWK798nk",
+      "vertical": false,
+      "title": "Alfa Romeo 8C Competizione — son pur",
+      "car": "Alfa Romeo 8C Competizione",
+      "engine": "V8 4,7 L atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Alfa Romeo"
+      ],
+      "duration": 139,
+      "credit": {
+        "author": "AutoTopNL",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=yJxtWK798nk"
+      },
+      "qc": {
+        "engine": 0.885,
+        "speech": 0.0,
+        "music": 0.028,
+        "silence": 0.038,
+        "clips": [
+          5.8,
+          15.8,
+          25.9,
+          36.0,
+          46.1,
+          56.2,
+          66.2,
+          76.3,
+          86.4,
+          96.5,
+          106.6,
+          116.6
+        ],
+        "verdict": "moteur",
+        "seconds": 139
+      },
+      "found": "auto"
+    },
+    {
+      "id": "alfa-romeo-8c-competizione-son-pur-pa-t2d",
+      "type": "youtube",
+      "videoId": "Pa-t2deqO-Y",
+      "vertical": false,
+      "title": "Alfa Romeo 8C Competizione — son pur",
+      "car": "Alfa Romeo 8C Competizione",
+      "engine": "V8 4,7 L atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Alfa Romeo"
+      ],
+      "duration": 130,
+      "credit": {
+        "author": "Mr Joshua",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=Pa-t2deqO-Y"
+      },
+      "qc": {
+        "engine": 0.926,
+        "speech": 0.03,
+        "music": 0.0,
+        "silence": 0.0,
+        "clips": [
+          15.4,
+          25.4,
+          35.5,
+          53.3,
+          63.4,
+          73.4,
+          92.6,
+          102.7,
+          112.8
+        ],
+        "verdict": "moteur",
+        "seconds": 130
+      },
+      "found": "auto"
+    },
+    {
+      "id": "maserati-granturismo-son-pur",
+      "type": "youtube",
+      "videoId": "I7lz1O7fC2U",
+      "vertical": false,
+      "title": "Maserati GranTurismo — son pur",
+      "car": "Maserati GranTurismo",
+      "engine": "V8 4,7 L atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Maserati"
+      ],
+      "duration": 147,
+      "credit": {
+        "author": "MAHILmedia",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=I7lz1O7fC2U"
+      },
+      "qc": {
+        "engine": 0.974,
+        "speech": 0.0,
+        "music": 0.003,
+        "silence": 0.003,
+        "clips": [
+          0.0,
+          19.2,
+          29.3,
+          39.4,
+          49.4,
+          59.5,
+          69.6,
+          79.7,
+          89.8,
+          99.8,
+          109.9,
+          120.0
+        ],
+        "verdict": "moteur",
+        "seconds": 146
+      },
+      "found": "auto"
+    },
+    {
+      "id": "maserati-granturismo-son-pur-anwc-p",
+      "type": "youtube",
+      "videoId": "anwc-PTBFSA",
+      "vertical": false,
+      "title": "Maserati GranTurismo — son pur",
+      "car": "Maserati GranTurismo",
+      "engine": "V8 4,7 L atmosphérique",
+      "family": "V8",
+      "brands": [
+        "Maserati"
+      ],
+      "duration": 141,
+      "credit": {
+        "author": "Automann-TV",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=anwc-PTBFSA"
+      },
+      "qc": {
+        "engine": 0.775,
+        "speech": 0.0,
+        "music": 0.034,
+        "silence": 0.041,
+        "clips": [
+          9.1,
+          19.2,
+          29.3,
+          39.4,
+          49.4,
+          59.5,
+          69.6,
+          79.7,
+          105.1,
+          115.2
+        ],
+        "verdict": "moteur",
+        "seconds": 141
+      },
+      "found": "auto"
+    },
+    {
+      "id": "jaguar-xj220-son-pur",
+      "type": "youtube",
+      "videoId": "DYnP4zZXkqw",
+      "vertical": false,
+      "title": "Jaguar XJ220 — son pur",
+      "car": "Jaguar XJ220",
+      "engine": "V6 3,5 L biturbo",
+      "family": "V6",
+      "brands": [
+        "Jaguar"
+      ],
+      "duration": 118,
+      "credit": {
+        "author": "SteveO 220",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=DYnP4zZXkqw"
+      },
+      "qc": {
+        "engine": 0.898,
+        "speech": 0.004,
+        "music": 0.004,
+        "silence": 0.053,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          79.2,
+          89.3,
+          99.4
+        ],
+        "verdict": "moteur",
+        "seconds": 118
+      },
+      "found": "auto"
+    },
+    {
+      "id": "jaguar-xj220-son-pur-lqhb12",
+      "type": "youtube",
+      "videoId": "lqHB12ygofM",
+      "vertical": false,
+      "title": "Jaguar XJ220 — son pur",
+      "car": "Jaguar XJ220",
+      "engine": "V6 3,5 L biturbo",
+      "family": "V6",
+      "brands": [
+        "Jaguar"
+      ],
+      "duration": 116,
+      "credit": {
+        "author": "Raceluxius",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=lqHB12ygofM"
+      },
+      "qc": {
+        "engine": 0.929,
+        "speech": 0.0,
+        "music": 0.008,
+        "silence": 0.0,
+        "clips": [
+          6.7,
+          16.8,
+          26.9,
+          37.0,
+          47.0,
+          57.1,
+          67.2,
+          77.3,
+          87.4
+        ],
+        "verdict": "moteur",
+        "seconds": 116
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lancia-stratos-son-pur",
+      "type": "youtube",
+      "videoId": "51CJjy_MK9w",
+      "vertical": false,
+      "title": "Lancia Stratos — son pur",
+      "car": "Lancia Stratos",
+      "engine": "V6 2,4 L atmosphérique Ferrari Dino",
+      "family": "V6",
+      "brands": [
+        "Lancia"
+      ],
+      "duration": 521,
+      "credit": {
+        "author": "Palbo46 Rally & Racing Videos",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=51CJjy_MK9w"
+      },
+      "qc": {
+        "engine": 0.891,
+        "speech": 0.019,
+        "music": 0.006,
+        "silence": 0.015,
+        "clips": [
+          29.3,
+          39.4,
+          49.4,
+          59.5,
+          69.6,
+          79.7,
+          89.8,
+          99.8,
+          109.9,
+          120.0,
+          130.1,
+          140.2
+        ],
+        "verdict": "moteur",
+        "seconds": 521
+      },
+      "found": "auto"
+    },
+    {
+      "id": "lancia-stratos-son-pur-vcdhoy",
+      "type": "youtube",
+      "videoId": "vcdHoyzzNRU",
+      "vertical": false,
+      "title": "Lancia Stratos — son pur",
+      "car": "Lancia Stratos",
+      "engine": "V6 2,4 L atmosphérique Ferrari Dino",
+      "family": "V6",
+      "brands": [
+        "Lancia"
+      ],
+      "duration": 411,
+      "credit": {
+        "author": "amjayes2",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=vcdHoyzzNRU"
+      },
+      "qc": {
+        "engine": 0.782,
+        "speech": 0.018,
+        "music": 0.032,
+        "silence": 0.002,
+        "clips": [
+          35.5,
+          45.6,
+          55.7,
+          65.8,
+          80.6,
+          92.6,
+          110.4,
+          120.5,
+          135.4,
+          148.3,
+          158.4,
+          168.5
+        ],
+        "verdict": "moteur",
+        "seconds": 411
+      },
+      "found": "auto"
+    },
+    {
+      "id": "renault-clio-v6-son-pur",
+      "type": "youtube",
+      "videoId": "l4c232XIRwI",
+      "vertical": false,
+      "title": "Renault Clio V6 — son pur",
+      "car": "Renault Clio V6",
+      "engine": "V6 3,0 L atmosphérique",
+      "family": "V6",
+      "brands": [
+        "Renault"
+      ],
+      "duration": 86,
+      "credit": {
+        "author": "RST RacingTeam",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=l4c232XIRwI"
+      },
+      "qc": {
+        "engine": 0.927,
+        "speech": 0.0,
+        "music": 0.006,
+        "silence": 0.056,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          47.0,
+          57.1,
+          67.2
+        ],
+        "verdict": "moteur",
+        "seconds": 86
+      },
+      "found": "auto"
+    },
+    {
+      "id": "renault-clio-v6-son-pur-askuyg",
+      "type": "youtube",
+      "videoId": "asKuYgAcyIk",
+      "vertical": false,
+      "title": "Renault Clio Maxi Kit Car — son pur",
+      "car": "Renault Clio Maxi Kit Car",
+      "engine": "4 cylindres en ligne 2,0 L atmosphérique",
+      "family": "Inline",
+      "brands": [
+        "Renault"
+      ],
+      "duration": 481,
+      "credit": {
+        "author": "amjayes2",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=asKuYgAcyIk"
+      },
+      "qc": {
+        "engine": 0.752,
+        "speech": 0.039,
+        "music": 0.016,
+        "silence": 0.003,
+        "clips": [
+          3.8,
+          13.9,
+          24.0,
+          34.1,
+          56.6,
+          82.6,
+          92.6,
+          102.7,
+          151.7,
+          169.0,
+          179.0,
+          203.5
+        ],
+        "verdict": "moteur",
+        "seconds": 481
+      },
+      "found": "auto"
+    },
+    {
+      "id": "peugeot-205-t16-son-pur",
+      "type": "youtube",
+      "videoId": "WVq8b_L43nA",
+      "vertical": false,
+      "title": "Peugeot 205 T16 — son pur",
+      "car": "Peugeot 205 T16",
+      "engine": "4 cylindres en ligne 1,8 L turbo",
+      "family": "Inline",
+      "brands": [
+        "Peugeot"
+      ],
+      "duration": 65,
+      "credit": {
+        "author": "patrik marc (Patrik'sphoto)",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=WVq8b_L43nA"
+      },
+      "qc": {
+        "engine": 0.881,
+        "speech": 0.007,
+        "music": 0.015,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          25.0,
+          35.0
+        ],
+        "verdict": "moteur",
+        "seconds": 65
+      },
+      "found": "auto"
+    },
+    {
+      "id": "peugeot-205-t16-son-pur-gcorqq",
+      "type": "youtube",
+      "videoId": "gCoRqqDyPpg",
+      "vertical": false,
+      "title": "Peugeot 205 T16 — son pur",
+      "car": "Peugeot 205 T16",
+      "engine": "4 cylindres en ligne 1,8 L turbo",
+      "family": "Inline",
+      "brands": [
+        "Peugeot"
+      ],
+      "duration": 129,
+      "credit": {
+        "author": "Belgian-Motorsport",
+        "source": "YouTube",
+        "url": "https://www.youtube.com/watch?v=gCoRqqDyPpg"
+      },
+      "qc": {
+        "engine": 0.966,
+        "speech": 0.004,
+        "music": 0.004,
+        "silence": 0.0,
+        "clips": [
+          0.0,
+          10.1,
+          20.2,
+          30.2,
+          40.3,
+          50.4,
+          60.5,
+          74.4,
+          85.0,
+          95.0,
+          105.1,
+          115.2
+        ],
+        "verdict": "moteur",
+        "seconds": 129
+      },
+      "found": "auto"
     }
   ]
 }
