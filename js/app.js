@@ -1209,6 +1209,7 @@ function viewQC(params) {
   cleanup.push(() => {
     cancelAnimationFrame(raf);
     audio.pause();
+    media.pause();
     dropYT();
     audio.removeAttribute('src');
     audio.load();
@@ -1264,6 +1265,7 @@ function viewQC(params) {
   const close = () => {
     cancelAnimationFrame(raf);
     audio.pause();
+    media.pause();
     dropYT();
     media = audio;
     ed = null;
@@ -1293,9 +1295,9 @@ function viewQC(params) {
   };
 
   /* ---------- éditeur : forme d'onde, sélection, écoute ---------- */
-  async function loadPeaks(it) {
+  async function loadPeaks(it, url = it.src) {
     if (peaks.has(it.id)) return peaks.get(it.id);
-    const buf = await (await fetch(it.src)).arrayBuffer();
+    const buf = await (await fetch(url)).arrayBuffer();
     const ctx = new (window.OfflineAudioContext || window.webkitOfflineAudioContext)(1, 2, 44100);
     const data = (await ctx.decodeAudioData(buf)).getChannelData(0);
     const N = 1200;
@@ -1342,13 +1344,37 @@ function viewQC(params) {
     const wave = box.querySelector('#qc-wave');
     const cv = wave.querySelector('canvas');
     ed.wave = wave;
+    const showPeaks = (url) =>
+      loadPeaks(it, url)
+        .then(() => wave.querySelector('.qc-load')?.remove())
+        .catch(() => {
+          const p = wave.querySelector('.qc-load');
+          if (p) p.textContent = 'Forme d’onde indisponible, l’écoute reste possible.';
+        });
     if (isYT) {
+      // la copie sans publicité du NAS si elle existe, sinon le lecteur YouTube
       media = idle;
-      createYT(box.querySelector('.qc-yt > div')).then((y) => {
-        if (!ed || ed.it !== it) return y.destroy();
-        ytp = y;
-        y.cue(it.videoId, ed.a);
-        media = y;
+      const slot = box.querySelector('.qc-yt > div');
+      auth.qcVideoUrl(it.videoId).then((url) => {
+        if (!ed || ed.it !== it) return;
+        if (url) {
+          const v = document.createElement('video');
+          v.preload = 'auto';
+          v.playsInline = true;
+          v.src = url;
+          v.addEventListener('loadedmetadata', () => ed?.it === it && (v.currentTime = ed.a), { once: true });
+          slot.appendChild(v);
+          media = v;
+          wave.classList.remove('flat');
+          wave.insertAdjacentHTML('beforeend', '<p class="qc-load">Chargement de la forme d’onde…</p>');
+          return showPeaks(url);
+        }
+        createYT(slot).then((y) => {
+          if (!ed || ed.it !== it) return y.destroy();
+          ytp = y;
+          y.cue(it.videoId, ed.a);
+          media = y;
+        });
       });
     } else {
       media = audio;
@@ -1409,10 +1435,7 @@ function viewQC(params) {
     };
     cancelAnimationFrame(raf);
     loop();
-    if (!isYT)
-      loadPeaks(it)
-      .then(() => wave.querySelector('.qc-load')?.remove())
-      .catch(() => (wave.querySelector('.qc-load').textContent = 'Forme d’onde indisponible, l’écoute reste possible.'));
+    if (!isYT) showPeaks();
 
     // souris et doigt : cliquer = placer la tête de lecture, tirer une poignée = recadrer,
     // tirer dans la sélection = la déplacer, tirer ailleurs = nouvelle sélection

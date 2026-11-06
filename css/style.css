@@ -543,6 +543,6 @@ body.bare { padding-bottom: 0; }
 .bt-ythost.tap p { display: grid; }
 .bt-ythost.on + .bt-stage { padding-top: 16px; }
 .qc-yt { width: min(560px, 100%); aspect-ratio: 16 / 9; margin-top: 10px; border-radius: 10px; overflow: hidden; background: #000; }
-.qc-yt iframe { width: 100%; height: 100%; border: 0; display: block; }
+.qc-yt iframe, .qc-yt video { width: 100%; height: 100%; border: 0; display: block; }
 .qc-wave.flat { height: 54px; }
 .qc-cover { width: min(560px, 100%); aspect-ratio: 16 / 9; object-fit: cover; margin-top: 10px; border-radius: 10px; display: block; }

@@ -213,3 +213,10 @@ export async function clearClip(item_id) {
   const { error } = await sb.from('bt_clips').delete().eq('item_id', item_id);
   if (error) throw error;
 }
+
+// copie légère d'une vidéo YouTube sur le NAS (bucket privé, administrateurs seulement) :
+// le contrôle qualité la lit sans publicité. null si la vidéo n'a pas encore été copiée.
+export async function qcVideoUrl(videoId) {
+  const { data, error } = await sb.storage.from('qc-media').createSignedUrl(`${videoId}.mp4`, 6 * 3600);
+  return error ? null : data.signedUrl;
+}

@@ -80,6 +80,12 @@ Les administrateurs ont accès à une page de contrôle, depuis l'écran du blin
 
 Les décisions sont enregistrées sur le Supabase du NAS, dans la table `bt_clips`. Le blind test les applique tout de suite. Un son non traité garde le passage repéré par le script. Pour ajouter un administrateur, insère son identifiant dans la table `admins`.
 
+Pour les vidéos YouTube, la page lit une copie légère (360p) stockée sur le NAS, donc sans publicité, avec une vraie forme d'onde. Ces copies sont dans le bucket privé `qc-media`, lisible seulement par les administrateurs, et ne sont pas sauvegardées. Une vidéo qui n'a pas encore de copie passe par le lecteur YouTube. Pour copier les vidéos qui manquent, par exemple après avoir lancé `find_pure_sounds.py` :
+
+```bash
+SB_SERVICE_KEY=$(ssh Kilbar@192.168.1.12 'grep ^SERVICE_ROLE_KEY= /DATA/AppData/vsound-supabase/.env | cut -d= -f2-') python tools/qc_media.py
+```
+
 ### Trouver du son pur sur YouTube
 
 [`tools/find_pure_sounds.py`](tools/find_pure_sounds.py) cherche sur YouTube des vidéos annoncées comme du son pur (« pure sound », « engine sound only », « no music »…) pour chaque voiture de [`tools/cars.json`](tools/cars.json). Il écarte les jeux vidéo, essais, podcasts et réactions, puis écoute chaque candidate avec le contrôle qualité. Une vidéo n'est ajoutée que si elle contient moins de 5 % de voix et moins de 5 % de musique, avec au moins deux passages propres. Le script garde au plus deux vidéos par voiture.
